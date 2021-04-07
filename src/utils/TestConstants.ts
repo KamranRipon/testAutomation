@@ -14,10 +14,10 @@ export class TestConstants {
   /**
    * Defines if the test will be ran in headless ur headful mode
    */
-  static headless =
+  static HEADLESS =
     process.env.HEADLESS ?
     process.env.HEADLESS :
-    false;
+    true;
 
   /**
    * Defines which browser will be used while executing the tests

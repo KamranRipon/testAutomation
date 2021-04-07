@@ -1,10 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": true,
-    "module": "commonjs",
-    "noEmit": true
+  "ts-node": {
+    "files": true
   },
-  "include": ["src", "jest.config.ts"]
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2018", "DOM"],
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "types": ["codeceptjs", "node"],
+  },
 }
