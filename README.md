@@ -63,7 +63,6 @@ This chapter is all about running your playwright e2etests in a <u>local</u> doc
 You can execute the docker-build script (located: ./deployment/docker-build.sh) to generate an image with your e2e tests:
 
 ```bash
-chmod u+x deployment/docker-build.sh
 ./deployment/docker-build.sh
 ```
 
@@ -76,6 +75,7 @@ export HTTPS_PROXY=http://141.91.176.130:80
 ## 3.2 Run docker container
 
 All required prerequisites are done to execute our tests in a docker container. Just run the script docker-run (located in ./deployment/docker-run.sh):
-```
 
+```bash
+./deployment/docker-run.sh
 ```
