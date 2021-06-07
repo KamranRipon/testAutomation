@@ -32,7 +32,7 @@ describe('test all basic features', () => {
                 .contains('Test input 2')
         })
 
-        it('should display "' + Cypress.env('BOT_NAME') +' schreibt..." while waiting for bot response', () => {
+        it('should display "' + Cypress.env('BOT_NAME') + ' schreibt..." while waiting for bot response', () => {
             cy.get('.v-text-field__details')
                 .contains(Cypress.env('BOT_NAME') + ' schreibt...')
         })
@@ -122,37 +122,57 @@ describe('test all basic features', () => {
                 .click()
             cy.get('[data-cy="soundOffBtn"]')
                 .should('be.visible')
+            cy.log(typeof Cypress.env('DIALOG_FEEDBACK'))
         })
 
         // ToDo: check if realy no sound is playing
     })
+    
+    if (!Cypress.env('DIALOG_FEEDBACK')) {
+        context('closing the chat ', () => {
+            it('should show default close dialog when clicking the close button', () => {
+                cy.get('[data-cy="closeChatWindowBtn"]')
+                    .click()
 
-    context('closing the chat ', () => {
-        it('should show a dialog when clicking the close button', () => {
-            cy.get('[data-cy="closeChatWindowBtn"]')
-                .should('be.visible')
-                .click()
-            
-            if(!Cypress.env('DIALOG_FEEDBACK')) {
                 cy.get('[data-cy="chatDialogTitle"]')
                     .contains('Chat beenden')
 
-                cy.get('[data-cy="chatDialogTitle"]')
+                cy.get('[data-cy="chatDialogText"]')
                     .contains('Ein Klick auf OK beendet den Chat. Alle bisherigen Eingaben gehen verloren.')
-                
-                
-            }
-        })
+            })
 
-        it('should toggle sound button on click', () => {
-            cy.get('[data-cy="soundOffBtn"]')
-                .click()
-            cy.get('[data-cy="soundOnBtn"]')
-                .should('be.visible')
-            cy.get('[data-cy="soundOnBtn"]')
-                .click()
-            cy.get('[data-cy="soundOffBtn"]')
-                .should('be.visible')
+            it('should close dialog when clicking the abort button', () => {
+                cy.get('[data-cy="chatDialogAbortBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('not.be.visible')
+            })
+
+            it('should show dialog again and close chat when clicking the confirm button', () => {
+                cy.get('[data-cy="closeChatWindowBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('be.visible')
+
+                cy.get('[data-cy="chatDialogConfirmBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('not.be.visible')
+
+                cy.get('[data-cy="messageContainer"]')
+                    .should('have.length', 0)
+            })
+
+            it('should start a new chat', () => {
+                cy.get('.v-text-field__details')
+                    .contains(Cypress.env('BOT_NAME') + ' schreibt...')
+
+                cy.get('[data-cy="messageContainer"]')
+                    .should('not.have.length', 0)
+            })
         })
-    })
+    }
 })

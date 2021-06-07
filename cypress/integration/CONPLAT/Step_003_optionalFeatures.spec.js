@@ -124,4 +124,55 @@ describe('test all optional features', () => {
             })
         })
     }
+
+    if (Cypress.env('DIALOG_FEEDBACK')) {
+        context('closing the chat ', () => {
+            it('should show feedback close dialog when clicking the close button', () => {
+                cy.get('[data-cy="closeChatWindowBtn"]')
+                    .click()
+
+                cy.get('[data-cy="feedbackDialogTitle"]')
+                    .contains('Feedback')
+
+                cy.get('[data-cy="feedbackDialogText"]')
+                    .contains('Waren Sie zufrieden mit der Nutzung der Digitalen Assistenz?')
+
+                cy.get('.v-dialog .v-radio')
+                    .should('have.length', 3)
+            })
+
+            it('should close dialog when clicking the abort button', () => {
+                cy.get('[data-cy="abortFeedbackBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('not.be.visible')
+            })
+
+            it('should show dialog again and close chat when clicking the confirm button', () => {
+                cy.get('[data-cy="closeChatWindowBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('be.visible')
+
+                cy.get('[data-cy="sendFeedbackBtn"]')
+                    .click()
+
+                cy.get('.v-dialog')
+                    .should('not.be.visible')
+
+                cy.get('[data-cy="messageContainer"]')
+                    .should('have.length', 0)
+            })
+
+            it('should start a new chat', () => {
+                cy.get('.v-text-field__details')
+                    .contains(Cypress.env('BOT_NAME') + ' schreibt...')
+
+                cy.get('[data-cy="messageContainer"]')
+                    .should('not.have.length', 0)
+            })
+        })
+    }
 })
