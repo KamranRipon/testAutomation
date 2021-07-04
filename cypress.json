@@ -1,18 +1,9 @@
 {
+    "baseUrl": "https://ai.dataport.de/conplat/chat",
+    "ignoreTestFiles": "**/CONPLAT/*",
+    "viewportHeight": 1080,
+    "viewportWidth" : 1920,
     "env": {
-        "VIEWPORTS": [["default", 1000, 660], ["iphone-5", 320, 568], ["iphone-x", 375, 812], ["macbook-11", 1366, 768]],
-        "WEBUI_BASE_URL": "http://localhost:8080/chat/",
-        "STUB_REQUESTS": false,
-        "TITLE": "Conplat",
-        "BOT_NAME": "Conplat",
-        "BOT_IMAGE": "https://via.placeholder.com/50x50",
-        "PRIVACY_NOTICE": true,
-        "LANGUAGE_SWITCH": true,
-        "LANGUAGE_MENU": false,
-        "TRANSLATION_DISCLAIMER": false,
-        "BUTTONS_IN_TEXT": true,
-        "DIALOG_FEEDBACK": false,
-        "MESSAGE_FEEDBACK": true,
-        "EMOJI_PICKER": true
+        "RETRIES":2
     }
 }
