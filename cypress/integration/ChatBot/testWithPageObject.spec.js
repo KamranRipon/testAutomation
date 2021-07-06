@@ -12,7 +12,7 @@ describe ('dChatbot Test Suit', () => {
     it('Chat area testing', () => {
         
         onChatAre.titleOfThePage()
-        //onChatAre.chatLayoutPage()
+        onChatAre.chatLayoutPage()
     })
 
     it('Verification of the Browser API Calls', () => {
