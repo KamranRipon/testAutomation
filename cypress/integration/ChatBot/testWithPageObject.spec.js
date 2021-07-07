@@ -5,11 +5,12 @@ describe ('dChatbot Test Suit', () => {
 
     beforeEach('Open Chat page', () => {
 
-        cy.clearCookies()
-        cy.visit('/') 
+        //cy.clearCookies()
+        cy.visit('/')
+        cy.wait(3000) 
     })
 
-    it.only('Chat area testing', () => {
+    it('Chat area testing', () => {
         
         onChatAre.titleOfThePage()
         onChatAre.chatLayoutPage()
@@ -27,6 +28,10 @@ describe ('dChatbot Test Suit', () => {
     it('Test of Viewport', () => {
         onChatAre.testViewport()
 
+    })
+
+    it.only('Test Features', () => {
+        onChatAre.testFeatures()
     })
 
     it('iFrame Test', () => {
