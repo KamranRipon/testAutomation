@@ -9,10 +9,11 @@ describe ('dChatbot Test Suit', () => {
         cy.visit('/') 
     })
 
-    it('Chat area testing', () => {
+    it.only('Chat area testing', () => {
         
         onChatAre.titleOfThePage()
         onChatAre.chatLayoutPage()
+        onChatAre.botResponseTime()
     })
 
     it('Verification of the Browser API Calls', () => {
@@ -26,6 +27,10 @@ describe ('dChatbot Test Suit', () => {
     it('Test of Viewport', () => {
         onChatAre.testViewport()
 
+    })
+
+    it('iFrame Test', () => {
+        onChatAre.iFrame()
     })
 
 })
