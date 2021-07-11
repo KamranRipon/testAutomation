@@ -30,7 +30,7 @@ describe ('dChatbot Test Suit', () => {
 
     })
 
-    it.only('Test Features', () => {
+    it('Test Features', () => {
         onChatAre.testFeatures()
     })
 

@@ -141,6 +141,7 @@ export class chatArea {
     }
 
     testFeatures(){
+        // test Emoji Picker
         cy.get('[data-cy="emojiPicker"]')
             .find('[data-cy="showEmojiDialogBtn"]').click()
 
@@ -154,11 +155,65 @@ export class chatArea {
         cy.get('[class="flex shrink px-2"]')
             .contains('i','send').click()
 
+        // test Increase & Decrease Font Size
+        cy.get('[id="chat-message-0"] p')
+            .invoke('css', 'font-size')
+                .should('equal', '14px')
+
+        let fontSize = 14
+
         for(let n=0; n<3; n++){
+            fontSize = fontSize + 2.80
             cy.get('[data-cy = "chatSettings"]')
                 .find('[data-cy = "increaseFontSizeBtn"]')
                     .click()
+
+        cy.get('[id="chat-message-0"] p')
+        .invoke('css', 'font-size')
+            .should('equal', fontSize.toFixed(1)+'px')
         }
+
+        for(let n=0; n<3; n++){
+            fontSize = fontSize - 2.8
+            cy.get('[data-cy = "chatSettings"]')
+                .find('[data-cy = "decreaseFontSizeBtn"]')
+                    .click()
+        }
+        cy.get('[data-cy = "chatSettings"]')
+                .find('[data-cy = "decreaseFontSizeBtn"]')
+                    .should('be.disabled')
+        
+        cy.get('[data-cy="soundOffBtn"] i')
+            .should('contain', 'volume_up')
+                .click()
+
+        cy.get('[data-cy="soundOnBtn"] i')
+            .should('contain', 'volume_off')
+
+        // test Privacy
+        cy.get('[data-cy="showPrivacyPolicyBtn"]').click()
+
+        cy.get('[data-cy="currentChatCode"]').invoke('text').then( (texxt) => {
+            
+            cy.get('[data-cy="previousChatCodeInputField"]').type(texxt)
+            cy.wait(500)
+            cy.get('[data-cy="privacyPolicyDialogCloseBtn"]').click()
+            
+        })
+
+        // Test Download
+        // cy.get('[data-cy="downloadChatBtn" i]').should('be.visible')
+        // cy.get('[data-cy="downloadChatBtn"]').click()
+        // cy.window().contains('button', 'Print').click()
+        // cy.on('window:confirm', (txt) => {
+        //     expect(txt).contains('button', 'Print')
+        // })
+        // let printStub
+        // cy.window().then(win => {
+        //     printStub = cy.stub(win, 'Print')
+        //     cy.contains('button', 'Print').click()
+        //     cy.wasCalled(printStub)
+        // })
         
     }
 
