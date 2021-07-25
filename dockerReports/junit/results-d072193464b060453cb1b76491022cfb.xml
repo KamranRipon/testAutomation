@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="61.3030" tests="6" failures="1">
+  <testsuite name="Root Suite" timestamp="2021-07-24T20:27:32" tests="0" file="cypress/integration/ChatBot/testWithPageObject.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="dChatbot Test Suit" timestamp="2021-07-24T20:27:33" tests="6" time="61.3030" failures="1">
+    <testcase name="dChatbot Test Suit Chat area testing" time="12.9170" classname="Chat area testing">
+    </testcase>
+    <testcase name="dChatbot Test Suit Verification of the Browser API Calls" time="8.8590" classname="Verification of the Browser API Calls">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test Feedback" time="14.8560" classname="Test Feedback">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test of Viewport" time="21.0440" classname="Test of Viewport">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test Features" time="0.0000" classname="Test Features">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `[data-cy=&quot;emojiPicker&quot;]`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy="emojiPicker"]`, but never found it.
+    at chatArea.testFeatures (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:242:8)
+    at Context.eval (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:124:29)]]></failure>
+    </testcase>
+    <testcase name="dChatbot Test Suit iFrame Test" time="3.6270" classname="iFrame Test">
+    </testcase>
+  </testsuite>
+</testsuites>

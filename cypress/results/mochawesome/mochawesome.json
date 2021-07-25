@@ -1,0 +1,202 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-07-25T16:05:16.190Z",
+    "end": "2021-07-25T16:06:21.815Z",
+    "duration": 65625,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "410ed429-ed70-46f9-ad38-8b2c634fb153",
+      "title": "",
+      "fullFile": "cypress/integration/ChatBot/testWithPageObject.spec.js",
+      "file": "cypress/integration/ChatBot/testWithPageObject.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf64059b-303f-4501-93ce-87ae143017e0",
+          "title": "dChatbot Test Suit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Chat area testing",
+              "fullTitle": "dChatbot Test Suit Chat area testing",
+              "timedOut": null,
+              "duration": 10856,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.titleOfThePage();\n_chatAreaPage.onChatAre.chatLayoutPage();\n_chatAreaPage.onChatAre.botResponseTime();",
+              "err": {},
+              "uuid": "91679640-7af2-4b1b-abf3-6948222472c4",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verification of the Browser API Calls",
+              "fullTitle": "dChatbot Test Suit Verification of the Browser API Calls",
+              "timedOut": null,
+              "duration": 8940,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testBackend();",
+              "err": {},
+              "uuid": "34f9d22e-455a-4607-8c90-84486e7a948c",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Feedback",
+              "fullTitle": "dChatbot Test Suit Test Feedback",
+              "timedOut": null,
+              "duration": 16572,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testFeedback();",
+              "err": {},
+              "uuid": "695acf15-1a2b-4f36-95b9-3977e4f2d675",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test of Viewport",
+              "fullTitle": "dChatbot Test Suit Test of Viewport",
+              "timedOut": null,
+              "duration": 21022,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testViewport();",
+              "err": {},
+              "uuid": "54894b0d-bcd0-4647-8d97-ee7a5df997f3",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Features",
+              "fullTitle": "dChatbot Test Suit Test Features",
+              "timedOut": null,
+              "duration": 4872,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testFeatures();",
+              "err": {},
+              "uuid": "2b5f8ae6-971b-4925-8b0d-e7e1918eb612",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "iFrame Test",
+              "fullTitle": "dChatbot Test Suit iFrame Test",
+              "timedOut": null,
+              "duration": 3050,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.iFrame();",
+              "err": {},
+              "uuid": "12d945ea-b0fc-4cd6-a4b9-8cfefe010bc3",
+              "parentUUID": "cf64059b-303f-4501-93ce-87ae143017e0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "91679640-7af2-4b1b-abf3-6948222472c4",
+            "34f9d22e-455a-4607-8c90-84486e7a948c",
+            "695acf15-1a2b-4f36-95b9-3977e4f2d675",
+            "54894b0d-bcd0-4647-8d97-ee7a5df997f3",
+            "2b5f8ae6-971b-4925-8b0d-e7e1918eb612",
+            "12d945ea-b0fc-4cd6-a4b9-8cfefe010bc3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 65312,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

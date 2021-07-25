@@ -7,7 +7,7 @@ describe ('dChatbot Test Suit', () => {
 
         //cy.clearCookies()
         cy.visit('/')
-        cy.wait(3000) 
+        cy.wait(2500) 
     })
 
     it('Chat area testing', () => {
