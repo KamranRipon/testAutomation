@@ -1,8 +1,8 @@
-Cypress End to End Test Automation
-Local Machine Set-Up
-
+#Cypress End to End Test Automation
+##Local Machine Set-Up
+'''
 npm install
-
+'''
 Run Tests
 
 npm run cypress:run
