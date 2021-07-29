@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "delete:reports": "rm -r cypress/results/* || true",
+    "delete:reports": "rm -r cypress/results/* && rm -r ./output.html || true",
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\", > mochawesome.json && npx marge mochawesome.json",
+    "merge":"mochawesome-merge cypress/results/mochawesome/*.json > cypress/results/mochawesome/output.json",
+    "generateMocha_Report": "marge cypress/results/mochawesome/output.json --reportDir ./ --inline",
     "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
@@ -10,6 +12,7 @@
     "cy:run_browser": "npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser electron",
     "cypress:run": "npm run cy:run_spec -- --browser electron",
     "runHeadless":"./node_modules/.bin/cypress run --headless",
+    "Cy_test": "npm run prereport && npm run cypress:run && npm run merge && npm run generateMocha_Report",
     "cypress:e2e": "https://ai.dataport.de/conplat/chat cypress:run"
   },
   "devDependencies": {

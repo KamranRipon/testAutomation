@@ -1,6 +1,6 @@
 {
     "baseUrl": "https://ai.dataport.de/conplat/chat",
-    "ignoreTestFiles": "**/CONPLAT/*",
+    "ignoreTestFiles": [],
     "viewportHeight": 1080,
     "viewportWidth" : 1920,
     "video":false,

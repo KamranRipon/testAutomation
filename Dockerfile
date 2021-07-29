@@ -10,5 +10,5 @@ RUN npm install
 
 RUN $(npm bin)/cypress verify
 
-# RUN $(npm bin)/cypress run 
-RUN npm run cypress:run
+RUN $(npm bin)/cypress run 
+#RUN npm run cypress:run
