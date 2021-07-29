@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="150.8330" tests="18" failures="2">
+  <testsuite name="Root Suite" timestamp="2021-07-24T20:24:11" tests="0" file="cypress/integration/ChatBot/testWithPageObject.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Root Suite" timestamp="2021-07-24T20:24:11" tests="0" file="cypress/integration/ChatBot/testWithPageObject.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Root Suite" timestamp="2021-07-24T20:24:11" tests="0" file="cypress/integration/ChatBot/testWithPageObject.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="dChatbot Test Suit" timestamp="2021-07-24T20:24:11" tests="6" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="dChatbot Test Suit" timestamp="2021-07-24T20:24:11" tests="6" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="dChatbot Test Suit" timestamp="2021-07-24T20:24:11" tests="6" time="150.8330" failures="2">
+    <testcase name="dChatbot Test Suit Chat area testing" time="41.9280" classname="Chat area testing">
+    </testcase>
+    <testcase name="dChatbot Test Suit Verification of the Browser API Calls" time="25.0490" classname="Verification of the Browser API Calls">
+    </testcase>
+    <testcase name="dChatbot Test Suit &quot;before each&quot; hook: Open Chat page for &quot;Chat area testing&quot;" time="41.9280" classname="&quot;before each&quot; hook: Open Chat page for &quot;Chat area testing&quot;">
+      <failure message="Timed out after waiting `60000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `60000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.json` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `dChatbot Test Suit`" type="CypressError"><![CDATA[CypressError: Timed out after waiting `60000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `60000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.json` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `dChatbot Test Suit`
+    at timedOutWaitingForPageLoad (https://ai.dataport.de/__cypress/runner/cypress_runner.js:139487:13)
+    at https://ai.dataport.de/__cypress/runner/cypress_runner.js:140507:16
+    at tryCatcher (https://ai.dataport.de/__cypress/runner/cypress_runner.js:10798:23)
+    at https://ai.dataport.de/__cypress/runner/cypress_runner.js:5920:41
+    at tryCatcher (https://ai.dataport.de/__cypress/runner/cypress_runner.js:10798:23)
+    at Promise._settlePromiseFromHandler (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8733:31)
+    at Promise._settlePromise (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8790:18)
+    at Promise._settlePromise0 (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8835:10)
+    at Promise._settlePromises (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8911:18)
+    at _drainQueueStep (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5505:12)
+    at _drainQueue (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5498:9)
+    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5514:5)
+    at Async.drainQueues (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5384:14)
+From Your Spec Code:
+    at Context.eval (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:104:8)]]></failure>
+    </testcase>
+    <testcase name="dChatbot Test Suit &quot;before each&quot; hook: Open Chat page for &quot;Chat area testing&quot;" time="41.9280" classname="&quot;before each&quot; hook: Open Chat page for &quot;Chat area testing&quot;">
+      <failure message="Timed out after waiting `60000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `60000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.json` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `dChatbot Test Suit`" type="CypressError"><![CDATA[CypressError: Timed out after waiting `60000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `60000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.json` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `dChatbot Test Suit`
+    at timedOutWaitingForPageLoad (https://ai.dataport.de/__cypress/runner/cypress_runner.js:139487:13)
+    at https://ai.dataport.de/__cypress/runner/cypress_runner.js:140507:16
+    at tryCatcher (https://ai.dataport.de/__cypress/runner/cypress_runner.js:10798:23)
+    at https://ai.dataport.de/__cypress/runner/cypress_runner.js:5920:41
+    at tryCatcher (https://ai.dataport.de/__cypress/runner/cypress_runner.js:10798:23)
+    at Promise._settlePromiseFromHandler (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8733:31)
+    at Promise._settlePromise (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8790:18)
+    at Promise._settlePromise0 (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8835:10)
+    at Promise._settlePromises (https://ai.dataport.de/__cypress/runner/cypress_runner.js:8911:18)
+    at _drainQueueStep (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5505:12)
+    at _drainQueue (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5498:9)
+    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5514:5)
+    at Async.drainQueues (https://ai.dataport.de/__cypress/runner/cypress_runner.js:5384:14)
+From Your Spec Code:
+    at Context.eval (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:104:8)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

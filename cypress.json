@@ -1,8 +1,13 @@
 {
     "baseUrl": "https://ai.dataport.de/conplat/chat",
-    "ignoreTestFiles": "**/CONPLAT/*",
+    "ignoreTestFiles": [],
     "viewportHeight": 1080,
     "viewportWidth" : 1920,
+    "video":false,
+    "reporter":"cypress-multi-reporters",
+        "reporterOptions": {
+            "configFile":"reporter-config.json"
+        },
     "env": {
         "RETRIES":2
     }

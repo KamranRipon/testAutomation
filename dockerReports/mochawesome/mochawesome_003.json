@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-07-25T18:26:15.471Z",
+    "end": "2021-07-25T18:27:27.980Z",
+    "duration": 72509,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6cda345-6629-459c-a18f-734d4e14339f",
+      "title": "",
+      "fullFile": "cypress/integration/ChatBot/testWithPageObject.spec.js",
+      "file": "cypress/integration/ChatBot/testWithPageObject.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+          "title": "dChatbot Test Suit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Chat area testing",
+              "fullTitle": "dChatbot Test Suit Chat area testing",
+              "timedOut": null,
+              "duration": 13405,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.titleOfThePage();\n_chatAreaPage.onChatAre.chatLayoutPage();\n_chatAreaPage.onChatAre.botResponseTime();",
+              "err": {},
+              "uuid": "9425d5bc-8e78-48df-a5d3-2d4075a62c46",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verification of the Browser API Calls",
+              "fullTitle": "dChatbot Test Suit Verification of the Browser API Calls",
+              "timedOut": null,
+              "duration": 9068,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testBackend();",
+              "err": {},
+              "uuid": "bc334323-dca1-409d-b74c-b97b90bf3aad",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Feedback",
+              "fullTitle": "dChatbot Test Suit Test Feedback",
+              "timedOut": null,
+              "duration": 14325,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testFeedback();",
+              "err": {},
+              "uuid": "018e3d4c-fe7c-4a7b-a1f7-931cb0071322",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test of Viewport",
+              "fullTitle": "dChatbot Test Suit Test of Viewport",
+              "timedOut": null,
+              "duration": 20983,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testViewport();",
+              "err": {},
+              "uuid": "cd2bb2f7-06cb-4de6-816c-5421bdd3da3f",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Features",
+              "fullTitle": "dChatbot Test Suit Test Features",
+              "timedOut": null,
+              "duration": 8507,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.testFeatures();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy=\"emojiPicker\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy=\"emojiPicker\"]`, but never found it.\n    at chatArea.testFeatures (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:242:8)\n    at Context.eval (https://ai.dataport.de/__cypress/tests?p=cypress/integration/ChatBot/testWithPageObject.spec.js:124:29)",
+                "diff": null
+              },
+              "uuid": "99260640-f84b-4b32-a677-4e6aa3349791",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "iFrame Test",
+              "fullTitle": "dChatbot Test Suit iFrame Test",
+              "timedOut": null,
+              "duration": 5761,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_chatAreaPage.onChatAre.iFrame();",
+              "err": {},
+              "uuid": "898d61a6-cb1f-41c3-8182-91ceaf0f68b5",
+              "parentUUID": "ee070530-ae0f-42b7-abd6-41829fe6bbed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9425d5bc-8e78-48df-a5d3-2d4075a62c46",
+            "bc334323-dca1-409d-b74c-b97b90bf3aad",
+            "018e3d4c-fe7c-4a7b-a1f7-931cb0071322",
+            "cd2bb2f7-06cb-4de6-816c-5421bdd3da3f",
+            "898d61a6-cb1f-41c3-8182-91ceaf0f68b5"
+          ],
+          "failures": [
+            "99260640-f84b-4b32-a677-4e6aa3349791"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 72049,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

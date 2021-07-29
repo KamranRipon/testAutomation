@@ -14,10 +14,9 @@ export class chatArea {
 
     chatLayoutPage(){
                 
-        var textList = ['Moin', "Wie ghets dir", 'Wie ist das Wetter']
+        var textList = ['Moin', "Wie ghets dir"]
         
         cy.wait(2500)
-        //cy.wait('@botInitialResponse')
         cy.wrap(textList).each((index) => {
             cy.get('[type="text"]').type(index)
             cy.contains('i', 'send').click()
@@ -57,11 +56,12 @@ export class chatArea {
         cy.intercept('POST', '**/socket.io/**').as('sessionInitialization')
 
         var textList = ["Hallo","Wie ghets dir"]
-        cy.wait(2000)
+        
         cy.wrap(textList).each((index) => {
 
             cy.get('[type="text"]').type(index)
             cy.contains('i', 'send').click()
+            cy.wait(2000)
         })
         cy.get('[data-cy="feedbackRatingGoodBtn"] i').then( thumbsUP => {
 
@@ -84,6 +84,7 @@ export class chatArea {
 
             cy.get('[type="text"]').type(index)
             cy.contains('i', 'send').click()
+            cy.wait(2000)
         })
         cy.get('[data-cy="feedbackRatingGoodBtn"] i').then( thumbsUP => {
             cy.wrap(thumbsUP).contains('thumb_up').click()
@@ -142,18 +143,19 @@ export class chatArea {
 
     testFeatures(){
         // test Emoji Picker
-        cy.get('[data-cy="emojiPicker"]')
-            .find('[data-cy="showEmojiDialogBtn"]').click()
+        // cy.get('[data-cy="emojiPicker"]').should('be.visible')
+        // cy.get('[data-cy="emojiPicker"]')
+        //     .find('[data-cy="showEmojiDialogBtn"]').click()
 
-        cy.get('[class="emoji-picker v-card v-sheet theme--light"]')
-            .find('[aria-label="red heart emoji"]')
-                .click()
+        // cy.get('[class="emoji-picker v-card v-sheet theme--light"]')
+        //     .find('[aria-label="red heart emoji"]')
+        //         .click()
             
-        cy.get('[data-cy = "emojiPickerTitle"]')
-            .find('[data-cy="emojiPickerCloseBtn"]').click()
+        // cy.get('[data-cy = "emojiPickerTitle"]')
+        //     .find('[data-cy="emojiPickerCloseBtn"]').click()
 
-        cy.get('[class="flex shrink px-2"]')
-            .contains('i','send').click()
+        // cy.get('[class="flex shrink px-2"]')
+        //     .contains('i','send').click()
 
         // test Increase & Decrease Font Size
         cy.get('[id="chat-message-0"] p')
@@ -191,28 +193,14 @@ export class chatArea {
             .should('contain', 'volume_off')
 
         // test Privacy
-        cy.get('[data-cy="showPrivacyPolicyBtn"]').click()
+        // cy.get('[data-cy="showPrivacyPolicyBtn"]').click()
 
-        cy.get('[data-cy="currentChatCode"]').invoke('text').then( (texxt) => {
+        // cy.get('[data-cy="currentChatCode"]').invoke('text').then( (texxt) => {
             
-            cy.get('[data-cy="previousChatCodeInputField"]').type(texxt)
-            cy.wait(500)
-            cy.get('[data-cy="privacyPolicyDialogCloseBtn"]').click()
+        //     cy.get('[data-cy="previousChatCodeInputField"]').type(texxt)
+        //     cy.wait(500)
+        //     cy.get('[data-cy="privacyPolicyDialogCloseBtn"]').click()
             
-        })
-
-        // Test Download
-        // cy.get('[data-cy="downloadChatBtn" i]').should('be.visible')
-        // cy.get('[data-cy="downloadChatBtn"]').click()
-        // cy.window().contains('button', 'Print').click()
-        // cy.on('window:confirm', (txt) => {
-        //     expect(txt).contains('button', 'Print')
-        // })
-        // let printStub
-        // cy.window().then(win => {
-        //     printStub = cy.stub(win, 'Print')
-        //     cy.contains('button', 'Print').click()
-        //     cy.wasCalled(printStub)
         // })
         
     }
@@ -234,6 +222,7 @@ export class chatArea {
 
                 cy.get('[type="text"]').type(index)
                 cy.contains('i', 'send').click()
+                cy.wait(1500)
             })
             cy.get('[data-cy="feedbackRatingGoodBtn"] i').then( thumbsUP => {
                 

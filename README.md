@@ -1,19 +1,26 @@
-#Cypress End to End Test Automation
-##Local Machine Set-Up
-'''
+# Cypress End-to-end tests for Conplat chatbot
+
+## Local machine setup
+```
 npm install
-'''
-Run Tests
+```
+Run Test
+```
+npm run Cy_test
+```
+Or
+```
+npx cypress open
+```
 
-npm run cypress:run
+## Run Test in a Docker Container
 
-or 
-npx cypree open
-
-Run Test in a Docker Container
-Build docker images
-
+Build docker image 
+```
 bash docker-build.sh
+```
 
-Run Tests
+Run tests 
+```
 docker-compose up
+```
