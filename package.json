@@ -12,11 +12,7 @@
     "cy:run_browser": "npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser electron",
     "cypress:run": "npm run cy:run_spec -- --browser electron",
     "runHeadless":"./node_modules/.bin/cypress run --headless",
-<<<<<<< HEAD
     "Cy_test": "npm run cypress:run && npm run merge && npm run generateMocha_Report",
-=======
-    "Cy_test": "npm run prereport && npm run cypress:run && npm run merge && npm run generateMocha_Report",
->>>>>>> 3acc70c6d8ae8d8aae37c9b0f6517b580deae6fe
     "cypress:e2e": "https://ai.dataport.de/conplat/chat cypress:run"
   },
   "devDependencies": {
