@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="89.9640" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-07-29T13:08:33" tests="0" file="cypress/integration/ChatBot/testWithPageObject.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="dChatbot Test Suit" timestamp="2021-07-29T13:08:33" tests="6" time="89.9640" failures="0">
+    <testcase name="dChatbot Test Suit Chat area testing" time="13.8230" classname="Chat area testing">
+    </testcase>
+    <testcase name="dChatbot Test Suit Verification of the Browser API Calls" time="10.0970" classname="Verification of the Browser API Calls">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test Feedback" time="23.0860" classname="Test Feedback">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test of Viewport" time="32.1010" classname="Test of Viewport">
+    </testcase>
+    <testcase name="dChatbot Test Suit Test Features" time="7.5030" classname="Test Features">
+    </testcase>
+    <testcase name="dChatbot Test Suit iFrame Test" time="3.3540" classname="iFrame Test">
+    </testcase>
+  </testsuite>
+</testsuites>

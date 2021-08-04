@@ -69,11 +69,11 @@ export class chatArea {
         })
         
         cy.get('@sessionInitialization').then( xhr => {
-            console.log(xhr)
-
-            expect(xhr.response.statusCode).to.equal(200)
-            expect(xhr.response.body).to.equal('OK')
-            expect(xhr.response.statusMessage).to.equal('OK')
+            if(console.log(xhr)) {
+                expect(xhr.response.statusCode).to.equal(200)
+                expect(xhr.response.body).to.equal('OK')
+                expect(xhr.response.statusMessage).to.equal('OK')
+            }
         })
     }
     testFeedback(){
