@@ -1,6 +1,5 @@
 import { capitalize } from "lodash"
 
-
 const m = Math.floor(Math.random() * 1000);
 
 export class frontEnd {
@@ -84,25 +83,113 @@ export class frontEnd {
             .contains('Intents')
                 .click()
         cy.wait(500)
-        // Search something
+
+        ///* Intent Hinzufuegen testing *///
+        // cy.get('[data-cy="createIntentButton"]')
+        //     .should('be.visible')
+        //         .click()
+        
+        //cy.url().should("eq", "http://localhost/trainingsdaten/intent/neu/");
+
+        // cy.get('[class="v-text-field__slot"]')
+        //     .contains('Name')
+        //         .click({force:true})
+        
+        // After Click Input field must be activated
+        var textList = ["test15","test1", "123test", "weather"]
+        cy.wrap(textList).each((index) => {
+            //cy.get('[type="text"]').type(index)
+            //    cy.contains('i', 'send').click()
+
+            cy.get('[data-cy="createIntentButton"]')
+                //.should('be.visible')
+                .click()
+            cy.wait(1000)
+
+            cy.get('[class="v-text-field__slot"]')
+            .contains('Name')
+                .click({force:true})
+
+            cy.get('[class="v-label v-label--active theme--light error--text"]')
+            .should('be.visible')
+                .type(index)
+
+            cy.get('[class="v-label theme--light"]')
+                .contains('Beschreibung')
+                    .click({force:true})
+                    
+            cy.get('[class="v-label v-label--active theme--light primary--text"]')
+                .should('be.visible')
+                    .type(index)
+
+            // Checking Radio Button
+
+            cy.get('[role="radiogroup"]')
+                .find('[value="no"]')
+                    .click({force:true})
+
+            cy.get('[role="radiogroup"]')
+                .find('[value="no"]')
+                    .should('be.checked')
+
+            cy.get('[role="radiogroup"]')
+                .find('[value="yes"]')
+                    .click({force:true})
+
+            cy.get('[role="radiogroup"]')
+                .find('[value="yes"]')
+                    .should('be.checked')
+                    
+            cy.get('[class="v-btn__content"]')
+                .contains('Anlegen')
+                    .should('be.visible')
+                        .click()
+
+            // cy.get('[href="/trainingsdaten/intent/"]').find('[class=""]')
+            //     .contains('Intents').click()
+
+            // cy.get('[data-cy=navDrawerIntents]')
+            // .contains('Intents')
+            //     .click()
+
+            cy.wait(1000)
+
+            cy.get('[class="v-list-item__content"]').contains('Intents').click()
+            cy.wait(1000)
+        })
+
+        // cy.get('[class="v-radio mr-6 theme--light v-item--active"]')
+            
+        // cy.get('[role="radiogroup"]')
+        //     .find('[value="yes"]')
+        //         .click({force:true})
+        
+        // cy.get('.v-breadcrumbs__item')
+        //     .contains('Intents')
+        //         .click()
+        
+        ///* Search Option testing *///
+
+        // Single Intent
         cy.get('[class="v-text-field__slot"]')
             .contains('Suchen').click({force:true})
-                .type('Wetter')
-
-        cy.get('[data-cy=createIntentButton]').click()
-        cy.wait(500)
-
-        cy.get('[role="radiogroup"]')
-            .find('[value="no"]')
-                .click({force:true})
-
-        cy.get('[role="radiogroup"]')
-            .find('[value="yes"]')
-                .click({force:true})
+                .type('weather')
         
-        cy.get('.v-breadcrumbs__item')
-            .contains('Intents')
-                .click()
+        cy.get('tbody').find('[class="text-start"]').should('contain','weather')
+        cy.wait(500)
+        // Multiple Intent
+        cy.get('[class="v-text-field__slot"]')
+            .clear()
+                .type('test')
+        
+        cy.get('tbody').find('[class="text-start"]').should('contain','test')
+
+        // Nonexisting Intent
+        cy.get('[class="v-text-field__slot"]')
+            .clear().type('sky')
+                
+        cy.get('tbody').find('[class="v-data-table__empty-wrapper"]').should('contain',"")
+        
     }
 
     Entities() {
@@ -135,7 +222,7 @@ export class frontEnd {
 
             body: {
                 "id": 3,
-                "name": "test3",
+                "name": "Example3",
                 "description": ""
             }
         }).then((response) => {
@@ -147,7 +234,7 @@ export class frontEnd {
             url: "/cci-backend/intent",
             body: {
                         "id":3,
-                        "name": "test3",
+                        "name": "example4",
                         "description": ""
                     }
         })
@@ -163,14 +250,14 @@ export class frontEnd {
 
             body: {
                 "id":1,
-                "name": "test1",
-                "description": "test1",
+                "name": "Example1",
+                "description": "Example1",
             }
         })
 
         cy.request('/cci-backend/intent')
             .its('body')
-            .should('have.length', 2)
+            .should('have.length', 6)
     }
 
     backEndTesting() {
@@ -203,9 +290,8 @@ export class frontEnd {
         const j = i * 3
         cy.request('/cci-backend/intent')
             .its('body')
-                .should('have.length', 3)
+                .should('have.length', 7)
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onFrontend = new frontEnd()
