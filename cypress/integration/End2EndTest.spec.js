@@ -24,7 +24,7 @@ describe ('Test Case - 2', () => {
         cy.visit('/')
     })
 
-    it('Testing Body', () => {
+    it.only('Testing Body', () => {
 
         onFrontend.intents()
         //onFrontend.Entities()

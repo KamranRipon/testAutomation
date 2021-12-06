@@ -68,6 +68,7 @@ export class frontEnd {
         cy.get('[data-cy="navDrawerActions"]')
             .contains('Actions')
                 .click()
+
         cy.wait(500)
     }
 
@@ -79,21 +80,127 @@ export class frontEnd {
                 .click()
 
         // Intents area testing
+        // Clicking Intent
         cy.get('[data-cy=navDrawerIntents]')
             .contains('Intents')
                 .click()
         cy.wait(500)
+        
+        // checking url after clicking Inten Button
+        cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
 
         ///* Intent Hinzufuegen testing *///
-        // cy.get('[data-cy="createIntentButton"]')
-        //     .should('be.visible')
-        //         .click()
         
-        //cy.url().should("eq", "http://localhost/trainingsdaten/intent/neu/");
+        // Clicking Intent Hinzufuegen
+        cy.get('[data-cy="createIntentButton"]')
+            .should('be.visible')
+            .click()
+        cy.wait(500)
+        // checking url after clicking Intent Hinzufuegen
+        cy.url().should("eq", "http://localhost/trainingsdaten/intent/neu/");
 
-        // cy.get('[class="v-text-field__slot"]')
-        //     .contains('Name')
-        //         .click({force:true})
+        // Check Successfully saved
+        const addValue = 'test-3'
+
+        cy.get('[class="v-text-field__slot"]')
+            .contains('Name')
+            .click({force:true})
+            .type(addValue)
+
+        cy.get('[class="v-text-field__slot"]')
+            .contains('Beschreibung')
+            .click({force:true})
+            .type(addValue)
+        
+        cy.wait(1000)
+
+        cy.get('[class="v-btn__content"]')
+        .contains('Anlegen')
+            .should('be.visible')
+                .click()
+
+        cy.wait(1000)
+
+        cy.get('[class="row align-center no-gutters"]')
+            .find('[data-cy="successMessageTitle"]')
+            .then((successMsg) => {
+                expect(successMsg).to.have.text(' Das Intent "'+ addValue +'" wurde erfolgreich gespeichert ')
+        })
+        
+        cy.wait(500)
+
+        // Back to intent
+        cy.get('[class="v-list-item__content"]').contains('Intents').click()
+        cy.wait(500)
+        cy.get('[data-cy="createIntentButton"]')
+            //.should('be.visible')
+            .click()
+
+        // Checking for a valid Name
+        cy.get('[class="v-input pb-6 v-input--has-state theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined error--text"]')
+        .find('[class="v-text-field__details"]')
+        .contains('Der Name muss gesetzt sein')
+        .should('be.visible')
+
+        cy.get('[class="v-text-field__slot"]')
+            .contains('Name')
+                .click({force:true})
+        
+        cy.get('[class="v-text-field__details"]')
+            .contains('Der Name muss gesetzt sein')
+            .should('be.visible')
+
+        // Checking for space or "/" within a Name
+        cy.get('[class="v-label v-label--active theme--light error--text"]')
+        .should('be.visible')
+            .type(' ')
+
+        cy.get('[class="v-text-field__details"]')
+            .contains('Der Name enthält ungültige Zeichen!')
+            .should('be.visible')
+        
+        // Checking for Duplicate Name: Name cannot be known in Intent
+        cy.get('[class="v-text-field__slot"]')
+        //.contains('Name')
+            .clear()
+            //class="v-label theme--light error--text"
+
+
+        cy.get('[class="v-text-field__slot"]')
+            .contains('Name')
+            .click({force:true})
+            .type(addValue)
+
+        cy.get('[class="v-text-field__slot"]')
+        .contains('Beschreibung')
+        .click({force:true})
+        .type(addValue)
+        
+        cy.wait(500)
+
+        cy.get('[class="v-btn__content"]')
+        .contains('Anlegen')
+            .should('be.visible')
+                .click()
+                
+        
+        cy.wait(500)
+
+        cy.get('[class="alert error white--text"]')
+            .find('[data-cy="errorMessageTitle"]')
+                .contains('Das Intent konnte nicht gespeichert werden.')
+            
+                .then((errorMsg) => {
+                    expect(errorMsg).to.have.text(' Das Intent konnte nicht gespeichert werden. ')
+
+                })
+            //.should('be.visible')
+            //.contains('Das Intent konnte nicht gespeichert werden.')
+            //.should('eq', 'Das Intent konnte nicht gespeichert werden.')
+            
+
+        
+        cy.get('[class="v-list-item__content"]').contains('Intents').click()
         
         // After Click Input field must be activated
         var textList = ["test15","test1", "123test", "weather"]
@@ -123,7 +230,6 @@ export class frontEnd {
                     .type(index)
 
             // Checking Radio Button
-
             cy.get('[role="radiogroup"]')
                 .find('[value="no"]')
                     .click({force:true})
@@ -211,9 +317,15 @@ export class frontEnd {
     }
 
     restApiTesting() {
+        const item = {
+            "id": 11,
+            "name": "Example11",
+            "description": ""
+        }
         cy.request("http://localhost/cci-backend/intent")
             .then((response) => {
                 expect(response.status).to.equal(200)
+                expect(response.body).to.not.be.null
             })
 
         cy.request({
@@ -233,7 +345,7 @@ export class frontEnd {
             method:'GET', 
             url: "/cci-backend/intent",
             body: {
-                        "id":3,
+                        "id":4,
                         "name": "example4",
                         "description": ""
                     }

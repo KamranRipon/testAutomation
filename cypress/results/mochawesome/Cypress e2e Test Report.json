@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 5,
-    "tests": 5,
-    "passes": 3,
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 2,
-    "start": "2021-12-03T12:07:11.390Z",
-    "end": "2021-12-03T12:07:55.112Z",
-    "duration": 43722,
-    "testsRegistered": 5,
-    "passPercent": 60,
+    "failures": 1,
+    "start": "2021-12-04T20:06:48.567Z",
+    "end": "2021-12-04T20:06:56.623Z",
+    "duration": 8056,
+    "testsRegistered": 1,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "69fbbf40-bd3f-4694-82ea-b481292fb67e",
+      "uuid": "755be7f4-3a72-4a04-aa71-857bb2fa5bcb",
       "title": "",
       "fullFile": "cypress/integration/End2EndTest.spec.js",
       "file": "cypress/integration/End2EndTest.spec.js",
@@ -27,124 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "283b93b3-e987-4007-b39b-2473d2458bac",
-          "title": "Test Case - 1",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Testing Menu",
-              "fullTitle": "Test Case - 1 Testing Menu",
-              "timedOut": null,
-              "duration": 8411,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "_oberflaescheTest.onFrontend.titleOfThePage();\n_oberflaescheTest.onFrontend.userInfo();\n_oberflaescheTest.onFrontend.menuBar();",
-              "err": {},
-              "uuid": "f5c9fbf5-bce5-41e9-b293-c5a1cee4781c",
-              "parentUUID": "283b93b3-e987-4007-b39b-2473d2458bac",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "f5c9fbf5-bce5-41e9-b293-c5a1cee4781c"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 8411,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "b1c827ca-3bea-43d1-8f9b-4ceb14b54940",
-          "title": "Test Case - 2",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Testing Body",
-              "fullTitle": "Test Case - 2 Testing Body",
-              "timedOut": null,
-              "duration": 27730,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "_oberflaescheTest.onFrontend.intents(); //onFrontend.Entities()",
-              "err": {},
-              "uuid": "802b3190-db04-488e-bb7f-08cf582a002f",
-              "parentUUID": "b1c827ca-3bea-43d1-8f9b-4ceb14b54940",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "802b3190-db04-488e-bb7f-08cf582a002f"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 27730,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "2a069d2a-bdb8-4208-ae9a-e331d7577691",
-          "title": "Test Case - 3, Mocking Network Response ",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Mocking Network Response",
-              "fullTitle": "Test Case - 3, Mocking Network Response  Mocking Network Response",
-              "timedOut": null,
-              "duration": 1539,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "_oberflaescheTest.onFrontend.mockingApi();",
-              "err": {},
-              "uuid": "87c9cc5f-6546-43d5-90ad-280a97381f50",
-              "parentUUID": "2a069d2a-bdb8-4208-ae9a-e331d7577691",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "87c9cc5f-6546-43d5-90ad-280a97381f50"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 1539,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "44d7cafa-5e57-4375-af0d-8d98bbfd7cc9",
+          "uuid": "5ab35f5a-c86a-4069-9c67-057fb0c789c1",
           "title": "Testing API Endpoints",
           "fullFile": "",
           "file": "",
@@ -155,7 +38,7 @@
               "title": "Test Get Request",
               "fullTitle": "Testing API Endpoints Test Get Request",
               "timedOut": null,
-              "duration": 806,
+              "duration": 7892,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -164,12 +47,12 @@
               "context": null,
               "code": "_oberflaescheTest.onFrontend.restApiTesting();",
               "err": {
-                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost/cci-backend/intent\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost/cci-backend/intent\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"id\":3,\"name\":\"Example3\",\"description\":\"\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"nginx/1.21.1\",\n  \"date\": \"Fri, 03 Dec 2021 12:07:49 GMT\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-headers\": \"Content-Type\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT, OPTIONS\"\n}\nBody: {\n  \"message\": \"An Intent with the given name already exists.\",\n  \"details\": [\n    \"duplicate.item\"\n  ]\n}\n\n\nhttps://on.cypress.io/request",
-                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost/cci-backend/intent\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost/cci-backend/intent\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"id\":3,\"name\":\"Example3\",\"description\":\"\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"nginx/1.21.1\",\n  \"date\": \"Fri, 03 Dec 2021 12:07:49 GMT\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-headers\": \"Content-Type\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT, OPTIONS\"\n}\nBody: {\n  \"message\": \"An Intent with the given name already exists.\",\n  \"details\": [\n    \"duplicate.item\"\n  ]\n}\n\n\nhttps://on.cypress.io/request\n    at http://localhost/__cypress/runner/cypress_runner.js:157302:80\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13212:23)\n    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:11147:31)\n    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11204:18)\n    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11249:10)\n    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11329:18)\n    at _drainQueueStep (http://localhost/__cypress/runner/cypress_runner.js:7919:12)\n    at _drainQueue (http://localhost/__cypress/runner/cypress_runner.js:7912:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7928:5)\n    at Async.drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7798:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7502:7)",
-                "diff": null
+                "message": "AssertionError: Timed out retrying after 4000ms: expected [ Array(2) ] to have a length of 6 but got 2",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected [ Array(2) ] to have a length of 6 but got 2\n    at frontEnd.restApiTesting (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7534:51)\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7345:34)",
+                "diff": "- 2\n+ 6\n"
               },
-              "uuid": "7a1749c1-905c-4cfe-8c86-d6f75d62de76",
-              "parentUUID": "44d7cafa-5e57-4375-af0d-8d98bbfd7cc9",
+              "uuid": "eb3fc470-b70a-4bfc-a1de-1c8d664c1081",
+              "parentUUID": "5ab35f5a-c86a-4069-9c67-057fb0c789c1",
               "isHook": false,
               "skipped": false
             }
@@ -177,54 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "7a1749c1-905c-4cfe-8c86-d6f75d62de76"
+            "eb3fc470-b70a-4bfc-a1de-1c8d664c1081"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 806,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "ab7d75b9-9cd9-4be8-8653-c570c7ec13a7",
-          "title": "Backend Testing",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Get Request",
-              "fullTitle": "Backend Testing Get Request",
-              "timedOut": null,
-              "duration": 4885,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "_oberflaescheTest.onFrontend.backEndTesting();",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: expected [ Array(8) ] to have a length of 7 but got 8",
-                "estack": "AssertionError: Timed out retrying after 4000ms: expected [ Array(8) ] to have a length of 7 but got 8\n    at frontEnd.backEndTesting (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7561:51)\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7356:34)",
-                "diff": "- 8\n+ 7\n"
-              },
-              "uuid": "56a9965b-624d-4fad-8315-71507175fb98",
-              "parentUUID": "ab7d75b9-9cd9-4be8-8653-c570c7ec13a7",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [],
-          "failures": [
-            "56a9965b-624d-4fad-8315-71507175fb98"
-          ],
-          "pending": [],
-          "skipped": [],
-          "duration": 4885,
+          "duration": 7892,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

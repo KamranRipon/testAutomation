@@ -8,4 +8,12 @@
 ### copy command
 # sudo docker cp <container name>:<source directory in container> <targate directory>
 
-sudo docker login -u srv-ai-contributor -p Dataport2020! dchatbot-docker-development.artifactory-extern.dataport.de
+#sudo docker login -u srv-ai-contributor -p Dataport2020! dchatbot-docker-development.artifactory-extern.dataport.de
+sudo docker-compose down
+sudo docker-compose up -d
+#npm run CyTest --browser /usr/bin/chromium
+#npm run CyTest -- --browser chromium
+#node_modules/.bin/cypress open
+
+npx cypress run --headed --browser chrome
+sudo docker-compose down

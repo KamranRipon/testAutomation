@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="8.0560" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2021-12-04T20:06:48" tests="0" file="cypress/integration/End2EndTest.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Testing API Endpoints" timestamp="2021-12-04T20:06:48" tests="1" time="7.9730" failures="1">
+    <testcase name="Testing API Endpoints Test Get Request" time="0.0000" classname="Test Get Request">
+      <failure message="Timed out retrying after 4000ms: expected [ Array(2) ] to have a length of 6 but got 2" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected [ Array(2) ] to have a length of 6 but got 2
+    at frontEnd.restApiTesting (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7534:51)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7345:34)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
