@@ -100,7 +100,7 @@ export class frontEnd {
         cy.url().should("eq", "http://localhost/trainingsdaten/intent/neu/");
 
         // Check Successfully saved
-        const addValue = 'test-3'
+        const addValue = 'DummyValue'
 
         cy.get('[class="v-text-field__slot"]')
             .contains('Name')
@@ -369,7 +369,7 @@ export class frontEnd {
 
         cy.request('/cci-backend/intent')
             .its('body')
-            .should('have.length', 6)
+            .should('have.length', 7)
     }
 
     backEndTesting() {
@@ -402,7 +402,7 @@ export class frontEnd {
         const j = i * 3
         cy.request('/cci-backend/intent')
             .its('body')
-                .should('have.length', 7)
+                .should('have.length', 8)
     }
 }
 // Exportint class frontEnd to End2End to test
