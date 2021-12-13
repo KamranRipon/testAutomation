@@ -22,13 +22,32 @@ describe ('Test Case - 2', () => {
 
     beforeEach('visit url', () => {
         cy.visit('/')
+        cy.wait(1000)
     })
 
-    it('Testing Body', () => {
-
+    it('Test Case: Intents hinzufuegen', () => {
         onFrontend.intents()
         //onFrontend.Entities()
+    })
 
+    it('Test Case: Intent bearbeiten', () => {
+        onFrontend.intent_bearbeiten()
+    })
+
+    it('Test Case: Intent suchen', () => {
+        onFrontend.intent_suchen()
+    })
+
+    it('Test Case: Intent Example hinzufuegen', () => {
+        onFrontend.intentExampleHinzufuegen()
+    })
+
+    it('Test Case: Intent Example Suchen', () => {
+        onFrontend.intentExampleSuchen()
+    })
+
+    it('Test Case: Intent Example Loeschen', () => {
+        onFrontend.intentExampleLoeschen()
     })
 })
 
@@ -57,7 +76,10 @@ describe('Test Case - 3, Mocking Network Response ', () => {
         })
 
         cy.visit('/')
-        cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        cy.get('[class="v-list-item__title"]')
+            .contains('Trainingsdaten')
+            .click()
     })
 
     it('Mocking Network Response', () => {
@@ -65,12 +87,16 @@ describe('Test Case - 3, Mocking Network Response ', () => {
     })
 })
 
-describe("Testing API Endpoints", () => {
+describe("Test Case - 4, Testing API Endpoints", () => {
 
     beforeEach('visit url', () => {
 
         cy.visit('/')
-        cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+
+        cy.get('[class="v-list-item__title"]')
+            .contains('Trainingsdaten')
+            .click()
     })
 
     it("Test Get Request", () => {
@@ -79,12 +105,16 @@ describe("Testing API Endpoints", () => {
     })
 })
 
-describe("Backend Testing", () => {
+describe("Test Case - 5, Backend Testing", () => {
 
     beforeEach('visit url', () => {
 
         cy.visit('/', {failOnStatusCode: false})
-        cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+
+        cy.get('[class="v-list-item__title"]')
+            .contains('Trainingsdaten')
+            .click()
     })
     
     it("Get Request", () => {

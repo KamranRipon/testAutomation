@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="61.4590" tests="10" failures="1">
+  <testsuite name="Root Suite" timestamp="2021-12-12T11:02:25" tests="0" file="cypress/integration/End2EndTest.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Test Case - 1" timestamp="2021-12-12T11:02:25" tests="1" time="6.4480" failures="0">
+    <testcase name="Test Case - 1 Testing Menu" time="6.4140" classname="Testing Menu">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 2" timestamp="2021-12-12T11:02:32" tests="6" time="51.5140" failures="1">
+    <testcase name="Test Case - 2 Test Case: Intents hinzufuegen" time="19.4780" classname="Test Case: Intents hinzufuegen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent bearbeiten" time="5.3940" classname="Test Case: Intent bearbeiten">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent suchen" time="4.2640" classname="Test Case: Intent suchen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example hinzufuegen" time="10.2170" classname="Test Case: Intent Example hinzufuegen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example Suchen" time="5.6780" classname="Test Case: Intent Example Suchen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example Loeschen" time="0.0000" classname="Test Case: Intent Example Loeschen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `td:nth-child(4)`, but never found it. Queried from element: &lt;tr.v-data-table__empty-wrapper&gt;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `td:nth-child(4)`, but never found it. Queried from element: <tr.v-data-table__empty-wrapper>
+    at frontEnd.intentExampleLoeschen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7767:52)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7328:34)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 3, Mocking Network Response " timestamp="2021-12-12T11:03:23" tests="1" time="1.1050" failures="0">
+    <testcase name="Test Case - 3, Mocking Network Response  Mocking Network Response" time="1.0450" classname="Mocking Network Response">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 4, Testing API Endpoints" timestamp="2021-12-12T11:03:24" tests="1" time="1.5810" failures="0">
+    <testcase name="Test Case - 4, Testing API Endpoints Test Get Request" time="1.5820" classname="Test Get Request">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 5, Backend Testing" timestamp="2021-12-12T11:03:26" tests="1" time="0.6480" failures="0">
+    <testcase name="Test Case - 5, Backend Testing Get Request" time="0.6550" classname="Get Request">
+    </testcase>
+  </testsuite>
+</testsuites>

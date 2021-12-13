@@ -14,6 +14,7 @@ sudo docker-compose up -d
 #npm run CyTest --browser /usr/bin/chromium
 #npm run CyTest -- --browser chromium
 #node_modules/.bin/cypress open
-
+npm run delete:reports
 npx cypress run --headed --browser chrome
+npm run merge 
 sudo docker-compose down
