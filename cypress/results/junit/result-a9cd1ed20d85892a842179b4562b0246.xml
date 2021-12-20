@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="10.9870" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2021-12-16T13:19:24" tests="0" file="cypress/integration/End2EndTest.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Entity" timestamp="2021-12-16T13:19:24" tests="1" time="10.7450" failures="1">
+    <testcase name="Entity Entity Hinzufuegen" time="0.0000" classname="Entity Hinzufuegen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `[class=&quot;v-list-item__title pl-4&quot;]`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `[class="v-list-item__title pl-4"]`, but never found it.
+    at entityHinzufuegen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7448:8)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7410:22)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const { capitalize } = require("lodash")
+
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username, password) => {
+    cy.session([username, password], () => {
+        cy.visit('/login')
+        
+        cy.get('[class="v-input__slot"]').contains('Benutzername').click({force:true})
+                .type(username)
+        cy.get('[class="v-text-field__slot"]').contains('Passwort').click({force:true})
+                .type(password)
+
+        cy.get('[class="v-input--selection-controls__input"]').click()
+        
+        cy.get('[class="v-btn__content"]').contains('Anmelden').click()
+        cy.wait(1000)
+        //cy.visit('http://localhost/trainingsdaten/intent/')
+    })
+    
+})

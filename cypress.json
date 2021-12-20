@@ -5,11 +5,11 @@
     "watchForFileChanges":true,
     "chromeWebSecurity": false,
     "screenshots":false,
-    "experimentalSessionSupport":true,
     "video": false,
     "reporter": "cypress-multi-reporters",
         "reporterOptions": {
         "configFile": "reporter-config.json"
-    }
+    },
+    "experimentalSessionSupport":true
 
 }
