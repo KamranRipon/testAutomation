@@ -10,6 +10,7 @@ export class login {
 
     logIn() {   
         cy.log('Loged in Successful')
+        cy.wait(1500)
         cy.visit('http://localhost/trainingsdaten/intent/')
         cy.wait(500)
 

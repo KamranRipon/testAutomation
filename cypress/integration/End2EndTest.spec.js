@@ -2,6 +2,7 @@ import { beforeEach } from "mocha"
 import { onIntent } from "../support/page_objects/Intents"
 import { onEntity } from "../support/page_objects/Entity"
 import { onLogin } from "../support/page_objects/Login"
+import { onSlot } from "../support/page_objects/Slot"
 
 const { method } = require("bluebird")
 const { capitalize } = require("lodash")
@@ -38,8 +39,6 @@ describe("Login", () => {
         // cy.setCookie('session_id', 'remember_token')
         // Cypress.Cookies.preserveOnce('session_id')
         loginiFunction('admin', 'cciAdmin#2022+')
-        cy.wait(1000)
-        
     })
 
     it("Log in to the page", () => {
@@ -209,8 +208,6 @@ describe("Test Case - 5, Backend Testing", () => {
 
 describe("Entity", () => {
 
-    
-
     beforeEach('visit url', () => {
         cy.login('admin', 'cciAdmin#2022+')
         cy.visit('/', {force:true})
@@ -229,5 +226,20 @@ describe("Entity", () => {
 
     it("Entity Bearbeiten", () => {
         onEntity.entityBearbeiten()
+    })
+})
+
+describe("Slot", () => {
+   
+    beforeEach('visit url', () => {
+        cy.login('admin', 'cciAdmin#2022+')
+        cy.visit('/')
+        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+        //loginiFunction('admin', 'cciAdmin#2022+')
+    })
+
+    it.only("Slot Hinzufuegen", () => {
+        
+        onSlot.slotHinzufuegen()
     })
 })

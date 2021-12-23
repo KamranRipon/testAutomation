@@ -125,7 +125,7 @@ export class intent {
         ///* Intent Hinzufuegen testing *///
         
         // Clicking Intent Hinzufuegen
-        cy.get('[data-cy="createIntentButton"]')
+        cy.get('[data-cy="intent-create"]')
             .should('be.visible')
             .click()
         //cy.wait(500)
@@ -162,7 +162,7 @@ export class intent {
         // Back to intent
         cy.get('[class="v-list-item__content"]').contains('Intents').click()
         cy.wait(500)
-        cy.get('[data-cy="createIntentButton"]')
+        cy.get('[data-cy="intent-create"]')
             //.should('be.visible')
             .click()
 
@@ -234,7 +234,7 @@ export class intent {
             //cy.get('[type="text"]').type(index)
             //    cy.contains('i', 'send').click()
 
-            cy.get('[data-cy="createIntentButton"]')
+            cy.get('[data-cy="intent-create"]')
                 //.should('be.visible')
                 .click()
             //cy.wait(1000)
@@ -448,7 +448,6 @@ export class intent {
             .contains('Intents')
             .click()
                 
-
         cy.visit('http://localhost/trainingsdaten/intent/')
 
         cy.get('tbody')
@@ -469,19 +468,19 @@ export class intent {
             .contains('Trainingsdaten')
                 .click()
 
-        // Clicking Intent
+        // Entering Intent Tab
         cy.get('[data-cy=navDrawerIntents]')
             .contains('Intents')
                 .click()
 
-        // Select first row of the Intent table
+        // Select first row of the Intent Table
         cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
             .first()
             .click({force:true})
 
-        cy.get('[class="v-tab"]').click()
+        cy.get('[class="v-tab"]').contains('Examples').click()
 
-        cy.get('[data-cy="createIntentExampleButton"]').click()
+        cy.get('[data-cy="create-intent-example"]').click()
 
         // Check for valid name
         cy.get('[class="v-text-field__details"]').then((vTextMsg) => {
@@ -515,13 +514,13 @@ export class intent {
             .first()
             .click({force:true})
 
-        cy.get('[class="v-tab"]').click()
+        cy.get('[class="v-tab"]').contains('Examples').click()
 
         // add more examples for Search  
         var exmList = ["Example","Hello", "Bye"]
         cy.wrap(exmList).each((index) => {
 
-            cy.get('[data-cy="createIntentExampleButton"]').click()
+            cy.get('[data-cy="create-intent-example"]').click()
 
             cy.get('[class="v-text-field__details"]').then((vTextMsg) => {
                 expect(vTextMsg).to.have.text('Der Text muss gesetzt sein0 / 2000')
@@ -553,7 +552,7 @@ export class intent {
             .first()
             .click({force:true})
 
-        cy.get('[class="v-tab"]').click()
+        cy.get('[class="v-tab"]').contains('Examples').click()
 
         // select whole table
         cy.get('[class="v-input__append-inner"]').last().click({force:true})
@@ -604,14 +603,14 @@ export class intent {
                 let nRow = $countTR.length
 
         // Back to Intent Table
-        cy.get('[data-cy=navDrawerIntents]')
+        cy.get('[data-cy="navDrawerIntents"]')
             .contains('Intents')
                 .click()
-
+        
         // Select first row of the Intent table
         //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
         cy.get('tbody')
-            .find('td:nth-child(4)')
+            .find('td:nth-child(3)')
             .first().then(function($intentExCount) {
                 cy.wrap($intentExCount).should('have.text', ' '+nRow+' ')
             })
@@ -626,7 +625,7 @@ export class intent {
                 .click()
 
         // Clicking Intent
-        cy.get('[data-cy=navDrawerIntents]')
+        cy.get('[data-cy="navDrawerIntents"]')
             .contains('Intents')
                 .click()
 
@@ -643,7 +642,7 @@ export class intent {
             .first()
                 .click({force:true})
 
-        cy.get('[class="v-tab"]').click()
+        cy.get('[class="v-tab"]').contains('Examples').click()
 
         cy.wait(500)
 
@@ -702,7 +701,7 @@ export class intent {
             //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
             cy.wait(500)
             cy.get('tbody')
-            .find('td:nth-child(4)')
+            .find('td:nth-child(3)')
             .first().then(function($intentExCount2) {
                 cy.wrap($intentExCount2).should('have.text', ' '+tableRowCount+' ')
 

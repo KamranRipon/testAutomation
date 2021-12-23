@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="133.7810" tests="14" failures="0" skipped="2">
+  <testsuite name="Root Suite" timestamp="2021-12-20T06:18:08" tests="0" file="cypress/integration/End2EndTest.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Login" timestamp="2021-12-20T06:18:09" tests="1" time="8.8640" failures="0">
+    <testcase name="Login Log in to the page" time="9.1790" classname="Log in to the page">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 1" timestamp="2021-12-20T06:18:18" tests="1" time="9.7340" failures="0">
+    <testcase name="Test Case - 1 Testing Menu" time="9.5740" classname="Testing Menu">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 2" timestamp="2021-12-20T06:18:27" tests="6" time="68.0570" failures="0">
+    <testcase name="Test Case - 2 Test Case: Intents hinzufuegen" time="25.3400" classname="Test Case: Intents hinzufuegen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent bearbeiten" time="8.2200" classname="Test Case: Intent bearbeiten">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent suchen" time="7.3260" classname="Test Case: Intent suchen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example hinzufuegen" time="11.4540" classname="Test Case: Intent Example hinzufuegen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example Suchen" time="7.7370" classname="Test Case: Intent Example Suchen">
+    </testcase>
+    <testcase name="Test Case - 2 Test Case: Intent Example Loeschen" time="7.5170" classname="Test Case: Intent Example Loeschen">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 3, Mocking Network Response " timestamp="2021-12-20T06:19:35" tests="1" time="2.7940" failures="0">
+    <testcase name="Test Case - 3, Mocking Network Response  Mocking Network Response" time="2.7350" classname="Mocking Network Response">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 4, Testing API Endpoints" timestamp="2021-12-20T06:19:38" tests="1" time="0.0290" failures="0">
+  </testsuite>
+  <testsuite name="Test Case - 5, Backend Testing" timestamp="2021-12-20T06:19:38" tests="1" time="0.0010" failures="0">
+  </testsuite>
+  <testsuite name="Entity" timestamp="2021-12-20T06:19:38" tests="3" time="43.8860" failures="0">
+    <testcase name="Entity Entity Hinzufuegen" time="28.0250" classname="Entity Hinzufuegen">
+    </testcase>
+    <testcase name="Entity Entity Suchen" time="3.4990" classname="Entity Suchen">
+    </testcase>
+    <testcase name="Entity Entity Bearbeiten" time="12.1130" classname="Entity Bearbeiten">
+    </testcase>
+  </testsuite>
+</testsuites>

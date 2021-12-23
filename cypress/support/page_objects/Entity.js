@@ -31,7 +31,7 @@ export class entity {
         // Entity Hinzufuegen testing 
         
         // Clicking Entity Hinzufuegen
-        cy.get('[data-cy="createEntityButton"]')
+        cy.get('[data-cy="entity-create"]')
             .should('be.visible')
             .click()
 
@@ -78,7 +78,7 @@ export class entity {
 
         // Leave Site with menu or Breadcrump doesn't save value
         // Clicking Entity Hinzufuegen
-        cy.get('[data-cy="createEntityButton"]')
+        cy.get('[data-cy="entity-create"]')
             .should('be.visible')
             .click()
 
@@ -115,7 +115,7 @@ export class entity {
             .contains('Entities')
                 .click()
 
-        cy.get('[data-cy="createEntityButton"]')
+        cy.get('[data-cy="entity-create"]')
             .click()
 
         // Checking for a valid Name
@@ -177,7 +177,7 @@ export class entity {
         var textList = ["test15","test1", "weather"]
         cy.wrap(textList).each((index) => {
 
-            cy.get('[data-cy="createEntityButton"]')
+            cy.get('[data-cy="entity-create"]')
                 .click()
 
             cy.get('[class="v-text-field__slot"]')
