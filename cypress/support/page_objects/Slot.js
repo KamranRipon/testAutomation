@@ -271,7 +271,7 @@ export class slots {
                 .then((errorMsg) => {
                     expect(errorMsg).to.have.text(' Der Slot konnte nicht gespeichert werden. ')
                 })
-        //////////////////////////////////////////////////////////////////////
+        
         //cy.get('[class="v-list-item__content"]').contains('Intents').click()
         cy.get('[data-cy="navDrawerSlots"]')
             .contains('Slots')
