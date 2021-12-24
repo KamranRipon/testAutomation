@@ -9,6 +9,8 @@ export class slots {
 
     slotHinzufuegen() {
 
+        /* Testing */
+
         /* Entity Hinzufuegen Testing */
         
         // Enter Trainingsdaten
