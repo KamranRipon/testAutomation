@@ -405,6 +405,7 @@ export class intent {
             .first()
                 .click({force:true})
         
+        // Remove Name by clicking "X"
         cy.get('[class="v-input__append-inner"]')
             .first()
                 .click()
@@ -433,6 +434,7 @@ export class intent {
             })
 
         // Check for duplicate Name
+        cy.log('Check for duplicate Name')
         cy.get('[class="v-text-field__slot"]')
             .clear()
             .contains('Name')
@@ -443,6 +445,8 @@ export class intent {
             .contains('Beschreibung')
             .click({force:true})
             .type('test16')
+
+        cy.wait(500)
         
         cy.get('[data-cy=navDrawerIntents]')
             .contains('Intents')

@@ -8,7 +8,6 @@ const { method } = require("bluebird")
 const { capitalize } = require("lodash")
 
 // Login Function
-
 function loginiFunction(Username, Password) {
     const  userName = cy.get('[class="v-input__slot"]').contains('Benutzername').click({force:true})
     userName.type('admin')
@@ -37,7 +36,7 @@ describe("Login", () => {
         // cy.clearCookies()        
         cy.visit('/')
         // cy.setCookie('session_id', 'remember_token')
-        // Cypress.Cookies.preserveOnce('session_id')
+        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         loginiFunction('admin', 'cciAdmin#2022+')
     })
 
@@ -55,12 +54,14 @@ describe ('Test Case - 1', () => {
 
     beforeEach('visit url', () => {
         
-        cy.visit('/')
         // Cypress.Cookies.preserveOnce('session_id', 'remember_token')
 
-        loginiFunction('admin', 'cciAdmin#2022+')
+        //loginiFunction('admin', 'cciAdmin#2022+')
+        cy.login('admin', 'cciAdmin#2022+')
 
-        cy.wait(1000)
+        cy.wait(500)
+        cy.visit('/')
+        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //cy.get('[class="v-list-item__title pl-4"]').contains('Trainingsdaten').click()
         cy.get('[tabindex="0"]').contains('Trainingsdaten').click()
         cy.wait(1500)
@@ -84,11 +85,12 @@ describe ('Test Case - 2', () => {
 
     beforeEach('visit url', () => {
 
-        //cy.login('admin', 'cciAdmin#2022+')
+        cy.login('admin', 'cciAdmin#2022+')
         
         cy.visit('/')
+        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        loginiFunction('admin', 'cciAdmin#2022+')
+        //loginiFunction('admin', 'cciAdmin#2022+')
         cy.wait(1000)
     })
 
@@ -145,10 +147,11 @@ describe('Test Case - 3, Mocking Network Response ', () => {
                 }      
             ]
         })
-        
+        cy.login('admin', 'cciAdmin#2022+')
+        cy.wait(1000)
         cy.visit('/')
-        //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        loginiFunction('admin', 'cciAdmin#2022+')
+        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+        //loginiFunction('admin', 'cciAdmin#2022+')
         //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
         cy.get('[class="v-list-item__title pl-4"]')
             .contains('Trainingsdaten')
@@ -160,56 +163,11 @@ describe('Test Case - 3, Mocking Network Response ', () => {
     })
 })
 
-describe("Test Case - 4, Testing API Endpoints", () => {
-
-    // before(() => {
-    //     cy.login('admin', 'cciAdmin#2022+')
-    // })
-
-    beforeEach('visit url', () => {
-        
-        cy.visit('/')
-        //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        loginiFunction('admin', 'cciAdmin#2022+')
-        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
-
-        cy.get('[class="v-list-item__title pl-4"]')
-            .contains('Trainingsdaten')
-            .click()
-    })
-
-    it.skip("Test Get Request", () => {
-        onIntent.restApiTesting()
-    })
-})
-
-describe("Test Case - 5, Backend Testing", () => {
-
-    // before(() => {
-    //     cy.login('admin', 'cciAdmin#2022+')
-    // })
-
-    beforeEach('visit url', () => {
-
-        cy.visit('/', {failOnStatusCode: false})
-        Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        //loginiFunction('admin', 'cciAdmin#2022+')
-        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
-
-        cy.get('[class="v-list-item__title pl-4"]')
-            .contains('Trainingsdaten')
-            .click()
-    })
-    
-    it.skip("Get Request", () => {
-        onIntent.backEndTesting()
-    })
-})
-
 describe("Entity", () => {
 
     beforeEach('visit url', () => {
         cy.login('admin', 'cciAdmin#2022+')
+        cy.wait(1000)
         cy.visit('/', {force:true})
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //loginiFunction('admin', 'cciAdmin#2022+')
@@ -232,14 +190,74 @@ describe("Entity", () => {
 describe("Slot", () => {
    
     beforeEach('visit url', () => {
-        cy.login('admin', 'cciAdmin#2022+')
+        //cy.login('admin', 'cciAdmin#2022+')
+        
+        cy.wait(1500)
         cy.visit('/')
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        //loginiFunction('admin', 'cciAdmin#2022+')
+        
+        loginiFunction('admin', 'cciAdmin#2022+')
     })
 
-    it.only("Slot Hinzufuegen", () => {
-        
+    it("Slot Hinzufuegen", () => {
         onSlot.slotHinzufuegen()
     })
+
+    it("Slot Bearbeiten", () => {
+        onSlot.slotBearbeiten()
+    })
+
+    it("Slot Suchen", () => {
+        onSlot.slotSuchen()
+    })
+
+    it("Slot Loeschen", () => {
+        onSlot.slotLoeschen()
+    })
 })
+
+// describe("Test Case - 4, Testing API Endpoints", () => {
+
+//     // before(() => {
+//     //     cy.login('admin', 'cciAdmin#2022+')
+//     // })
+
+//     beforeEach('visit url', () => {
+        
+//         cy.visit('/')
+//         //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+//         loginiFunction('admin', 'cciAdmin#2022+')
+//         //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+
+//         cy.get('[class="v-list-item__title pl-4"]')
+//             .contains('Trainingsdaten')
+//             .click()
+//     })
+
+//     it.skip("Test Get Request", () => {
+//         onIntent.restApiTesting()
+//     })
+// })
+
+// describe("Test Case - 5, Backend Testing", () => {
+
+//     // before(() => {
+//     //     cy.login('admin', 'cciAdmin#2022+')
+//     // })
+
+//     beforeEach('visit url', () => {
+
+//         cy.visit('/', {failOnStatusCode: false})
+//         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+//         //loginiFunction('admin', 'cciAdmin#2022+')
+//         //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+
+//         cy.get('[class="v-list-item__title pl-4"]')
+//             .contains('Trainingsdaten')
+//             .click()
+//     })
+    
+//     it("Get Request", () => {
+//         onIntent.backEndTesting()
+//     })
+// })
