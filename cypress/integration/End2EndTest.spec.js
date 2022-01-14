@@ -3,6 +3,7 @@ import { onIntent } from "../support/page_objects/Intents"
 import { onEntity } from "../support/page_objects/Entity"
 import { onLogin } from "../support/page_objects/Login"
 import { onSlot } from "../support/page_objects/Slot"
+import { onSynonym } from "../support/page_objects/Synonyms"
 
 const { method } = require("bluebird")
 const { capitalize } = require("lodash")
@@ -23,7 +24,7 @@ function loginiFunction(Username, Password) {
     //return minutes
 }
 
-describe("Login", () => {
+describe("Test Case 1: Login", () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -46,7 +47,7 @@ describe("Login", () => {
     })
 })
 
-describe ('Test Case - 1', () => {
+describe ('Test Case - 1: Menu Elements', () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -77,7 +78,7 @@ describe ('Test Case - 1', () => {
     })
 })
 
-describe ('Test Case - 2', () => {
+describe ('Test Case - 2: Intent', () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -120,7 +121,7 @@ describe ('Test Case - 2', () => {
     })
 })
 
-describe('Test Case - 3, Mocking Network Response ', () => {
+describe('Test Case - 3: Mocking Network Response ', () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -158,23 +159,22 @@ describe('Test Case - 3, Mocking Network Response ', () => {
             .click()
     })
 
-    it('Mocking Network Response', () => {
+    it('Test Case 4: Mocking Network Response', () => {
         onIntent.mockingApi ()
     })
 })
 
-describe("Entity", () => {
+describe("Test Case 5: Entity", () => {
 
     beforeEach('visit url', () => {
         cy.login('admin', 'cciAdmin#2022+')
-        cy.wait(1000)
+        cy.wait(500)
         cy.visit('/', {force:true})
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //loginiFunction('admin', 'cciAdmin#2022+')
     })
 
     it("Entity Hinzufuegen", () => {
-
         onEntity.entityHinzufuegen()
     })
 
@@ -187,12 +187,12 @@ describe("Entity", () => {
     })
 })
 
-describe("Slot", () => {
+describe("Test Case 6: Slot", () => {
    
     beforeEach('visit url', () => {
         //cy.login('admin', 'cciAdmin#2022+')
         
-        cy.wait(1500)
+        cy.wait(500)
         cy.visit('/')
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         
@@ -261,3 +261,24 @@ describe("Slot", () => {
 //         onIntent.backEndTesting()
 //     })
 // })
+
+describe ('Test Case 7: Synonyms', () => {
+
+    beforeEach('visit url', () => {
+
+        //cy.login('admin', 'cciAdmin#2022+')
+        
+        cy.visit('/')
+        loginiFunction('admin', 'cciAdmin#2022+')
+        
+    })
+
+    it('Test Case: Synonym Anlegen', () => {
+        onSynonym.synonymAnlegen()
+    })
+
+    it('Test Case: Synonym Anlegen', () => {
+        onSynonym.synonymBearbeiten()
+    })
+
+})

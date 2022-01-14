@@ -533,8 +533,6 @@ export class intent {
                 .click({force: true}).type(index)
             
             cy.get('[class="v-btn__content"]').contains('Anlegen').click()
-
-
         })
     }
 
