@@ -1,24 +1,24 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 2,
-    "passes": 1,
+    "tests": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 1,
-    "start": "2022-01-13T16:23:06.607Z",
-    "end": "2022-01-13T16:23:57.032Z",
-    "duration": 50004,
-    "testsRegistered": 2,
-    "passPercent": 50,
+    "failures": 0,
+    "start": "2022-01-18T09:17:34.707Z",
+    "end": "2022-01-18T09:17:39.109Z",
+    "duration": 0,
+    "testsRegistered": 1,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
+    "skipped": 1,
+    "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "d8b1bda8-6614-4283-be2e-5c689467bc2e",
+      "uuid": "1fb2f5f5-746b-4482-a21b-bd935502948a",
       "title": "",
       "fullFile": "cypress/integration/End2EndTest.spec.js",
       "file": "cypress/integration/End2EndTest.spec.js",
@@ -27,64 +27,40 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "695147a7-501f-4fb1-9571-514b6da9bab4",
-          "title": "Test Case - Synonyms",
+          "uuid": "79ef607f-6365-4b36-b4ae-2fa1d77b6a28",
+          "title": "Test Case 8: Rules",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Test Case: Synonym Anlegen",
-              "fullTitle": "Test Case - Synonyms Test Case: Synonym Anlegen",
+              "title": "Test Case: Rules Anlegen",
+              "fullTitle": "Test Case 8: Rules Test Case: Rules Anlegen",
               "timedOut": null,
-              "duration": 36512,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "_Synonyms.onSynonym.synonymAnlegen();",
+              "code": "_Rules.onRules.rulesAnlegen();",
               "err": {},
-              "uuid": "80c03153-dd98-4764-afc2-db2a6a4e3ec6",
-              "parentUUID": "695147a7-501f-4fb1-9571-514b6da9bab4",
+              "uuid": "4f16c447-d3dd-4457-9804-77ae516e6302",
+              "parentUUID": "79ef607f-6365-4b36-b4ae-2fa1d77b6a28",
               "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "Test Case: Synonym Anlegen",
-              "fullTitle": "Test Case - Synonyms Test Case: Synonym Anlegen",
-              "timedOut": null,
-              "duration": 13492,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "_Synonyms.onSynonym.synonymBearbeiten();",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: expected '<td.text-start>' to have text 'testExample1440', but the text was ''",
-                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<td.text-start>' to have text 'testExample1440', but the text was ''\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:9902:26)",
-                "diff": "+ 'testExample1440'\n"
-              },
-              "uuid": "5786178e-898b-4963-b506-1b3e9c0b9b02",
-              "parentUUID": "695147a7-501f-4fb1-9571-514b6da9bab4",
-              "isHook": false,
-              "skipped": false
+              "skipped": true
             }
           ],
           "suites": [],
-          "passes": [
-            "80c03153-dd98-4764-afc2-db2a6a4e3ec6"
-          ],
-          "failures": [
-            "5786178e-898b-4963-b506-1b3e9c0b9b02"
-          ],
+          "passes": [],
+          "failures": [],
           "pending": [],
-          "skipped": [],
-          "duration": 50004,
+          "skipped": [
+            "4f16c447-d3dd-4457-9804-77ae516e6302"
+          ],
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

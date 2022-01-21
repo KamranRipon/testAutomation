@@ -630,8 +630,7 @@ export class intent {
         cy.get('[data-cy="navDrawerIntents"]')
             .contains('Intents')
                 .click()
-
-        cy.wait(400)
+                .wait(400)
         
         // const val = cy.get('tbody')
         //     .find('tr')
@@ -644,14 +643,17 @@ export class intent {
             .first()
                 .click({force:true})
 
-        cy.get('[class="v-tab"]').contains('Examples').click()
-
-        cy.wait(500)
+        cy.get('[class="v-tab"]')
+            .contains('Examples')
+            .click()
+            .wait(500)
 
         cy.get('[class="v-select__slot"]')
             .click()
             .get('[class="v-list-item__content"]')
                 .contains('Alle').click({force:true})
+
+        cy.log('Line 656')
         
         cy.get('tbody tr').then(function($noRow) {
             const tableRow = $noRow.length
@@ -668,28 +670,43 @@ export class intent {
                 cy.get('[class="v-text-field__slot"]').contains('Text')
                     .click({force: true}).type(index)
                 
-                cy.get('[class="v-btn__content"]').contains('Anlegen').click()
-
-                cy.wait(200)
+                cy.get('[class="v-btn__content"]')
+                    .contains('Anlegen')
+                    .click()
+                    .wait(200)
 
                 })
 
                 cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
                     .first()
                     .click()
-                cy.wait(500)
+                    .wait(500)
+
+                // Confirm Delete
+                cy.get('[class="v-card v-sheet theme--light"]')
+                    .find('.v-card__actions')
+                    .find('button.v-btn:nth-child(3)')
+                    .click()
             }
             else {
                 cy.log('Running es')
                 cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
                     .first()
                     .click({force:true})
-                cy.wait(500)
+                    .wait(500)
+
+                // Confirm Delete
+                cy.get('[class="v-card v-sheet theme--light"]')
+                    .find('.v-card__actions')
+                    .find('button.v-btn:nth-child(3)')
+                    .click()
+                    .wait(500)
             }
 
             cy.log(tableRow)
         })
 
+        cy.log('Line 696')
         cy.get('tbody tr').then(function($noRowCount) {
             const tableRowCount = $noRowCount.length
             cy.log(tableRowCount)
@@ -698,10 +715,10 @@ export class intent {
             cy.get('[data-cy=navDrawerIntents]')
             .contains('Intents')
                 .click()
+                .wait(500)
             
             // Select first row of the Intent table
             //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-            cy.wait(500)
             cy.get('tbody')
             .find('td:nth-child(3)')
             .first().then(function($intentExCount2) {

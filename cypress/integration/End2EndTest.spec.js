@@ -4,6 +4,7 @@ import { onEntity } from "../support/page_objects/Entity"
 import { onLogin } from "../support/page_objects/Login"
 import { onSlot } from "../support/page_objects/Slot"
 import { onSynonym } from "../support/page_objects/Synonyms"
+import { onRules } from "../support/page_objects/Rules"
 
 const { method } = require("bluebird")
 const { capitalize } = require("lodash")
@@ -65,7 +66,7 @@ describe ('Test Case - 1: Menu Elements', () => {
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //cy.get('[class="v-list-item__title pl-4"]').contains('Trainingsdaten').click()
         cy.get('[tabindex="0"]').contains('Trainingsdaten').click()
-        cy.wait(1500)
+        cy.wait(500)
         cy.get("[data-cy=navDrawerIntents]").click()
         cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
     })
@@ -86,37 +87,37 @@ describe ('Test Case - 2: Intent', () => {
 
     beforeEach('visit url', () => {
 
-        cy.login('admin', 'cciAdmin#2022+')
+        //cy.login('admin', 'cciAdmin#2022+')
         
         cy.visit('/')
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        //loginiFunction('admin', 'cciAdmin#2022+')
+        loginiFunction('admin', 'cciAdmin#2022+')
         cy.wait(1000)
     })
 
-    it('Test Case: Intents hinzufuegen', () => {
+    it.only('Test Case: Intents hinzufuegen', () => {
         onIntent.intents()
         //onFrontend.Entities()
     })
 
-    it('Test Case: Intent bearbeiten', () => {
+    it.only('Test Case: Intent bearbeiten', () => {
         onIntent.intent_bearbeiten()
     })
 
-    it('Test Case: Intent suchen', () => {
+    it.only('Test Case: Intent suchen', () => {
         onIntent.intent_suchen()
     })
 
-    it('Test Case: Intent Example hinzufuegen', () => {
+    it.only('Test Case: Intent Example hinzufuegen', () => {
         onIntent.intentExampleHinzufuegen()
     })
 
-    it('Test Case: Intent Example Suchen', () => {
+    it.only('Test Case: Intent Example Suchen', () => {
         onIntent.intentExampleSuchen()
     })
 
-    it('Test Case: Intent Example Loeschen', () => {
+    it.only('Test Case: Intent Example Loeschen', () => {
         onIntent.intentExampleLoeschen()
     })
 })
@@ -174,15 +175,15 @@ describe("Test Case 5: Entity", () => {
         //loginiFunction('admin', 'cciAdmin#2022+')
     })
 
-    it("Entity Hinzufuegen", () => {
+    it.only("Entity Hinzufuegen", () => {
         onEntity.entityHinzufuegen()
     })
 
-    it("Entity Suchen", () => {
+    it.only("Entity Suchen", () => {
         onEntity.entitySuchen()
     })
 
-    it("Entity Bearbeiten", () => {
+    it.only("Entity Bearbeiten", () => {
         onEntity.entityBearbeiten()
     })
 })
@@ -199,19 +200,19 @@ describe("Test Case 6: Slot", () => {
         loginiFunction('admin', 'cciAdmin#2022+')
     })
 
-    it("Slot Hinzufuegen", () => {
+    it.only("Slot Hinzufuegen", () => {
         onSlot.slotHinzufuegen()
     })
 
-    it("Slot Bearbeiten", () => {
+    it.only("Slot Bearbeiten", () => {
         onSlot.slotBearbeiten()
     })
 
-    it("Slot Suchen", () => {
+    it.only("Slot Suchen", () => {
         onSlot.slotSuchen()
     })
 
-    it("Slot Loeschen", () => {
+    it.only("Slot Loeschen", () => {
         onSlot.slotLoeschen()
     })
 })
@@ -277,8 +278,40 @@ describe ('Test Case 7: Synonyms', () => {
         onSynonym.synonymAnlegen()
     })
 
-    it('Test Case: Synonym Anlegen', () => {
+    it('Test Case: Synonym Bearbeiten', () => {
         onSynonym.synonymBearbeiten()
     })
 
+    it('Test Case: Synonym Loeschen', () => {
+        onSynonym.synonymLoeschen()
+    })
+
+})
+
+describe ('Test Case 8: Rules', () => {
+
+    beforeEach('visit url', () => {
+
+        //cy.login('admin', 'cciAdmin#2022+')
+        
+        cy.visit('/')
+        loginiFunction('admin', 'cciAdmin#2022+')
+        
+    })
+
+    it.only('Test Case: Rules Anlegen', () => {
+        onRules.rulesAnlegen()
+    })
+
+    it.only('Test Case: Rules Bearbeiten', () => {
+        onRules.rulesBearbeiten()
+    })
+
+    it.only('Test Case: Rules Suchen', () => {
+        onRules.rulesSuchen()
+    })
+
+    it.only('Test Case: Rules Loeschen', () => {
+        onRules.rulesLoeschen()
+    })
 })
