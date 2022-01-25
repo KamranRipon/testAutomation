@@ -528,9 +528,6 @@ export class rules {
                       inName = name1
 
                       cy.log(inName)
-
-                      
-
                     })
                     // .find('tr')
                     // .then(($intentName) => {
@@ -544,7 +541,7 @@ export class rules {
                 //     .find('td:nth-child(4)')
                 //     .contains(max_val)
                 //     .click({force:true})
-            })
+        })
             
         // Entering to rules table
         cy.get('[class="v-slide-group__wrapper"]')
@@ -831,7 +828,7 @@ export class rules {
 
                 // cy.get('[data-cy="intent-table-search"]')
                 //     .clear()
-            })
+        })
 
     }
 

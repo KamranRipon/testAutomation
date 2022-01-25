@@ -38,7 +38,7 @@ export class synonyms {
                         .contains('Synonyms')
                         .click()
                 }
-            })
+        })
 
         // Assert URL after clicking Synonym
         cy.url().should("eq", "http://localhost/trainingsdaten/synonym/");
@@ -148,11 +148,14 @@ export class synonyms {
             .click({force:true})
         
         // Clicking Example Tab
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
             .click()
 
         // Assert URL after entering to Synonym Example
-        cy.url().should("eq", "http://localhost/trainingsdaten/synonym/1/example/");
+        // cy.url().should("eq", "http://localhost/trainingsdaten/synonym/1/example/");
         
         //Click Example Hinzufuegen
         cy.get('[data-cy="synonym-example-create"]')
@@ -188,7 +191,7 @@ export class synonyms {
             .contains('Alle')
             .click({force:true})
 
-        cy.log('Line 184')
+        cy.log('Line 194')
         cy.get('tbody')
             .find('tr')
             .last()
@@ -218,7 +221,7 @@ export class synonyms {
         //     .click()
         //cy.wait(25000)
         cy.get('[data-cy="navDrawerSynonyms"]').click()
-        cy.log('Line 220')
+        cy.log('Line 224')
         cy.get('tbody')
             .find('tr')
             .first()
@@ -267,13 +270,17 @@ export class synonyms {
             .clear()
 
         // Check Unique Name for Synonym Example
-        cy.log('Log 265')
+        cy.log('Log 273')
         cy.get('tbody')
             .find('tr')
             .first()
             .click({force:true})
         
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
             .click()
 
         cy.get('[data-cy="synonym-example-create"]')
@@ -373,7 +380,11 @@ export class synonyms {
             .first()
             .click({force:true})
         
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
             .click()
 
         cy.get('[data-cy="synonym-example-create"]')
@@ -406,13 +417,17 @@ export class synonyms {
         // 3.2 Assert in table
         // 3.2.3 Assert example number for each synonym in synonym table
         cy.get('[data-cy="navDrawerSynonyms"]').click()
-
+        
+        cy.log('Line 421')
         cy.get('tbody')
             .find('tr')
             .first()
             .click({force:true})
         
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
             .click()
 
         // cy.get('[data-cy="synonym-example-create"]')
@@ -434,7 +449,7 @@ export class synonyms {
                 .find('tr')
                 .first()
                 .find('td:nth-child(2)')
-                .should('have.text', exmNumber)
+                .should('have.text', ' '+String(exmNumber)+' ')
         })
 
         // 4. Leave site via menu or breadcrump, data must not be saved
@@ -470,7 +485,10 @@ export class synonyms {
             .first()
             .click({force:true})
         
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
             .click()
 
         cy.get('[data-cy="synonym-example-create"]')
@@ -564,7 +582,7 @@ export class synonyms {
         const value1   = ['', addValue+String(x)]
         
         cy.wrap(value1).each((index) => {
-            cy.log('Line '+String(548))
+            cy.log('Line '+String(585))
             cy.wait(500)  // Mast have .wait() here
             cy.get('tbody')
                 .find('tr')
@@ -599,7 +617,7 @@ export class synonyms {
             }
             else {
                 cy.log('If Statement FAlse')
-                cy.log('Line'+String(584))
+                cy.log('Line'+String(602))
                 cy.log('index'+String(index))
                 cy.get('[data-cy="synonym-name"]')
                     .click()
@@ -609,7 +627,7 @@ export class synonyms {
                     .contains('Synonyms')
                     .click()
                 
-                cy.log('Line 592')
+                cy.log('Line 612')
 
                 cy.get('[data-cy="errorMessageTitle"]')
                     .should('have.text',' Das Synonym konnte nicht gespeichert werden. ')
@@ -637,7 +655,7 @@ export class synonyms {
             }
             
             // Assert Saved value
-            cy.log('Line 603')
+            cy.log('Line 640')
             cy.get('tbody')
                 .find('tr')
                 .first()
@@ -683,7 +701,7 @@ export class synonyms {
         //     .click()
         
         // Assert value Table
-        cy.log('Line 637')
+        cy.log('Line 686')
         cy.get('tbody')
             .find('tr')
             .first()
@@ -765,7 +783,7 @@ export class synonyms {
         // Test duplicate Name
         cy.log('// Test duplicate Name')
         // Synonym Name
-        cy.log('Line 733')
+        cy.log('Line 768')
 
         // 2. Check for duplicate name
         // 2.1 Synonym Name
@@ -782,15 +800,16 @@ export class synonyms {
         cy.get('[data-cy="synonym-name"]')
             .clear()
             .click()
-            .type(addValue+String(c))
+            .type(addValue+String(x))
 
-        cy.get('[data-cy="navDrawerSynonyms"]').click()
+        cy.get('[data-cy="navDrawerSynonyms"]')
+            .click()
 
         cy.get('[data-cy="errorMessageTitle"]')
             .should('have.text', ' Das Synonym konnte nicht gespeichert werden. ')
 
-        cy.log('Line 758')
-
+        cy.log('Line 792')
+        cy.wait(250)
         cy.get('[data-cy="synonym-name"]')
             .clear({force:true})
             .wait(500)
@@ -805,7 +824,7 @@ export class synonyms {
         //     .should('have.text', ' Das Synonym'+' "'+addValue+String(t*b)+'" '+ 'wurde erfolgreich gespeichert ')
         
         //Assert value Table
-        cy.log('Line 774')
+        cy.log('Line 808')
         cy.get('tbody')
             .find('tr')
             .first()
@@ -935,7 +954,7 @@ export class synonyms {
             .click({force:true})
 
         cy.get('tbody').find('tr').then(function($trCount) {
-            cy.log('Line 904')
+            cy.log('Line 938')
             const exmNumber1 = $trCount.length
             cy.log(exmNumber1)
 
@@ -945,7 +964,7 @@ export class synonyms {
                 .find('tr')
                 .first()
                 .find('td:nth-child(2)')
-                .should('have.text', exmNumber1)
+                .should('have.text', ' '+String(exmNumber1)+' ')
         })
 
         // 4. Leave site via menu or breadcrump, data must not be saved
@@ -954,7 +973,8 @@ export class synonyms {
         // 4.1.1 Leave Site by breadcrump
         cy.log('4. Leave site via menu or breadcrump, data must not be saved')
         cy.log('4.1 Synonym Name')
-        cy.get('[data-cy="navDrawerSynonyms"]').click()
+        cy.get('[data-cy="navDrawerSynonyms"]')
+            .click()
 
         cy.get('tbody')
             .find('tr')
@@ -966,7 +986,8 @@ export class synonyms {
             .click({force:true})
             .type('someName')
 
-        cy.get('[data-cy="navDrawerSynonyms"]').click()
+        cy.get('[data-cy="navDrawerSynonyms"]')
+            .click()
 
         // Select Entire Synonym Table
         cy.get('[class="v-select__slot"]').click()
@@ -1023,7 +1044,6 @@ export class synonyms {
         cy.get('[data-cy="synonym-example-table-search"]')
             .clear()
 
-        //////////////////////////////////////////////////////////
         // 4.2 Synonym Example Name
         // 4.1.1 Leave Site by Abbrechen
         cy.log('4.2 Synonym Example Name')
@@ -1132,8 +1152,22 @@ export class synonyms {
         cy.url().should("eq", "http://localhost/trainingsdaten/synonym/");
 
         //C. Synonym Loeschen
-        // 4.1. Synonym Name
-        cy.get('tbody')
+        // 4.1. Synonym Table
+        cy.log('Line 1156')
+        var noRow
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+            .find('tr')
+            .then(function($tbLength) {
+                noRow = $tbLength.length
+            }) 
+                
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
             .find('tr')
             .last()
             .find('td:nth-child(1)')
@@ -1142,15 +1176,19 @@ export class synonyms {
 
                 const tdValue = $synName7.text()
 
-                // Selecting Entire Table
-                cy.get('[class="v-select__slot"]').click()
-                cy.get('[class="v-list-item__content"]')
-                    .contains('Alle')
-                    .click({force:true})
-
                 cy.get('[data-cy="synonym-remove"]')
                     .last()
                     .click()
+
+                // Confirm Delete message
+                cy.get('[class="v-card v-sheet theme--light"]')
+                    .find('.v-card__actions')
+                    .find('button.v-btn:nth-child(3)')
+                    .click()
+                    .wait(500)
+
+                // Update Table Length
+                noRow = noRow - 1
 
                 cy.get('[data-cy="synonym-table-search"]')
                     .click()
@@ -1162,17 +1200,68 @@ export class synonyms {
 
                 cy.get('[data-cy="synonym-table-search"]')
                     .clear()
+
+                // Assert Synonyms Table Length
+                cy.log('Line 1206')
+                cy.log('noRow '+String(noRow))
+                cy.get('tbody')
+                    .find('tr')
+                    .should('have.length', noRow)
             })
+
+            
         
         // 4.2. Synonym Example Name
-        cy.get('tbody')
+        // Save number of row
+        cy.log('Line 1209')
+
+        // Selecting Entire Table
+        // cy.get('[class="v-select__slot"]')
+        //     .click()
+        //     .get('[class="v-list-item__content"]')
+        //     .contains('Alle')
+        //     .click({force:true})
+
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
             .find('tr')
-            .first()
-            .click()
+            .find('td:nth-child(2)')
+            .then(($testFunc) => {
 
-        cy.get('[href="/trainingsdaten/synonym/1/example/"]')
-            .click()
+                const vall = $testFunc.text()
+                var sp_vall = vall.split(" ")
+                
+                var max_val = 0
+                var num
+                for (num=0; num < sp_vall.length; num++){
+                    
+                    if(sp_vall[num] > max_val) {
+                        max_val = sp_vall[num]
+                    }
+                }
 
+                // Enter To a Synonym Row which contain more than one Example
+                cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+                    .find('tr')
+                    .find('td:nth-child(2)')
+                    .contains(max_val)
+                    .click()
+            })
+                
+        // cy.get('[href="/trainingsdaten/synonym/1/example/"]')
+        //     .click()
+        // Clicking Example Tab
+        cy.get('.v-slide-group__wrapper')
+            .contains('Examples')
+            .click()
+            
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+            .find('tr')
+            .then(function($tableLength) {
+                noRow = $tableLength.length
+                cy.log(noRow)
+            })
+        
+        cy.log('Line 1264')
         cy.get('tbody')
             .find('tr')
             .last()
@@ -1182,15 +1271,19 @@ export class synonyms {
 
                 const tdExValue = $synExmName2.text()
 
-                // Selecting Entire Table
-                cy.get('[class="v-select__slot"]').click()
-                cy.get('[class="v-list-item__content"]')
-                    .contains('Alle')
-                    .click({force:true})
-
                 cy.get('[data-cy="synonym-example-remove"]')
                     .last()
                     .click()
+
+                // Confirm Delete message
+                cy.get('[class="v-card v-sheet theme--light"]')
+                    .find('.v-card__actions')
+                    .find('button.v-btn:nth-child(3)')
+                    .click()
+                    .wait(500)
+
+                // updated table lenght
+                noRow = noRow - 1 
 
                 cy.get('[data-cy="synonym-example-table-search"]')
                     .click()
@@ -1205,9 +1298,10 @@ export class synonyms {
 
                 cy.get('tbody')
                     .find('tr')
-                    .then(function($exmTabLen) {
-                        cy.log($exmTabLen.length)
-                    })
+                    .should('have.length', noRow)
+                    // .then(function($exmTabLen) {
+                    //     cy.log($exmTabLen.length)
+                    // })
             })
     }
 
@@ -1215,9 +1309,53 @@ export class synonyms {
 
         /* Test Synonym Suchen Field */
 
-        // Anlegen some random name to Synonym Name and Synonym Example Name
+        /* Synonyms Anlegen Testing */
 
+        cy.get('[class="v-list-group"]').contains('Trainingsdaten').then((Tdaten) => {
+
+            if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                cy.log('If Statement True')
+
+                cy.get('[data-cy="navDrawerSynonyms"]')
+                    .contains('Synonyms')
+                    .click()
+            }
+            else {
+                cy.log('If Statement False')
+
+                cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                    .contains('Trainingsdaten')
+                    .click()
+
+                cy.get('[data-cy="navDrawerSynonyms"]')
+                    .contains('Synonyms')
+                    .click()
+            }
+        })
+
+        
+        // Anlegen some random name to Synonym Name
         // Synonym Name
+
+        const ranSynName   = ['Syn1', 'Syn2', 'SynRandom', 'noIdea']
+
+        cy.wrap(ranSynName).each((indx) => {
+
+            // Clicking Slot Hinzufuegen
+            cy.get('[data-cy="synonym-create"]')
+                .click()
+
+            cy.get('[data-cy="synonym-name"]')
+                .click({force:true})
+                .type(indx+String(x))
+
+            // Click Anlegen
+            cy.get('[data-cy="create-button"]')
+                .click()
+        })
+
+        // Test Synonym Search Field
+        cy.get('[data-cy="synonym-table-search"]')
 
         // Synonym Example Name
     }

@@ -87,37 +87,37 @@ describe ('Test Case - 2: Intent', () => {
 
     beforeEach('visit url', () => {
 
-        //cy.login('admin', 'cciAdmin#2022+')
+        cy.login('admin', 'cciAdmin#2022+')
         
         cy.visit('/')
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-        loginiFunction('admin', 'cciAdmin#2022+')
+        //loginiFunction('admin', 'cciAdmin#2022+')
         cy.wait(1000)
     })
 
-    it.only('Test Case: Intents hinzufuegen', () => {
+    it('Test Case: Intents hinzufuegen', () => {
         onIntent.intents()
         //onFrontend.Entities()
     })
 
-    it.only('Test Case: Intent bearbeiten', () => {
+    it('Test Case: Intent bearbeiten', () => {
         onIntent.intent_bearbeiten()
     })
 
-    it.only('Test Case: Intent suchen', () => {
+    it('Test Case: Intent suchen', () => {
         onIntent.intent_suchen()
     })
 
-    it.only('Test Case: Intent Example hinzufuegen', () => {
+    it('Test Case: Intent Example hinzufuegen', () => {
         onIntent.intentExampleHinzufuegen()
     })
 
-    it.only('Test Case: Intent Example Suchen', () => {
+    it('Test Case: Intent Example Suchen', () => {
         onIntent.intentExampleSuchen()
     })
 
-    it.only('Test Case: Intent Example Loeschen', () => {
+    it('Test Case: Intent Example Loeschen', () => {
         onIntent.intentExampleLoeschen()
     })
 })
@@ -175,15 +175,15 @@ describe("Test Case 5: Entity", () => {
         //loginiFunction('admin', 'cciAdmin#2022+')
     })
 
-    it.only("Entity Hinzufuegen", () => {
+    it("Entity Hinzufuegen", () => {
         onEntity.entityHinzufuegen()
     })
 
-    it.only("Entity Suchen", () => {
+    it("Entity Suchen", () => {
         onEntity.entitySuchen()
     })
 
-    it.only("Entity Bearbeiten", () => {
+    it("Entity Bearbeiten", () => {
         onEntity.entityBearbeiten()
     })
 })
@@ -200,19 +200,19 @@ describe("Test Case 6: Slot", () => {
         loginiFunction('admin', 'cciAdmin#2022+')
     })
 
-    it.only("Slot Hinzufuegen", () => {
+    it("Slot Hinzufuegen", () => {
         onSlot.slotHinzufuegen()
     })
 
-    it.only("Slot Bearbeiten", () => {
+    it("Slot Bearbeiten", () => {
         onSlot.slotBearbeiten()
     })
 
-    it.only("Slot Suchen", () => {
+    it("Slot Suchen", () => {
         onSlot.slotSuchen()
     })
 
-    it.only("Slot Loeschen", () => {
+    it("Slot Loeschen", () => {
         onSlot.slotLoeschen()
     })
 })
@@ -286,6 +286,10 @@ describe ('Test Case 7: Synonyms', () => {
         onSynonym.synonymLoeschen()
     })
 
+    it('Test Case: Synonym Suchen', () => {
+        onSynonym.synonymSuchen()
+    })
+
 })
 
 describe ('Test Case 8: Rules', () => {
@@ -299,19 +303,19 @@ describe ('Test Case 8: Rules', () => {
         
     })
 
-    it.only('Test Case: Rules Anlegen', () => {
+    it('Test Case: Rules Anlegen', () => {
         onRules.rulesAnlegen()
     })
 
-    it.only('Test Case: Rules Bearbeiten', () => {
+    it('Test Case: Rules Bearbeiten', () => {
         onRules.rulesBearbeiten()
     })
 
-    it.only('Test Case: Rules Suchen', () => {
+    it('Test Case: Rules Suchen', () => {
         onRules.rulesSuchen()
     })
 
-    it.only('Test Case: Rules Loeschen', () => {
+    it('Test Case: Rules Loeschen', () => {
         onRules.rulesLoeschen()
     })
 })

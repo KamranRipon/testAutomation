@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="317.8750" tests="24" failures="11">
+  <testsuite name="Root Suite" timestamp="2022-01-24T10:43:32" tests="0" file="cypress/integration/End2EndTest.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Test Case 1: Login" timestamp="2022-01-24T10:43:32" tests="1" time="7.5890" failures="0">
+    <testcase name="Test Case 1: Login Log in to the page" time="7.6810" classname="Log in to the page">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 1: Menu Elements" timestamp="2022-01-24T10:43:40" tests="1" time="8.2010" failures="0">
+    <testcase name="Test Case - 1: Menu Elements Testing Menu" time="7.9770" classname="Testing Menu">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 2: Intent" timestamp="2022-01-24T10:43:48" tests="6" time="68.9490" failures="3">
+    <testcase name="Test Case - 2: Intent Test Case: Intents hinzufuegen" time="26.8880" classname="Test Case: Intents hinzufuegen">
+    </testcase>
+    <testcase name="Test Case - 2: Intent Test Case: Intent bearbeiten" time="7.3520" classname="Test Case: Intent bearbeiten">
+    </testcase>
+    <testcase name="Test Case - 2: Intent Test Case: Intent suchen" time="4.8070" classname="Test Case: Intent suchen">
+    </testcase>
+    <testcase name="Test Case - 2: Intent Test Case: Intent Example hinzufuegen" time="0.0000" classname="Test Case: Intent Example hinzufuegen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `td:nth-child(2)`, but never found it. Queried from element: &lt;tr.v-data-table__empty-wrapper&gt;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `td:nth-child(2)`, but never found it. Queried from element: <tr.v-data-table__empty-wrapper>
+    at intentExampleHinzufuegen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8126:39)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7389:23)]]></failure>
+    </testcase>
+    <testcase name="Test Case - 2: Intent Test Case: Intent Example Suchen" time="0.0000" classname="Test Case: Intent Example Suchen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `td:nth-child(2)`, but never found it. Queried from element: &lt;tbody&gt;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `td:nth-child(2)`, but never found it. Queried from element: <tbody>
+    at intentExampleSuchen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8175:6)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7392:23)]]></failure>
+    </testcase>
+    <testcase name="Test Case - 2: Intent Test Case: Intent Example Loeschen" time="0.0000" classname="Test Case: Intent Example Loeschen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `[data-cy=&quot;createIntentExampleButton&quot;]`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy="createIntentExampleButton"]`, but never found it.
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8233:14)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case - 3: Mocking Network Response " timestamp="2022-01-24T10:44:57" tests="1" time="2.1920" failures="0">
+    <testcase name="Test Case - 3: Mocking Network Response  Test Case 4: Mocking Network Response" time="2.2150" classname="Test Case 4: Mocking Network Response">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case 5: Entity" timestamp="2022-01-24T10:44:59" tests="3" time="38.2780" failures="0">
+    <testcase name="Test Case 5: Entity Entity Hinzufuegen" time="23.5910" classname="Entity Hinzufuegen">
+    </testcase>
+    <testcase name="Test Case 5: Entity Entity Suchen" time="2.8250" classname="Entity Suchen">
+    </testcase>
+    <testcase name="Test Case 5: Entity Entity Bearbeiten" time="11.7810" classname="Entity Bearbeiten">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case 6: Slot" timestamp="2022-01-24T10:45:38" tests="4" time="44.9180" failures="4">
+    <testcase name="Test Case 6: Slot Slot Hinzufuegen" time="0.0000" classname="Slot Hinzufuegen">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;td.text-start&gt;&apos; to have text &apos; initial: „example Text242“ &apos;, but the text was &apos; 24.01.2022 02:45 &apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<td.text-start>' to have text ' initial: „example Text242“ ', but the text was ' 24.01.2022 02:45 '
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:9106:164)]]></failure>
+    </testcase>
+    <testcase name="Test Case 6: Slot Slot Bearbeiten" time="0.0000" classname="Slot Bearbeiten">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `[class=&quot;v-input pb-6 v-input--has-state v-input--is-focused theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined error--text&quot;]`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `[class="v-input pb-6 v-input--has-state v-input--is-focused theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined error--text"]`, but never found it.
+    at slots.slotBearbeiten (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:9698:8)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7461:18)]]></failure>
+    </testcase>
+    <testcase name="Test Case 6: Slot Slot Suchen" time="0.0000" classname="Slot Suchen">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;tr.v-data-table__empty-wrapper&gt;&apos; to contain &apos;weather&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<tr.v-data-table__empty-wrapper>' to contain 'weather'
+    at slots.slotSuchen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:10070:32)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7464:18)]]></failure>
+    </testcase>
+    <testcase name="Test Case 6: Slot Slot Loeschen" time="0.0000" classname="Slot Loeschen">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;td.text-start&gt;&apos; not to have text &apos;DummyValue242&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<td.text-start>' not to have text 'DummyValue242'
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:10110:25)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case 7: Synonyms" timestamp="2022-01-24T10:46:23" tests="4" time="117.2920" failures="0">
+    <testcase name="Test Case 7: Synonyms Test Case: Synonym Anlegen" time="17.7260" classname="Test Case: Synonym Anlegen">
+    </testcase>
+    <testcase name="Test Case 7: Synonyms Test Case: Synonym Bearbeiten" time="82.4800" classname="Test Case: Synonym Bearbeiten">
+    </testcase>
+    <testcase name="Test Case 7: Synonyms Test Case: Synonym Loeschen" time="10.5540" classname="Test Case: Synonym Loeschen">
+    </testcase>
+    <testcase name="Test Case 7: Synonyms Test Case: Synonym Suchen" time="5.9700" classname="Test Case: Synonym Suchen">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Case 8: Rules" timestamp="2022-01-24T10:48:20" tests="4" time="30.2610" failures="4">
+    <testcase name="Test Case 8: Rules Test Case: Rules Anlegen" time="0.0000" classname="Test Case: Rules Anlegen">
+      <failure message="`cy.type()` failed because it requires a valid typeable element.
+
+The element typed into was:
+
+  &gt; `&lt;div class=&quot;lines-content monaco-editor-background&quot; style=&quot;position: absolute; overflow: hidden; width: 1e+06px; height: 1e+06px; transform: translate3d(0px, 0px, 0px); contain: strict; top: 0px; left: 0px;&quot;&gt;...&lt;/div&gt;`
+
+  A typeable element matches one of the following selectors:
+  `a[href]`
+  `area[href]`
+  `input`
+  `select`
+  `textarea`
+  `button`
+  `iframe`
+  `[tabindex]`
+  `[contenteditable]`
+
+https://on.cypress.io/type" type="CypressError"><![CDATA[CypressError: `cy.type()` failed because it requires a valid typeable element.
+
+The element typed into was:
+
+  > `<div class="lines-content monaco-editor-background" style="position: absolute; overflow: hidden; width: 1e+06px; height: 1e+06px; transform: translate3d(0px, 0px, 0px); contain: strict; top: 0px; left: 0px;">...</div>`
+
+  A typeable element matches one of the following selectors:
+  `a[href]`
+  `area[href]`
+  `input`
+  `select`
+  `textarea`
+  `button`
+  `iframe`
+  `[tabindex]`
+  `[contenteditable]`
+
+https://on.cypress.io/type
+    at http://localhost/__cypress/runner/cypress_runner.js:154084:84
+    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13196:23)
+    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:11131:31)
+    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11188:18)
+    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11233:10)
+    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11313:18)
+    at _drainQueueStep (http://localhost/__cypress/runner/cypress_runner.js:7903:12)
+    at _drainQueue (http://localhost/__cypress/runner/cypress_runner.js:7896:9)
+    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7912:5)
+    at Async.drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7782:14)
+From Your Spec Code:
+    at rulesAnlegen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8481:47)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7530:20)]]></failure>
+    </testcase>
+    <testcase name="Test Case 8: Rules Test Case: Rules Bearbeiten" time="0.0000" classname="Test Case: Rules Bearbeiten">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `td:nth-child(3)`, but never found it. Queried from element: &lt;tr.v-data-table__empty-wrapper&gt;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `td:nth-child(3)`, but never found it. Queried from element: <tr.v-data-table__empty-wrapper>
+    at rulesBearbeiten (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8740:40)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7533:20)]]></failure>
+    </testcase>
+    <testcase name="Test Case 8: Rules Test Case: Rules Suchen" time="0.0000" classname="Test Case: Rules Suchen">
+      <failure message="Timed out retrying after 4000ms: Expected to find content: &apos;Action&apos; within the element: &lt;div#list-229.v-list.v-select-list.v-sheet.theme--light.v-list--dense.theme--light&gt; but never did." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Action' within the element: <div#list-229.v-list.v-select-list.v-sheet.theme--light.v-list--dense.theme--light> but never did.
+    at rulesSuchen (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8895:129)
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:7536:20)]]></failure>
+    </testcase>
+    <testcase name="Test Case 8: Rules Test Case: Rules Loeschen" time="0.0000" classname="Test Case: Rules Loeschen">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `td:nth-child(4)`, but never found it. Queried from element: &lt;tr.v-data-table__empty-wrapper&gt;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `td:nth-child(4)`, but never found it. Queried from element: <tr.v-data-table__empty-wrapper>
+    at Context.eval (http://localhost/__cypress/tests?p=cypress/integration/End2EndTest.spec.js:8960:100)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
