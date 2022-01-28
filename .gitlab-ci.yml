@@ -47,8 +47,8 @@ before_script:
   # - echo "$SSH_PRIVATE
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker-compose up -d
+  #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  #- docker-compose up -d
 
 buildJob:
   stage: build
@@ -56,18 +56,19 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  only:
-    - merge_requests
+  #only:
+  #  - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 
 testJob:
-  #image: $ARTIFACT_ROOT$IMAGE_PATH
+  image: $ARTIFACT_ROOT$IMAGE_PATH
   stage: test
   script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
+    - docker-compose up -d
+    #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     - npm config set proxy $http_proxy
     - npm config get proxy
     - npm config set https-proxy $http_proxy
