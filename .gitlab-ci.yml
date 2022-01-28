@@ -51,14 +51,14 @@ before_script:
   #- docker-compose up -d
 
 buildJob:
-  image: tmaier/docker-compose:latest
+  #image: tmaier/docker-compose:latest
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  only:
-    - merge_requests
+  #only:
+  #  - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
