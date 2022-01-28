@@ -22,4 +22,4 @@ RUN npm install
 
 #RUN npm run CyTest
 
-RUN npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
+#RUN npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
