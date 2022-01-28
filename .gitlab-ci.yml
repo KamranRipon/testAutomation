@@ -65,11 +65,12 @@ buildJob:
   #     when: always
 
 testJob:
-  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  #image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   stage: test
   script:
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
+    - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     - docker-compose up -d
-    #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     - npm config set proxy $http_proxy
     - npm config get proxy
     - npm config set https-proxy $http_proxy
