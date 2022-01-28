@@ -41,7 +41,7 @@ variables:
   #- docker-compose up -d
 
 buildJob:
-  image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
+  #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   retry: 2
   stage: build
   script:
