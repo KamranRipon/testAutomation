@@ -16,7 +16,7 @@ variables:
 
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,http://localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
-  IMAGE_PATH: "/conplat/cci/e2e-tests"
+  IMAGE_PATH: "/conplat/cci/tests"
   CONTAINER_NAME: "cci-frontend"
 
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
@@ -47,8 +47,8 @@ buildJob:
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME .
-  - docker push $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
+  - docker push $ARTIFACT_ROOT$IMAGE_PATH
   #only:
   #  - merge_requests
   #  - schedules
@@ -58,11 +58,11 @@ buildJob:
 
 testJob:
   stage: test
-  #image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
+  image: $ARTIFACT_ROOT$IMAGE_PATH
+  #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
-    - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
+    #- docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     - docker-compose up -d
   
   script:
