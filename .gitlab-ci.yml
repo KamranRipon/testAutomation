@@ -54,7 +54,7 @@ buildJob:
   stage: build
   script:
   #- docker build -t $tag_latest .
-  - sudo docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
+  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   #only:
   #- merge_requests
   #  - schedules
