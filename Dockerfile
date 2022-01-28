@@ -1,5 +1,5 @@
-#FROM cypress/base:10.18.0
-FROM docker.artifactory-extern.dataport.de/cypress/base:10.18.0
+FROM cypress/base:10.18.0
+#FROM docker.artifactory-extern.dataport.de/cypress/base:10.18.0
 
 #ENV http_proxy="http://wall.lit.hamburg.de:80/"
 #ENV https_proxy="http://wall.lit.hamburg.de:80/"
