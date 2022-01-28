@@ -49,8 +49,8 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
@@ -58,7 +58,7 @@ buildJob:
 
 testJob:
   stage: test
-  image: $ARTIFACT_ROOT$IMAGE_PATH
+  image: $ARTIFACT_ROOT$IMAGE_PATH:latest
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
