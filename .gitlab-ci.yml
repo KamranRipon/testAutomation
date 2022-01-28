@@ -71,7 +71,7 @@ testJob:
     #- npm config set https-proxy $http_proxy
     #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
     #- npm init -y
-    #- npm install cypress
+    - npm install cypress
     - npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
