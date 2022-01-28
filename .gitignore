@@ -1,2 +1,7 @@
 node_modules
 .git
+**/**/venv/
+cypress/results
+output.html
+*.pyc
+**/**/__pycache__
