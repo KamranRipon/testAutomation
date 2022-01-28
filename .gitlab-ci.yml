@@ -38,7 +38,7 @@ before_script:
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  #- docker-compose up -d
+  - docker-compose up -d
 
 buildJob:
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
