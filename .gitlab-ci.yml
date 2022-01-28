@@ -10,19 +10,15 @@ stages:
 #   - docker:dind
 
 variables:
-  
   http_proxy: "http://10.61.16.6:3128"
   https_proxy: "http://10.61.16.6:3128"
-
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,http://localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
   IMAGE_PATH: "/conplat/cci/endtoendtests"
   CONTAINER_NAME: "cci-frontend"
-
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
   TAGNAME: cci-e2e
-
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
@@ -37,13 +33,16 @@ before_script:
   # - echo "$SSH_PRIVATE
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker-compose up -d
+  # - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  # - docker-compose up -d
 
 buildJob:
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   retry: 2
   stage: build
+  before_script:
+  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  - docker-compose up -d
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
@@ -62,8 +61,7 @@ testJob:
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     #- docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
-    - docker-compose up -d
-  
+    #- docker-compose up -d
   script:
     #- npm config set proxy $http_proxy
     #- npm config get proxy
