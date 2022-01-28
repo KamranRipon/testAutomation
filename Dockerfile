@@ -15,4 +15,4 @@ RUN $(npm bin)/cypress verify
 
 # RUN $(npm bin)/cypress run  --browser electron
 
-RUN npm run Cy_test
+RUN npm run CyTest
