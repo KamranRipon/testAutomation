@@ -56,18 +56,23 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 
 testJob:
-  #image: $ARTIFACT_ROOT$IMAGE_PATH
+  image: $ARTIFACT_ROOT$IMAGE_PATH
   stage: test
   script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
+    - npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
+    - npm config set proxy $http_proxy
+    - npm config set https-proxy $http_proxy
+    - npm init -y
+    - npm install cypress
+    # - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     - npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
