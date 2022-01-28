@@ -28,7 +28,7 @@ RUN apt-get update -y \
     libasound2 \
     libxtst6 \
     xauth \
-    xvfb \
+    xvfb
 
 
 RUN npm install
