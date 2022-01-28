@@ -48,8 +48,8 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
@@ -63,11 +63,11 @@ testJob:
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
   script:
-    - npm config set proxy $http_proxy
-    - npm config get proxy
-    - npm config set https-proxy $http_proxy
-    - npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
-    - npm init -y
+    #- npm config set proxy $http_proxy
+    #- npm config get proxy
+    #- npm config set https-proxy $http_proxy
+    #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
+    #- npm init -y
     - npm install cypress
     - npm install 
     - npm run CyTest
