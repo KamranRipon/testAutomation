@@ -62,13 +62,14 @@ testJob:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
+  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   script:
     #- npm config set proxy $http_proxy
     #- npm config get proxy
     #- npm config set https-proxy $http_proxy
     #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
     #- npm init -y
-    - npm install cypress
+    #- npm install cypress
     - npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
