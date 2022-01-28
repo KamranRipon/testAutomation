@@ -56,10 +56,9 @@ buildJob:
   #     when: always
 
 testJob:
-  
   stage: test
-  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  script:
+  #image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
