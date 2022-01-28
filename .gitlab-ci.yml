@@ -1,13 +1,12 @@
 #image: docker.artifactory-extern.dataport.de/node:16
+image: tmaier/docker-compose:latest
 
 stages:
   - build
   - test
 
-image: tmaier/docker-compose:latest
-
-#services:
-#  - docker:dind
+services:
+  - docker:dind
 
 variables:
   
@@ -16,7 +15,7 @@ variables:
 
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,http://localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
-  IMAGE_PATH: "/conplat/cci/endtoend/tests"
+  IMAGE_PATH: "/conplat/cci/endtoendtests"
   CONTAINER_NAME: "cci-frontend"
 
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
@@ -42,8 +41,8 @@ variables:
   #- docker-compose up -d
 
 buildJob:
-  #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
-  
+  image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
+  retry: 2
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
@@ -57,8 +56,8 @@ buildJob:
   #     when: always
 
 testJob:
-  stage: test
   image: $ARTIFACT_ROOT$IMAGE_PATH
+  stage: test
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
@@ -71,8 +70,8 @@ testJob:
     #- npm config set https-proxy $http_proxy
     #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
     #- npm init -y
-    - npm install cypress
-    - npm install 
+    #- npm install cypress
+    #- npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
