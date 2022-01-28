@@ -58,7 +58,7 @@ buildJob:
 
 testJob:
   stage: test
-  image: $ARTIFACT_ROOT$IMAGE_PATH:latest
+  image: $ARTIFACT_ROOT$IMAGE_PATH
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
