@@ -32,7 +32,6 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
-
 # cache:
 #   key: ${CI_COMMIT_REF_SLUG}
 #   paths:
