@@ -43,7 +43,7 @@ variables:
 
 buildJob:
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
-  image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
+  
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
@@ -59,8 +59,9 @@ buildJob:
 testJob:
   stage: test
   #image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
-    - sudo docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
   
