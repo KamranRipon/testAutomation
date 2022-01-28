@@ -1,3 +1,7 @@
+stages:
+  - build
+  - test
+  
 image: tmaier/docker-compose:latest
 
 #services:
@@ -25,9 +29,6 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
-stages:
-  - build
-  - test
 
 # cache:
 #   key: ${CI_COMMIT_REF_SLUG}
