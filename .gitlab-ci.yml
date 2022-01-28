@@ -26,7 +26,7 @@ variables:
 
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
-  TAGNAME: cci-e2e:latest
+  TAGNAME: cci-e2e
 
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2375
