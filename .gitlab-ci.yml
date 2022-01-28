@@ -40,14 +40,14 @@ variables:
 
 before_script:
   # docker informations
-  - docker info
+  #- docker info
   # Setup SSH deploy keys
   # - 'which ssh-agent || ( apt-get install -qq openssh-client )'
   # - eval $(ssh-agent -s)
   # - echo "$SSH_PRIVATE
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   #- docker-compose up -d
 
 buildJob:
