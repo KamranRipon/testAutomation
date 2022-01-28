@@ -340,11 +340,11 @@ describe ('Test Case 9: Responses', () => {
         onResponses.responseBearbeiten()
     })
 
-    it('Test Case: Response Texte Anlegen', () => {
+    it.only('Test Case: Response Texte Anlegen', () => {
         onResponses.responseTexteAnlegen()
     })
 
-    it.only('Test Case: Response Texte Anlegen', () => {
+    it.only('Test Case: Response Texte Bearbeiten', () => {
         onResponses.responseTexteBearbeiten()
     })
 })
