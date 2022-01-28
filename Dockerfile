@@ -17,8 +17,8 @@ COPY . /app
 
 RUN npm install
 
-RUN $(npm bin)/cypress verify
+#RUN $(npm bin)/cypress verify
 
 # RUN $(npm bin)/cypress run  --browser electron
 
-RUN npm run CyTest
+#RUN npm run CyTest
