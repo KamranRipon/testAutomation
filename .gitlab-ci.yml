@@ -1,12 +1,13 @@
 #image: docker.artifactory-extern.dataport.de/node:16
-image: tmaier/docker-compose:latest
+#image: tmaier/docker-compose:latest
+image: docker.artifactory-extern.dataport.de/docker:19.03.0-dind
 
 stages:
   - build
   - test
 
-services:
-  - docker:dind
+# services:
+#   - docker:dind
 
 variables:
   
@@ -26,7 +27,6 @@ variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
-
 
 before_script:
   # docker informations
@@ -48,8 +48,8 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  only:
-    - merge_requests
+  #only:
+  #  - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
