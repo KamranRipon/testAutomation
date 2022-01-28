@@ -56,8 +56,8 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  only:
-  - merge_requests
+  #only:
+  #  - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
@@ -68,7 +68,6 @@ testJob:
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH && docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
-
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
