@@ -630,16 +630,17 @@ export class intent {
                     .click()
 
                 // Save Intent Name for letar Assertion
-                cy.get('[class="v-text-field__slot"]').eq(0).find('[data-cy="intent-name"]').invoke('val').as('name')
+                cy.get('[class="v-text-field__slot"]').eq(0)
+                    .find('[data-cy="intent-name"]')
+                        .invoke('val').as('name')
                     
-                    cy.get('@name').then((name1) => {
+                cy.get('@name').then((name1) => {
 
-                      cy.log(name1) //prints name
+                    cy.log(name1) //prints name
 
-                      inName = name1
-
-                      cy.log(inName)
-                    })
+                    inName = name1
+                    cy.log(inName)
+                })
 
         // Entering to Example Tab
         cy.get('.v-slide-group__wrapper')

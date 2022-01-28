@@ -5,6 +5,7 @@ import { onLogin } from "../support/page_objects/Login"
 import { onSlot } from "../support/page_objects/Slot"
 import { onSynonym } from "../support/page_objects/Synonyms"
 import { onRules } from "../support/page_objects/Rules"
+import { onResponses } from "../support/page_objects/Responses"
 
 const { method } = require("bluebird")
 const { capitalize } = require("lodash")
@@ -96,7 +97,7 @@ describe ('Test Case - 2: Intent', () => {
         cy.wait(1000)
     })
 
-    it('Test Case: Intents hinzufuegen', () => {
+    it.only('Test Case: Intents hinzufuegen', () => {
         onIntent.intents()
         //onFrontend.Entities()
     })
@@ -317,5 +318,33 @@ describe ('Test Case 8: Rules', () => {
 
     it('Test Case: Rules Loeschen', () => {
         onRules.rulesLoeschen()
+    })
+})
+
+describe ('Test Case 9: Responses', () => {
+
+    beforeEach('visit url', () => {
+
+        //cy.login('admin', 'cciAdmin#2022+')
+        
+        cy.visit('/')
+        loginiFunction('admin', 'cciAdmin#2022+')
+        
+    })
+
+    it('Test Case: Response Anlegen', () => {
+        onResponses.responseAnlegen()
+    })
+
+    it('Test Case: Response Bearbeiten', () => {
+        onResponses.responseBearbeiten()
+    })
+
+    it('Test Case: Response Texte Anlegen', () => {
+        onResponses.responseTexteAnlegen()
+    })
+
+    it.only('Test Case: Response Texte Anlegen', () => {
+        onResponses.responseTexteBearbeiten()
     })
 })
