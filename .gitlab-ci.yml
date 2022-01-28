@@ -1,3 +1,5 @@
+image: docker.artifactory-extern.dataport.de/node:16
+
 stages:
   - build
   - test
