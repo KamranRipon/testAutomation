@@ -54,8 +54,8 @@ buildJob:
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  - docker push $ARTIFACT_ROOT$IMAGE_PATH
+  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME .
+  - docker push $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   #only:
   #  - merge_requests
   #  - schedules
