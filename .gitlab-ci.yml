@@ -2,7 +2,7 @@ stages:
   - build
   - test
 
-image: tmaier/docker-compose:latest
+#image: tmaier/docker-compose:latest
 
 #services:
 #  - docker:dind
@@ -11,13 +11,6 @@ variables:
   
   http_proxy: "http://10.61.16.6:3128"
   https_proxy: "http://10.61.16.6:3128"
-
-
-  # HTTP_PROXY: "http://wall.lit.hamburg.de:80/"
-  # HTTPS_PROXY: "http://wall.lit.hamburg.de:80/"
-
-  # http_proxy: "http://wall.lit.hamburg.de:80/"
-  # https_proxy: "http://wall.lit.hamburg.de:80/"
 
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,http://localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
@@ -33,25 +26,21 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
-# cache:
-#   key: ${CI_COMMIT_REF_SLUG}
-#   paths:
-#     - .npm
 
-before_script:
+#before_script:
   # docker informations
-  - docker info
+#  - docker info
   # Setup SSH deploy keys
   # - 'which ssh-agent || ( apt-get install -qq openssh-client )'
   # - eval $(ssh-agent -s)
   # - echo "$SSH_PRIVATE
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+#  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   #- docker-compose up -d
 
 buildJob:
-  #image: tmaier/docker-compose:latest
+  image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
@@ -65,12 +54,14 @@ buildJob:
   #     when: always
 
 testJob:
-  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
+  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  script:
     - npm config set proxy $http_proxy
     - npm config get proxy
     - npm config set https-proxy $http_proxy
