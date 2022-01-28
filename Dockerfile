@@ -14,6 +14,8 @@ WORKDIR /app
 
 COPY . /app
 
+RUN npm install cypress
+
 RUN npm install
 
 RUN $(npm bin)/cypress verify
