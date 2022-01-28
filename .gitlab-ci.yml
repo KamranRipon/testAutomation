@@ -26,7 +26,7 @@ variables:
 
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
-  tag_latest: cci-e2e:latest
+  TAGNAME: cci-e2e:latest
 
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2375
@@ -54,7 +54,7 @@ buildJob:
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
+  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
   #only:
   #  - merge_requests
@@ -64,7 +64,7 @@ buildJob:
   #     when: always
 
 testJob:
-  image: $ARTIFACT_ROOT$IMAGE_PATH
+  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   stage: test
   script:
     - docker-compose up -d
