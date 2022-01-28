@@ -57,15 +57,15 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 
 testJob:
-  #image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
