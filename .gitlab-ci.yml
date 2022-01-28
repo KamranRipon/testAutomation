@@ -1,7 +1,7 @@
 image: tmaier/docker-compose:latest
 
-services:
-  - docker:dind
+#services:
+#  - docker:dind
 
 variables:
   
@@ -16,10 +16,10 @@ variables:
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
   #tag_latest: cabo:latest
 
-DOCKER_DRIVER: overlay2
-DOCKER_HOST: tcp://docker:2375
-DOCKER_TLS_CERTDIR: ""
-DOCKER_URL: "docker.artifactory-extern.dataport.de"
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
 stages:
   - build
