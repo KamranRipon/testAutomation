@@ -14,7 +14,7 @@ variables:
 
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
-  tag_latest: cabo:latest
+  #tag_latest: cabo:latest
 
 
 
