@@ -59,7 +59,7 @@ buildJob:
   #     when: always
 
 testJob:
-  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests/
+  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests:latest
   stage: test
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
