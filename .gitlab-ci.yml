@@ -39,7 +39,8 @@ before_script:
   # - echo "$SSH_PRIVATE
   # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   # - docker stack rm $tag_latest
-  - sudo docker-compose up -d
+  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  - docker-compose up -d
 
 buildJob:
   stage: build
