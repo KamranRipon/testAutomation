@@ -2,7 +2,7 @@ stages:
   - build
   - test
 
-image: tmaier/docker-compose:latest
+#image: tmaier/docker-compose:latest
 
 #services:
 #  - docker:dind
@@ -51,6 +51,7 @@ before_script:
   #- docker-compose up -d
 
 buildJob:
+  image: tmaier/docker-compose:latest
   stage: build
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
