@@ -1,10 +1,10 @@
-#image: docker.artifactory-extern.dataport.de/node:16
+image: docker.artifactory-extern.dataport.de/node:16
 
 stages:
   - build
   - test
 
-image: tmaier/docker-compose:latest
+#image: tmaier/docker-compose:latest
 
 #services:
 #  - docker:dind
@@ -62,7 +62,7 @@ testJob:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME ;
     - docker-compose up -d
-  image: $ARTIFACT_ROOT$IMAGE_PATH:$TAGNAME
+  
   script:
     #- npm config set proxy $http_proxy
     #- npm config get proxy
