@@ -63,6 +63,7 @@ buildJob:
   #     when: always
 
 testJob:
+  image: $ARTIFACT_ROOT$IMAGE_PATH:latest
   stage: test
   script:
     - npm run CyTest
