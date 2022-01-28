@@ -12,7 +12,7 @@ stages:
 variables:
   http_proxy: "http://10.61.16.6:3128"
   https_proxy: "http://10.61.16.6:3128"
-  NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,http://localhost:80"
+  NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
   IMAGE_PATH: "/conplat/cci/endtoendtests"
   CONTAINER_NAME: "cci-frontend"
@@ -23,6 +23,11 @@ variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
 
 before_script:
   # docker informations
@@ -41,20 +46,20 @@ buildJob:
   stage: build
   before_script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker-compose up -d
+  #- docker-compose up -d
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 
 testJob:
-  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
+  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests/
   stage: test
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
@@ -67,8 +72,8 @@ testJob:
     #- npm config set https-proxy $http_proxy
     #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
     #- npm init -y
-    #- npm install cypress
-    #- npm install 
+    - npm install cypress
+    - npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
