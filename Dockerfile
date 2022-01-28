@@ -20,3 +20,5 @@ RUN npm install
 # RUN $(npm bin)/cypress run  --browser electron
 
 #RUN npm run CyTest
+
+RUN npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
