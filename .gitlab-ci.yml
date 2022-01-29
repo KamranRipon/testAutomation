@@ -49,7 +49,7 @@ buildJob:
   - docker-compose up -d
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
+  - docker build -f Dockerfile -t $ARTIFACT_ROOT$IMAGE_PATH .
   #- docker push $ARTIFACT_ROOT$IMAGE_PATH
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
   #only:
