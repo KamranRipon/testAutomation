@@ -52,24 +52,24 @@ buildJob:
   - docker build -f Dockerfile -t $ARTIFACT_ROOT$IMAGE_PATH .
   #- docker push $ARTIFACT_ROOT$IMAGE_PATH
   - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  #only:
-  #  - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 
-  artifacts:
-    paths:
-      - build/
+  # artifacts:
+  #   paths:
+  #     - build/
 
 testJob:
-  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
+  #image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
   stage: test
   #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
-    #- docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
+    - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
     #- npm config set proxy $http_proxy
