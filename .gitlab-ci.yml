@@ -46,7 +46,7 @@ buildJob:
   stage: build
   before_script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  #- docker-compose up -d
+  - docker-compose up -d
   script:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
@@ -58,6 +58,10 @@ buildJob:
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
+
+  artifacts:
+    paths:
+      - build/
 
 testJob:
   image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
