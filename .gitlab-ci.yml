@@ -51,7 +51,7 @@ buildJob:
   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
   - docker build -t $ARTIFACT_ROOT$IMAGE_PATH .
   #- docker push $ARTIFACT_ROOT$IMAGE_PATH
-  - buildsh push --creds $CONPLAT_ARTIFACTORY_USER:$CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH
+  - docker push $ARTIFACT_ROOT$IMAGE_PATH
   #only:
   #  - merge_requests
   #  - schedules
