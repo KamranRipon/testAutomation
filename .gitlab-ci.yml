@@ -45,15 +45,14 @@ buildJob:
   image: tmaier/docker-compose:latest
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
-  before_script:
-     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-     - docker-compose up -d
-     - sleep 30
+  # before_script:
+  #    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  #    - docker-compose up -d
+  #    - sleep 30
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
-    - docker push $ARTIFACT_ROOT$IMAGE_PATH
-    
+    - docker push $ARTIFACT_ROOT$IMAGE_PATH 
   only:
     - merge_requests
   #  - schedules
@@ -61,7 +60,7 @@ buildJob:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 testJob:
-  image: akash062/cci:$TAGNAME
+  image: akash062/cci
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
@@ -76,7 +75,7 @@ testJob:
     # - docker cp myContainer:/app/cypress/results/junit/
     #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d
-    #- sleep 30
+    - sleep 30
     - npm install cypress
     - npm install
     - npm run cypress:run
