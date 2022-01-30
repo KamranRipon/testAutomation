@@ -97,7 +97,7 @@ describe ('Test Case - 2: Intent', () => {
         cy.wait(1000)
     })
 
-    it.only('Test Case: Intents hinzufuegen', () => {
+    it('Test Case: Intents hinzufuegen', () => {
         onIntent.intents()
         //onFrontend.Entities()
     })
@@ -332,11 +332,11 @@ describe ('Test Case 9: Responses', () => {
         
     })
 
-    it('Test Case: Response Anlegen', () => {
+    it.only('Test Case: Response Anlegen', () => {
         onResponses.responseAnlegen()
     })
 
-    it('Test Case: Response Bearbeiten', () => {
+    it.only('Test Case: Response Bearbeiten', () => {
         onResponses.responseBearbeiten()
     })
 

@@ -58,19 +58,16 @@ buildJob:
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
-  artifacts:
-    paths:
-        - ./public
-
 testJob:
-  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
+  image: tmaier/docker-compose:latest
   stage: test
-  before_script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
-    - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
+  # before_script:
+  #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
+  #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
-    - npm run CyTest
+    - ./docker-build.sh
+    #- npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
     # - docker cp myContainer:/app/cypress/results/junit/
