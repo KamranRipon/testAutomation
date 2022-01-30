@@ -16,6 +16,8 @@ WORKDIR /app
 
 COPY . /app
 
+RUN apt  install docker
+
 RUN apt-get update -y \
     && apt-get install curl -y \
     && apt-get install -y \
