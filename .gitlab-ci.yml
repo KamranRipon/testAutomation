@@ -66,6 +66,7 @@ testJob:
   #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
+    - npm install
     - chmod u+r+x runCytest.sh
     - ./runCytest.sh
     #- npm run CyTest
