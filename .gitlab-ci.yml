@@ -66,6 +66,7 @@ testJob:
   #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
+    - chmod u+r+x runCytest.sh
     - ./runCytest.sh
     #- npm run CyTest
     # - docker stop myContainer && docker rm myContainer
