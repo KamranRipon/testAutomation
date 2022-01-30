@@ -68,7 +68,7 @@ testJob:
   script:
     - ssh
       "
-      bash ./docker-build.sh
+      bash docker-build.sh
       "
     #- npm run CyTest
     # - docker stop myContainer && docker rm myContainer
