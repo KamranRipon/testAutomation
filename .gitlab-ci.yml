@@ -61,10 +61,11 @@ buildJob:
 testJob:
   image: tmaier/docker-compose:latest
   stage: test
-  # before_script:
+  before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
   #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
+    - npm install
   script:
     #- chmod u+r+x runCytest.sh
     #- ./runCytest.sh
