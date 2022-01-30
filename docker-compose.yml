@@ -8,9 +8,3 @@ services:
   frontend:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/frontend
-  testEnv:
-    network_mode: host
-    image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
-  dependencies:
-    image: node:lts
-    command: npm install

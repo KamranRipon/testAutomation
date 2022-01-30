@@ -1,4 +1,4 @@
-#image: docker.artifactory-extern.dataport.de/node:16
+image: docker.artifactory-extern.dataport.de/node:16
 #image: tmaier/docker-compose:latest
 #image: docker.artifactory-extern.dataport.de/docker:19.03.0-dind
 
@@ -45,13 +45,16 @@ buildJob:
   image: tmaier/docker-compose:latest
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
-  before_script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - docker-compose up -d
+  # before_script:
+  #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  #   - docker-compose up -d
   script:
+    - npm install
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker build -f Dockerfile -t $ARTIFACT_ROOT$IMAGE_PATH .
     - docker push $ARTIFACT_ROOT$IMAGE_PATH
+    - docker-compose up -d
+    - sleep 20
     - npm run cypress:run
   #only:
   #  - merge_requests
@@ -59,7 +62,6 @@ buildJob:
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
-  
 testJob:
   image: $ARTIFACT_ROOT$IMAGE_PATH
   stage: test
