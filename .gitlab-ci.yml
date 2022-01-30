@@ -45,7 +45,7 @@ buildJob:
   image: tmaier/docker-compose:latest
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
-  # before_script:
+  before_script:
      - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
      - docker-compose up -d
      - sleep 30
