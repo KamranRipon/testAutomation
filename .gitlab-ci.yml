@@ -1,4 +1,4 @@
-image: docker.artifactory-extern.dataport.de/node:16
+#image: docker.artifactory-extern.dataport.de/node:16
 #image: tmaier/docker-compose:latest
 #image: docker.artifactory-extern.dataport.de/docker:19.03.0-dind
 
