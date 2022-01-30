@@ -11,3 +11,5 @@ services:
   testEnv:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
+  dependencies:
+    image: node:lts
