@@ -74,7 +74,7 @@ testJob:
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
     # - docker cp myContainer:/app/cypress/results/junit/
     #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - sudo docker-compose up -d
+    - docker-compose up -d
     - sleep 30
     - docker pull akash062/cci
     - npm install cypress
