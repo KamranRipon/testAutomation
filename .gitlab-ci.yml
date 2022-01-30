@@ -72,7 +72,7 @@ testJob:
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
     # - docker cp myContainer:/app/cypress/results/junit/
-    - node -v
+    - apt-get install node -y
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d
     - sleep 30
