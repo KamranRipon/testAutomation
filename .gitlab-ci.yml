@@ -66,7 +66,7 @@ testJob:
   #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
-    - bash docker-build.sh
+    - docker-build.sh
     #- npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
