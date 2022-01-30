@@ -42,7 +42,7 @@ before_script:
   # - docker-compose up -d
 
 buildJob:
-  image: node
+  image: tmaier/docker-compose:latest
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
   before_script:
@@ -63,7 +63,7 @@ buildJob:
         - ./public
 
 testJob:
-  #image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
+  image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
   stage: test
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
