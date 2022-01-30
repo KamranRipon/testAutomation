@@ -59,16 +59,19 @@ buildJob:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
 testJob:
-  image: docker
+  image: node
   stage: test
   # before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
   #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
-    - chmod u+r+x runCytest.sh
-    - ./runCytest.sh
+    #- chmod u+r+x runCytest.sh
+    #- ./runCytest.sh
     #- npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
     # - docker cp myContainer:/app/cypress/results/junit/
+    - docker-compose up -d
+    - sleep 30
+    - npm run cypress:run
