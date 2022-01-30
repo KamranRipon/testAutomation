@@ -1,5 +1,5 @@
 #image: docker.artifactory-extern.dataport.de/node:16
-image: tmaier/docker-compose:latest
+#image: tmaier/docker-compose:latest
 #image: docker.artifactory-extern.dataport.de/docker:19.03.0-dind
 
 stages:
@@ -24,14 +24,14 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - .npm
+# cache:
+#   key: ${CI_COMMIT_REF_SLUG}
+#   paths:
+#     - .npm
 
 before_script:
   # docker informations
-#  - docker info
+  # - docker info
   # Setup SSH deploy keys
   # - 'which ssh-agent || ( apt-get install -qq openssh-client )'
   # - eval $(ssh-agent -s)
@@ -42,43 +42,34 @@ before_script:
   # - docker-compose up -d
 
 buildJob:
+  image: node
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
   before_script:
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker-compose up -d
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    - docker-compose up -d
   script:
-  - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  - docker build -f Dockerfile -t $ARTIFACT_ROOT$IMAGE_PATH .
-  #- docker push $ARTIFACT_ROOT$IMAGE_PATH
-  - docker push $ARTIFACT_ROOT$IMAGE_PATH
-  only:
-    - merge_requests
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    - docker build -f Dockerfile -t $ARTIFACT_ROOT$IMAGE_PATH .
+    - docker push $ARTIFACT_ROOT$IMAGE_PATH
+  #only:
+  #  - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
-
-  # artifacts:
-  #   paths:
-  #     - build/
+  artifacts:
+    paths:
+        - ./public
 
 testJob:
   #image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/endtoendtests
   stage: test
-  #image: docker.artifactory-extern.dataport.de/cimg/node:16.13-browsers
   before_script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
     - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
     #- docker-compose up -d
   script:
-    #- npm config set proxy $http_proxy
-    #- npm config get proxy
-    #- npm config set https-proxy $http_proxy
-    #- npm set registry https://artifactory-extern.dataport.de:443/artifactory/api/npm/common-npm-central-development
-    #- npm init -y
-    - npm install cypress
-    - npm install 
     - npm run CyTest
     # - docker stop myContainer && docker rm myContainer
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
