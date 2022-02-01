@@ -1,4 +1,4 @@
-import { beforeEach } from "mocha"
+import { beforeEach, it } from "mocha"
 import { onIntent } from "../support/page_objects/Intents"
 import { onEntity } from "../support/page_objects/Entity"
 import { onLogin } from "../support/page_objects/Login"
@@ -49,7 +49,7 @@ describe("Test Case 1: Login", () => {
     })
 })
 
-describe ('Test Case - 1: Menu Elements', () => {
+describe ('Test Case - 2: Menu Elements', () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -80,7 +80,7 @@ describe ('Test Case - 1: Menu Elements', () => {
     })
 })
 
-describe ('Test Case - 2: Intent', () => {
+describe ('Test Case - 3: Intent', () => {
 
     // before(() => {
     //     cy.login('admin', 'cciAdmin#2022+')
@@ -218,51 +218,51 @@ describe("Test Case 6: Slot", () => {
     })
 })
 
-// describe("Test Case - 4, Testing API Endpoints", () => {
+describe("Test Case - 4, Testing API Endpoints", () => {
 
-//     // before(() => {
-//     //     cy.login('admin', 'cciAdmin#2022+')
-//     // })
+    // before(() => {
+    //     cy.login('admin', 'cciAdmin#2022+')
+    // })
 
-//     beforeEach('visit url', () => {
+    beforeEach('visit url', () => {
         
-//         cy.visit('/')
-//         //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-//         loginiFunction('admin', 'cciAdmin#2022+')
-//         //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        cy.visit('/')
+        //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+        loginiFunction('admin', 'cciAdmin#2022+')
+        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
 
-//         cy.get('[class="v-list-item__title pl-4"]')
-//             .contains('Trainingsdaten')
-//             .click()
-//     })
+        cy.get('[class="v-list-item__title pl-4"]')
+            .contains('Trainingsdaten')
+            .click()
+    })
 
-//     it.skip("Test Get Request", () => {
-//         onIntent.restApiTesting()
-//     })
-// })
+    it.skip("Test Get Request", () => {
+        onIntent.restApiTesting()
+    })
+})
 
-// describe("Test Case - 5, Backend Testing", () => {
+describe("Test Case - 5, Backend Testing", () => {
 
-//     // before(() => {
-//     //     cy.login('admin', 'cciAdmin#2022+')
-//     // })
+    // before(() => {
+    //     cy.login('admin', 'cciAdmin#2022+')
+    // })
 
-//     beforeEach('visit url', () => {
+    beforeEach('visit url', () => {
 
-//         cy.visit('/', {failOnStatusCode: false})
-//         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-//         //loginiFunction('admin', 'cciAdmin#2022+')
-//         //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
+        cy.visit('/', {failOnStatusCode: false})
+        //Cypress.Cookies.preserveOnce('session_id', 'remember_token')
+        loginiFunction('admin', 'cciAdmin#2022+')
+        //cy.get('[data-v-cd74aa12=""]').contains('Trainingsdaten').click()
 
-//         cy.get('[class="v-list-item__title pl-4"]')
-//             .contains('Trainingsdaten')
-//             .click()
-//     })
+        cy.get('[class="v-list-item__title pl-4"]')
+            .contains('Trainingsdaten')
+            .click()
+    })
     
-//     it("Get Request", () => {
-//         onIntent.backEndTesting()
-//     })
-// })
+    it.only("Get Request", () => {
+        onIntent.backEndTesting()
+    })
+})
 
 describe ('Test Case 7: Synonyms', () => {
 
@@ -325,26 +325,42 @@ describe ('Test Case 9: Responses', () => {
 
     beforeEach('visit url', () => {
 
-        //cy.login('admin', 'cciAdmin#2022+')
+        cy.login('admin', 'cciAdmin#2022+')
         
         cy.visit('/')
-        loginiFunction('admin', 'cciAdmin#2022+')
+        //loginiFunction('admin', 'cciAdmin#2022+')
         
     })
 
-    it.only('Test Case: Response Anlegen', () => {
+    it('Test Case: Response Anlegen', () => {
         onResponses.responseAnlegen()
     })
 
-    it.only('Test Case: Response Bearbeiten', () => {
+    it('Test Case: Response Bearbeiten', () => {
         onResponses.responseBearbeiten()
     })
 
-    it.only('Test Case: Response Texte Anlegen', () => {
+    it('Test Case: Response Suchen', () => {
+        onResponses.responseSuchen()
+    })
+
+    it('Test Case: Response Texte Anlegen', () => {
         onResponses.responseTexteAnlegen()
     })
 
-    it.only('Test Case: Response Texte Bearbeiten', () => {
+    it('Test Case: Response Texte Bearbeiten', () => {
         onResponses.responseTexteBearbeiten()
+    })
+
+    it('Test Case: Response Texte Suchen', () => {
+        onResponses.responseTexteSuchen()
+    })
+
+    it('Test Case: Response Texte Loeschen', () => {
+        onResponses.responseTexteLoeschen()
+    })
+
+    it('Test Case: Response Button Anlegen', () => {
+        onResponses.buttonAnlegen()
     })
 })

@@ -856,7 +856,7 @@ export class responses {
             .click({force:true})
         
         var max_val2 = 0
-        // Enter to intent table Row
+        // Enter to Response table Row
         cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
             .find('td:nth-child(2)')
             .then(($testFunc2) => {
@@ -907,6 +907,7 @@ export class responses {
             .click({force:true})
 
         // Entering to a Texte Table Row
+        cy.log('Line 910')
         cy.get('tbody')
             .find('tr')
             .find('td:nth-child(2)')
@@ -953,7 +954,7 @@ export class responses {
             .click({force:true})
 
         // Assert Successfully Saved Notification
-        cy.log('Line 942')
+        cy.log('Line 961')
         var idNr2
         cy.get('tbody')
             .find('tr')
@@ -977,7 +978,7 @@ export class responses {
         // 2.2 Assert in the Texte table
 
         // Assert in Response Texte Table
-        cy.log('Line 962')
+        cy.log('Line 981')
         cy.get('tbody')
             .find('tr')
                 .last()
@@ -988,7 +989,7 @@ export class responses {
             })
 
         // 3. Saving saves given data correctly
-        cy.log('Line 990')
+        cy.log('Line 992')
         cy.get('tbody')
             .find('tr')
             .then((tbLength) => {
@@ -1012,7 +1013,7 @@ export class responses {
             .clear()
 
         // 4. Leave site via menu or breadcrump, data must be saved
-        cy.log('Line 1015')
+        cy.log('Line 1016')
         cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
             .find('tr')
             .find('td:nth-child(1)').then((responName) => {
@@ -1038,6 +1039,7 @@ export class responses {
             .click({force:true})
 
         // enter to a Texte Row
+        cy.log('Line 1042')
         cy.get('tbody')
             .find('tr')
             .last()
@@ -1073,7 +1075,7 @@ export class responses {
         // 5. leave site via button "Abbrechen" navigates to table of synonyms and 
         //    does not save edited data
 
-        cy.log('Line 1076')
+        cy.log('Line 1078')
 
         // Selecting Entire Table
         cy.get('[class="v-select__slot"]').click()
@@ -1102,7 +1104,7 @@ export class responses {
             .click()
             .type('responseTextName')
         
-        cy.log('Line 1105')
+        cy.log('Line 1107')
         cy.get('tbody')
             .find('tr')
             .should('not.have.text', 'responseTextName')
@@ -1110,7 +1112,616 @@ export class responses {
         // clear response-table-search
         cy.get('[data-cy="responsetext-table-search"]')
             .clear()
+    }
 
+    responseTexteSuchen() {
+
+        cy.get('[class="v-list-group"]')
+            .contains('Trainingsdaten')
+            .then((Tdaten) => {
+                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                    cy.log('If Statement True')
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+                else {
+                    cy.log('If Statement False')
+
+                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                        .contains('Trainingsdaten')
+                        .click()
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+        })
+        
+        // Entering to first of
+        cy.log('Line 1143')
+        cy.wait(500)
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+        
+        var max_val2 = 0
+        // Enter to Response table Row
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+            .find('td:nth-child(2)')
+            .then(($testFunc2) => {
+                const vall2 = $testFunc2.text()
+
+                var sp_vall2 = vall2.split(" ")
+                
+                //var max_val2 = 0
+                var num2
+                for (num2=0; num2 < sp_vall2.length; num2++){
+                    
+                    if(sp_vall2[num2] > max_val2) {
+                        max_val2 = sp_vall2[num2]
+                        cy.log(max_val2)
+                    }
+                }
+
+                cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+                    .find('tr')
+                    .find('td:nth-child(2)')
+                    .contains(max_val2)
+                    .click({force:true})
+            })
+
+        // Entering to Texte Tab
+        cy.get('[class="v-slide-group__wrapper"]')
+            .contains('Texte')
+            .click()
+            .wait(500)
+                
+        // Anlegen Some Random Value to Response
+        cy.log('Line 1185')
+        const randonValue = [t, t, b]
+        cy.wrap(randonValue).each((index) => {
+
+            // Clicking Response Hinzufuegen
+            cy.get('[data-cy="responsetext-create"]')
+                .click()
+
+            cy.get('[data-cy="responsetext-text"]')
+                .click({force:true})
+                .type(index)
+
+            cy.get('[data-cy="create-button"]')
+                .click()
+        })
+        
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+                           
+        // Single Response
+        cy.get('[data-cy="responsetext-table-search"]')
+            .click({force:true})
+                .type(b)
+
+        // Assert Return Result
+        cy.log('Line 1212')
+        cy.get('tbody')
+            .find('tr')
+            .should('have.length', 1)
+            .find('td:nth-child(2)')
+            .should('have.text', b)
+        
+        // Multiple Response
+        cy.get('[data-cy="responsetext-table-search"]')
+            .clear()
+            .type(t)
+        cy.get('tbody')
+            .find('tr')
+            .should('have.length', 2)  // hard coding is not good idea
+            .find('td:nth-child(2)')
+            .should('contain', t)
+
+        // Nonexisting Response
+        cy.get('[data-cy="responsetext-table-search"]')
+            .clear()
+            .type('sky')
+                
+        cy.get('tbody')
+            .find('tr')
+            .should('contain',"")
+
+        cy.get('[data-cy="responsetext-table-search"]')
+            .clear() 
+
+    }
+
+    responseTexteLoeschen() {
+
+        cy.get('[class="v-list-group"]')
+            .contains('Trainingsdaten')
+            .then((Tdaten) => {
+                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                    cy.log('If Statement True')
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+                else {
+                    cy.log('If Statement False')
+
+                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                        .contains('Trainingsdaten')
+                        .click()
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+        })
+
+        // Entering to first of
+        cy.log('Line 1270')
+        cy.wait(500)
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+        
+        var max_val2 = 0
+        // Enter to Response table Row
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+            .find('td:nth-child(2)')
+            .then(($testFunc2) => {
+                const vall2 = $testFunc2.text()
+
+                var sp_vall2 = vall2.split(" ")
+                //var max_val2 = 0
+                var num2
+                for (num2=0; num2 < sp_vall2.length; num2++){
+                    
+                    if(sp_vall2[num2] > max_val2) {
+                        max_val2 = sp_vall2[num2]
+                        cy.log(max_val2)
+                    }
+                }
+
+                cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+                    .find('tr')
+                    .find('td:nth-child(2)')
+                    .contains(max_val2)
+                    .click({force:true})
+            })
+
+        // Save Response Name for letar Assertion
+        var resName3
+        cy.get('[class="v-text-field__slot"]')
+            .find('[data-cy="response-name"]')
+                .invoke('val')
+                    .as('name3')
+                    
+        cy.get('@name3').then((name3) => {
+          cy.log(name3) //prints name
+          resName3 = name3
+          cy.log(resName3)
+        })
+
+        // Entering to Texte Tab
+        cy.get('[class="v-slide-group__wrapper"]')
+            .contains('Texte')
+            .click()
+            //.wait(500)
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+
+        // Get the size of Texte Table ( Nr. of Row)
+        // Save Intent Name for letar Assertion
+        var nrRow, newNrRow                
+        cy.log('Line 1317')
+        cy.get('tbody')
+            .find('tr')
+            .then(function($tRowLength) {
+                nrRow = $tRowLength.length
+                cy.log(nrRow)
+            })
+        // delete a row 
+        cy.get('tbody')
+            .find('tr')
+            .last()
+            .find('[data-cy="element-delete-button"]')
+            .click({force:true})
+        
+        // Confirm delete
+        cy.get('[class="v-btn__content"]')
+            .contains('Löschen')
+            .click()
+        
+        // Assert Table length
+        cy.log('Line 1332')
+        cy.get('tbody')
+            .find('tr')
+            .then(function($NewtRowLength) {
+                //const NewnrRow = $NewtRowLength.length - 1
+                cy.log(nrRow)
+                newNrRow = nrRow -1 
+                cy.wrap($NewtRowLength).should('have.length', newNrRow)
+            })
+
+        // back to Response 
+        cy.get('[data-cy="navDrawerResponses"]')
+            .click()
+
+        
+
+        //select row from response table with content max text number
+        cy.log('Line 1371')
+        cy.get('tbody')
+            .find('tr')
+            .find('td:nth-child(2)')
+            .then(function($texteNumber) {
+                
+                // get response-table-search
+                // cy.get('[data-cy="response-table-search"]')
+                //     .click()
+                //     .type(resName3)
+
+                const textValue = $texteNumber.text()
+                cy.log(textValue)
+                cy.log(newNrRow)
+
+                const newMaxValue = max_val2 - 1
+
+                //cy.wrap($texteNumber).should('have.text', newNrRow)
+                cy.wrap($texteNumber).should('contain', newMaxValue)
+            })
+    }
+
+    responseSuchen() {
+
+        cy.get('[class="v-list-group"]')
+            .contains('Trainingsdaten')
+            .then((Tdaten) => {
+
+                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                    cy.log('If Statement True')
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+                else {
+                    cy.log('If Statement False')
+
+                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                        .contains('Trainingsdaten')
+                        .click()
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                        .wait(500)
+                }
+        }) 
+
+        // Anlegen Some Random Value to Response
+        const randonVal = ['response1', 'response2', 'weather']
+        cy.wrap(randonVal).each((index) => {
+
+            // Clicking Response Hinzufuegen
+            cy.get('[data-cy="response-create"]')
+                .click()
+
+            cy.get('[data-cy="response-name"]')
+                .click({force:true})
+                .type(index)
+
+            cy.get('[data-cy="create-button"]')
+                .click()
+            
+            // Back to Response Tab
+            cy.get('[data-cy="navDrawerResponses"]')
+                .click()
+        })
+        
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+                           
+        // Single Response
+        cy.get('[data-cy="response-table-search"]')
+            .click({force:true})
+                .type('weather')
+
+        // Assert Return Result
+        cy.log('Line 1172')
+        cy.get('tbody')
+            .find('tr')
+            .should('have.length', 1)
+            .find('td:nth-child(1)')
+            .should('have.text', 'weather')
+        
+        // Multiple Response
+        cy.get('[data-cy="response-table-search"]')
+            .clear()
+            .type('response')
+        cy.get('tbody')
+            .find('tr')
+            .should('have.length', 2)
+            .find('td:nth-child(1)')
+            .should('contain','response')
+
+        // Nonexisting Response
+        cy.get('[data-cy="response-table-search"]')
+            .clear()
+            .type('sky')
+                
+        cy.get('tbody')
+            .find('tr')
+            .should('contain',"")
+
+        cy.get('[data-cy="response-table-search"]')
+            .clear() 
+    }
+
+    buttonAnlegen() {
+
+        /* 
+        F. Response Button Anlegen
+
+        1. Button Name should not be empty, error message should contain "Name"; /Currently Bug/
+            1.1 Test Button Name
+                1.1.1 Warning message below input field
+                1.1.2 Error message after unsuccessful saving  /Currently Bug/
+        2. Check for duplicate name
+            2.1 Response Name
+                2.1.1 Error message after unsuccessful saving
+                2.1.2 Valaue should be double in the Response table, assert response Table
+        3. Check for successfully saved values
+            3.1 Assert successfully saved Notification
+            3.2 Assert in the Texte table
+        3. Saving saves given data correctly
+        4. Leave site via menu or breadcrump does not save value
+        */
+
+        /* Response Anlegen Testing */
+
+        cy.get('[class="v-list-group"]')
+            .contains('Trainingsdaten')
+            .then((Tdaten) => {
+                
+                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                    cy.log('If Statement True')
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                }
+                else {
+                    cy.log('If Statement False')
+
+                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                        .contains('Trainingsdaten')
+                        .click()
+
+                    cy.get('[data-cy="navDrawerResponses"]')
+                        .click()
+                }
+            })
+
+        // 1. Text Name should not be empty, error message should contain "Texte"; /Currently Bug/
+        // 1.1 Response Teste Name
+        //     1.1.1 Warning message below input field
+        //     1.1.2 Error message after unsuccessful saving  /Currently Bug/
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+
+        //Enter to a row of Response Table which contain height text
+        var max_val2 = 0
+        // Enter to Response table Row
+        cy.log('Line 1537')
+        cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+            .find('td:nth-child(2)')
+            .then(($testFunc2) => {
+                const vall2 = $testFunc2.text()
+                
+                const sp_vall2 = vall2.split(' ')
+                                                                
+                var num2
+                for (num2=0; num2 < sp_vall2.length; num2++){
+                    
+                                                                                                    
+                    if(Number(sp_vall2[num2]) > max_val2) {
+                        max_val2 = sp_vall2[num2]
+                        cy.log(max_val2)
+                    }
+                }
+                cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
+                    .find('tr')
+                    .find('td:nth-child(2)')
+                    .contains(max_val2)
+                    .click({force:true})
+            })
+        
+        var resName
+        // Save Response Name for letar Assertion
+        cy.get('[class="v-text-field__slot"]')
+            .find('[data-cy="response-name"]')
+                .invoke('val')
+                    .as('name')
+                    
+        cy.get('@name').then((name) => {
+            cy.log(name) //prints name
+            resName = name
+            cy.log(resName)
+        })
+
+        // Locate Button Tab and enter to it
+        cy.get('[class="v-slide-group__wrapper"]')
+            .contains('Buttons')
+            .click()     
+
+        // Clicking responsebutton-create
+        cy.get('[data-cy="responsebutton-create"]')
+            .click()
+
+        cy.get('[data-cy="responsebutton-title"]')
+            .click({force:true})
+        
+        //Assert warning notification
+        cy.get('[class="v-messages__wrapper"]')
+            .should('have.text','Der Text muss gesetzt sein')
+
+        // Clicking Anlegen Button while Text field is empty
+        // Click speichen
+        cy.get('[data-cy="create-button"]')
+            .click()
+
+        // success-remove
+        cy.get('[data-cy="success-remove"]')
+            .click()
+        
+        // Assert Nicht Möglich, /Currently Known as But/
+        cy.get('[data-cy="errorMessageTitle"]')
+            .should('have.text',' Die Response konnte nicht gespeichert werden. ')
+
+        // Close Error Notification
+        cy.get('[data-cy="error-remove"]')
+            .click()
+
+        // Add a valid Text Name
+        cy.get('[data-cy="responsebutton-title"]')
+            .click()
+            .type(addValue+String(txa))           
+
+        // Click Anlegen
+        cy.get('[data-cy="create-button"]')
+            .click()
+
+        // Assert Nicht Möglich, /Currently Known as But/
+        cy.get('[data-cy="errorMessageTitle"]')
+            .should('have.text',' Die Response konnte nicht gespeichert werden. ')
+
+        // Close Error Notification
+        cy.get('[data-cy="error-remove"]')
+            .click()
+        
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slo"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+
+        // 2. Check for successfully saved values
+        // 2.1 Assert successfully saved Notification
+
+        // Assert Successfully Saved Notification
+        var idNr
+        cy.get('tbody')
+            .find('tr')
+            .last()
+            .find('td:nth-child(1)')
+            .then(function($tbIdNr) {
+                idNr = $tbIdNr.text()
+                cy.log('idNr')
+                cy.log(idNr)
+
+                // Assert Success Message
+                cy.get('[data-cy="successMessageTitle"]')
+                    .should('have.text', ' Der Response Text'+String(idNr)+'wurde erfolgreich gespeichert ')
+            })
+        
+        // 2. Check for successfully saved values
+        // 2.2 Assert in the Texte table
+
+        // Assert in Response Texte Table
+        cy.log('Line 735')
+        cy.get('tbody')
+            .find('tr')
+                .last()
+            .find('td:nth-child(2)').then(function($text) {
+
+                const text = $text.text()
+                cy.wrap($text).should('have.text', addValue+String(txa))
+            })
+        // 3. Saving saves given data correctly
+        cy.get('tbody')
+            .find('tr')
+            .then((tbLength) => {
+                const countRow = tbLength.length
+                
+                cy.get('[data-cy="navDrawerResponses"]')
+                    .click()
+                
+                cy.get('[data-cy="response-table-search"]')
+                    .click()
+                    .type(resName)
+
+                cy.get('tbody')
+                    .find('tr')
+                    .find('td:nth-child(2)')
+                    .should('have.text',' '+String(countRow)+' ')
+            })
+                    
+        // 4. Leave site via menu or breadcrump does not save value
+        cy.log('Line 756')
+        cy.wait(500)
+        cy.get('tbody')
+            .find('tr')
+            .first()
+            .click()
+        
+        // Entering to Texte Tab
+        cy.get('[class="v-slide-group__wrapper"]')
+            .contains('Texte')
+            .click()
+
+        // Clicking responsetext-create
+        cy.get('[data-cy="responsetext-create"]')
+            .click()
+
+        cy.get('[data-cy="responsetext-text"]')
+            .click({force:true})
+            .type('leaveWithBreadCrumb')
+        
+        // Leave Site via Bread Crumb
+        cy.get('[class="v-breadcrumbs theme--light"]')
+            .contains(' Response Text ')
+            .click()
+        
+        // Assert data in Texte Table
+        // cy.get('[data-cy="responsetext-table-search"]')
+        //     .click()
+        //     .type('leaveWithBreadCrumb')
+
+        // Selecting Entire Table
+        cy.get('[class="v-select__slot"]').click()
+        cy.get('[class="v-list-item__content"]')
+            .contains('Alle')
+            .click({force:true})
+        
+        cy.log('Line 792')
+        cy.get('tbody')
+            .find('tr')
+            .first()
+            .find('td:nth-child(2)')
+            .should('not.have.text','leaveWithBreadCrumb')  
     }
 }
 

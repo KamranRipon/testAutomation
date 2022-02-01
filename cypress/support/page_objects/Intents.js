@@ -919,7 +919,7 @@ export class intent {
             "name": "Example"+ String(m+1),
             "description": ""
         }
-        cy.request("http://localhost/cci-backend/intent")
+        cy.request("/cci-backend/intent", {failOnStatusCode: false}) 
             .then((response) => {
                 expect(response.status).to.equal(200)
                 expect(response.body).to.not.be.null
@@ -928,6 +928,7 @@ export class intent {
         cy.request({
             method:'POST',
             url: "/cci-backend/intent",
+            failOnStatusCode: false,
 
             body: {
                 "id": 10,
@@ -996,9 +997,9 @@ export class intent {
         // POST and ASSERT Post
         cy.request({
             method:'POST',
-            url: "/trainingsdaten/intent/",
-
-
+            url: "/cci-backend/intent",
+            failOnStatusCode: false,
+            
             body: {
                 "id": 20,
                 "name": "test10",
