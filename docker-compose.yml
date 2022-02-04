@@ -4,7 +4,7 @@ services:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/backend
     environment:
-      - envTarget=test    
+      - spring.profiles.active=test    
   frontend:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/frontend

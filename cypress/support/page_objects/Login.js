@@ -8,17 +8,17 @@ const addExample = 'testExample-1'
 
 export class login {
 
-    logIn() {   
+    Test_LogIn() {   
         cy.log('Loged in Successful')
-        cy.wait(1500)
+        //cy.wait(1500)
         cy.visit('http://localhost/trainingsdaten/intent/')
-        cy.wait(500)
+        //cy.wait(500)
 
         cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
-        cy.wait(500)
+        //cy.wait(500)
         cy.visit('/')
         cy.url().should('eq', 'http://localhost/')
-        cy.wait(500)
+        //cy.wait(500)
     }
     
 }

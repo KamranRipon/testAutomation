@@ -45,3 +45,22 @@ Cypress.Commands.add('login', (username, password) => {
     })
     
 })
+
+Cypress.Commands.add('loginiFunction',(Username, Password) => {
+    // Login Function
+    cy.get('[class="v-input__slot"]')
+        .contains('Benutzername')
+        .click({force:true})
+        .type('admin')
+
+    cy.get('[class="v-text-field__slot"]')
+        .contains('Passwort')
+        .click({force:true})
+        .type('cciAdmin#2022+')
+
+    cy.get('[class="v-input--selection-controls__input"]').click()
+    
+    cy.get('[class="v-btn__content"]')
+        .contains('Anmelden')
+        .click()
+})
