@@ -52,7 +52,8 @@ buildJob:
   #   - docker-compose up -d
   #   - sleep 30
   script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    - docker login -u akash062 -p MaakP5_23_72
     - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
     #- docker push $ARTIFACT_ROOT$IMAGE_PATH 
     - docker push akash062/cci:$TAGNAME
@@ -94,7 +95,7 @@ testJob:
     #- docker-compose up -d
     #- sleep 30
     #- docker pull akash062/cci
-    #- npm install xvfb
+    - npm install xvfb
     #- npm init -f
     - npm install cypress
     #- npm install --save-dev cypress
