@@ -77,7 +77,7 @@ testJob1:
     paths:
       - ./public
 
-testJob:
+testJob2:
   image: akash062/cci:$TAGNAME
   stage: test
   #before_script:
@@ -102,4 +102,6 @@ testJob:
     #- npm install --save-dev cypress
     - npm install
     - npm run cypress:run
-    #./node_modules/.bin/cypress open    
+    #./node_modules/.bin/cypress open
+  only:
+    - merge_requests
