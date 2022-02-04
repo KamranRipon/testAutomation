@@ -72,8 +72,8 @@ testJob1:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d
     - sleep 10
-  only:
-    - merge_requests
+  #only:
+  #  - merge_requests
 
   artifacts:
     paths:
