@@ -83,6 +83,7 @@ testJob:
     #- docker pull akash062/cci
     - npm install cypress
     - npm install
+    - npm install Xvfb
     - curl "http://localhost:80"
     - npm run cypress:run
     

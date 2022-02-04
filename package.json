@@ -25,7 +25,8 @@
     "mochawesome": "^7.0.1",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^6.0.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "xvfb": "^0.4.0"
   },
   "devDependencies": {
     "@bahmutov/cy-api": "^1.6.2",
