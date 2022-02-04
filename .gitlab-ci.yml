@@ -64,7 +64,7 @@ buildJob:
       - ./public
 testJob:
   #image: tmaier/docker-compose:latest
-  image: $ARTIFACT_ROOT$IMAGE_PATH
+  image: akash062/cci
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
