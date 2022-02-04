@@ -20,7 +20,7 @@ variables:
   CONTAINER_NAME: "cci-frontend"
   TAG_LATEST: $CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
-  TAGNAME: cci-e2e
+  TAGNAME: ccie2e
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
@@ -47,16 +47,17 @@ buildJob:
   image: tmaier/docker-compose:latest
   #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
-  before_script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - docker-compose up -d
-    - sleep 30
+  # before_script:
+  #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+  #   - docker-compose up -d
+  #   - sleep 30
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  #  - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
-  #  - docker push $ARTIFACT_ROOT$IMAGE_PATH 
-  only:
-    - merge_requests
+    - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
+    #- docker push $ARTIFACT_ROOT$IMAGE_PATH 
+    - docker push akash062/cci:$TAGNAME
+  # only:
+  #   - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
@@ -76,7 +77,7 @@ buildJob:
 #       - ./public
 
 testJob:
-  image: akash062/cci
+  image: akash062/cci:TAGNAME
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
