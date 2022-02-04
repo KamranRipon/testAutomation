@@ -92,7 +92,10 @@ testJob2:
     #- sleep 30
     #- docker pull akash062/cci
     #- npm install xvfb
-    - npm install cypress
+    - npm init -f
+    #- npm install cypress
+    - npm install --save-dev cypress
     - npm install
     - npm run cypress:run
+    #./node_modules/.bin/cypress open
     
