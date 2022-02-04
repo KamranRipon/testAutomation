@@ -59,18 +59,19 @@ buildJob:
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
-  artifacts:
-    paths:
-      - ./public
+  
 
 testJob1:
-  #image: tmaier/docker-compose:latest
-  image: alpine
+  image: tmaier/docker-compose:latest
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d
     - sleep 30
+
+  artifacts:
+    paths:
+      - ./public
 
 testJob2:
   image: akash062/cci
@@ -91,7 +92,7 @@ testJob2:
     #- sleep 30
     #- docker pull akash062/cci
     #- npm install xvfb
-    #- npm install cypress
-    #- npm install
+    - npm install cypress
+    - npm install
     - npm run cypress:run
     

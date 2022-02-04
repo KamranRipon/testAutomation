@@ -11,14 +11,14 @@ export class login {
     Test_LogIn() {   
         cy.log('Loged in Successful')
         //cy.wait(1500)
-        // cy.visit('http://localhost/trainingsdaten/intent/')
-        cy.visit('http://10.61.135.11/trainingsdaten/intent/')
+        cy.visit('http://localhost/trainingsdaten/intent/')
+        
         //cy.wait(500)
 
-        cy.url().should("eq", "http://10.61.135.11/trainingsdaten/intent/");
+        cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
         //cy.wait(500)
         cy.visit('/')
-        cy.url().should('eq', 'http://10.61.135.11/')
+        cy.url().should('eq', 'http://localhost/')
         //cy.wait(500)
     }
     
