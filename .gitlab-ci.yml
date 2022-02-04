@@ -103,5 +103,3 @@ testJob2:
     - npm install
     - npm run cypress:run
     #./node_modules/.bin/cypress open
-  only:
-    - merge_requests

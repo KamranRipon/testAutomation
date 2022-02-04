@@ -1,10 +1,10 @@
 version: "3.3"
 services:
   backend:
-    network_mode: gitlab
+    network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/backend
     environment:
       - spring.profiles.active=test    
   frontend:
-    network_mode: gitlab
+    network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/frontend
