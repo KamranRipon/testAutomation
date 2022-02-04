@@ -70,7 +70,7 @@ testJob1:
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - docker-compose up -d
+    - docker-compose up -d --build
     - sleep 10
   #only:
   #  - merge_requests
