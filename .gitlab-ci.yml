@@ -62,8 +62,16 @@ buildJob:
   artifacts:
     paths:
       - ./public
-testJob:
-  #image: tmaier/docker-compose:latest
+
+testJob1:
+  image: tmaier/docker-compose:latest
+  stage: test
+  script:
+    - docker-compose up -d
+    - sleep 30
+    - curl "http://localhost:80"
+
+testJob2:
   image: akash062/cci
   stage: test
   #before_script:
@@ -84,6 +92,5 @@ testJob:
     - npm install xvfb
     - npm install cypress
     - npm install
-    - curl "http://localhost:80"
     - npm run cypress:run
     
