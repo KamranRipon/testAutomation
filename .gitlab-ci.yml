@@ -67,6 +67,7 @@ testJob1:
   image: tmaier/docker-compose:latest
   stage: test
   script:
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d
     - sleep 30
     - curl "http://localhost:80"
