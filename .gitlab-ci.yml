@@ -10,8 +10,10 @@ stages:
 #   - docker:dind
 
 variables:
-  http_proxy: "http://10.61.16.6:3128"
-  https_proxy: "http://10.61.16.6:3128"
+  # http_proxy: "http://10.61.16.6:3128"
+  # https_proxy: "http://10.61.16.6:3128"
+  HTTP_PROXY: "http://10.61.16.6:3128"
+  HTTPS_PROXY: "http://10.61.16.6:3128"
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,localhost:80"
   ARTIFACT_ROOT: "dchatbot-docker-development.artifactory-extern.dataport.de"
   IMAGE_PATH: "/conplat/cci/endtoendtests"
@@ -61,19 +63,19 @@ buildJob:
   #     when: always
   
 
-testJob1:
-  image: tmaier/docker-compose:latest
-  stage: test
-  script:
-    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - docker-compose up -d
-    - sleep 30
+# testJob1:
+#   image: tmaier/docker-compose:latest
+#   stage: test
+#   script:
+#     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+#     - docker-compose up -d
+#     - sleep 30
 
-  artifacts:
-    paths:
-      - ./public
+#   artifacts:
+#     paths:
+#       - ./public
 
-testJob2:
+testJob:
   image: akash062/cci
   stage: test
   #before_script:
@@ -95,7 +97,6 @@ testJob2:
     - npm init -f
     #- npm install cypress
     - npm install --save-dev cypress
-    - npm install -g wait-on
-    - npm run serve & wait-on http://localhost:80
+    - npm install
     - npm run cypress:run
     #./node_modules/.bin/cypress open    
