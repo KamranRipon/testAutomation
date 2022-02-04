@@ -64,7 +64,6 @@ buildJob:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
   #     when: always
   
-
 testJob1:
   image: tmaier/docker-compose:latest
   stage: test
@@ -80,8 +79,8 @@ testJob1:
       - ./public
 
 testJob2:
-  #image: akash062/cci:$TAGNAME
-  image: node
+  image: akash062/cci:$TAGNAME
+  #image: node
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
