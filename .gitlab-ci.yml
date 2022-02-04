@@ -76,7 +76,7 @@ buildJob:
 #       - ./public
 
 testJob:
-  image: akash062/cci:latest
+  image: akash062/cci:cci-e2e
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
