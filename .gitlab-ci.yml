@@ -93,8 +93,8 @@ testJob:
     # - docker cp myContainer:/app/cypress/results/junit/
     #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - chmod u+r+x docker-compose.yml
-    - docker-comopose up -d
-    - sleep 30
+    - ./docker-comopose.yml
+    - sleep 3
     #- docker pull akash062/cci
     - npm install xvfb
     #- npm init -f
