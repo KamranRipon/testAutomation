@@ -95,7 +95,7 @@ testJob2:
     - npm init -f
     #- npm install cypress
     - npm install --save-dev cypress
-    - npm install
+    - npm install -g wait-on
+    - npm run serve & wait-on http://localhost:80
     - npm run cypress:run
-    #./node_modules/.bin/cypress open
-    
+    #./node_modules/.bin/cypress open    
