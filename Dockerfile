@@ -6,7 +6,7 @@ FROM cypress/base:10.18.0
 #ENV https_proxy="http://wall.lit.hamburg.de:80/"
 ENV HTTP_PROXY="http://10.61.16.6:3128"
 ENV HTTPS_PROXY="http://10.61.16.6:3128"
-ENV NO_PROXY="git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,localhost:80"
+ENV NO_PROXY="git.dataport.de,sonarqube.dataport.de,127.0.0.1,127.17.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,localhost:80"
 
 #ENV http_proxy="http://10.61.16.6:3128"
 #ENV https_proxy="http://10.61.16.6:3128"

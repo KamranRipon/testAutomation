@@ -4,7 +4,18 @@ services:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/backend
     environment:
-      - spring.profiles.active=test    
+      - spring.profiles.active=test
   frontend:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/frontend
+  cypress:
+    image: "cypress/included:3.2.0"
+    depends_on:
+      - backend
+      - frontend
+    environment:
+      - CYPRESS_baseUrl=http://127.0.0.1
+    # share the current folder as volume to avoid copying
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
