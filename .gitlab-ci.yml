@@ -65,17 +65,17 @@ buildJob:
   #     when: always
   
 
-# testJob1:
-#   image: tmaier/docker-compose:latest
-#   stage: test
-#   script:
-#     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-#     - docker-compose up -d
-#     - sleep 30
+testJob1:
+  image: tmaier/docker-compose:latest
+  stage: test
+  script:
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    - docker-compose up -d
+    - sleep 10
 
-#   artifacts:
-#     paths:
-#       - ./public
+  artifacts:
+    paths:
+      - ./public
 
 testJob:
   image: akash062/cci:$TAGNAME
@@ -92,9 +92,9 @@ testJob:
     # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
     # - docker cp myContainer:/app/cypress/results/junit/
     #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - chmod u+r+x docker-compose.yml
-    - ./docker-comopose.yml
-    - sleep 3
+    # - chmod u+r+x docker-compose.yml
+    # - ./docker-comopose.yml
+    # - sleep 3
     #- docker pull akash062/cci
     - npm install xvfb
     #- npm init -f
