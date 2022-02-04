@@ -10,7 +10,7 @@
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\", > mochawesome.json && npx marge mochawesome.json",
     "merge": "mochawesome-merge cypress/results/mochawesome/*.json > cypress/results/mochawesome/output.json",
     "generateMocha_Report": "marge cypress/results/mochawesome/output.json --reportDir ./ --inline",
-    "cy:run_spec": "npx cypress run --spec 'cypress/integration/End2EndTest.spec.js'",
+    "cy:run_spec": "npx cypress run --spec 'cypress/integration/Login.spec.js'",
     "cypress:run": "npm run cy:run_spec -- --browser electron",
     "CyTest": "npm run prereport && npm run cypress:run && npm run merge && npm run generateMocha_Report"
   },

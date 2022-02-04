@@ -53,12 +53,12 @@ describe ('Test Case - 2: Menu Elements', () => {
     beforeEach('visit url', () => {
         
         // Cypress.Cookies.preserveOnce('session_id', 'remember_token')
-
-        //loginiFunction('admin', 'cciAdmin#2022+')
-        cy.login('admin', 'cciAdmin#2022+')
+        cy.visit('/')
+        cy.loginiFunction('admin', 'cciAdmin#2022+')
+        //cy.login('admin', 'cciAdmin#2022+')
 
         cy.wait(500)
-        cy.visit('/')
+        
         Cypress.Cookies.preserveOnce('session_id', 'remember_token')
         //cy.get('[class="v-list-item__title pl-4"]').contains('Trainingsdaten').click()
         cy.get('[tabindex="0"]').contains('Trainingsdaten').click()
@@ -67,10 +67,10 @@ describe ('Test Case - 2: Menu Elements', () => {
         cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
     })
 
-    it('Testing Menu', () => {
+    it.only('Testing Menu', () => {
 
-        onIntent.titleOfThePage()
-        onIntent.userInfo()
+        //onIntent.titleOfThePage()
+        //onIntent.userInfo()
         onIntent.menuBar()
     })
 })
