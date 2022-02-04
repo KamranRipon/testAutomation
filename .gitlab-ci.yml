@@ -64,7 +64,8 @@ buildJob:
       - ./public
 
 testJob1:
-  image: tmaier/docker-compose:latest
+  #image: tmaier/docker-compose:latest
+  image: alpine
   stage: test
   script:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
@@ -89,8 +90,8 @@ testJob2:
     #- docker-compose up -d
     #- sleep 30
     #- docker pull akash062/cci
-    - npm install xvfb
-    - npm install cypress
-    - npm install
+    #- npm install xvfb
+    #- npm install cypress
+    #- npm install
     - npm run cypress:run
     
