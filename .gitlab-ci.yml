@@ -57,8 +57,8 @@ buildJob:
     - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
     #- docker push $ARTIFACT_ROOT$IMAGE_PATH 
     - docker push akash062/cci:$TAGNAME
-  # only:
-  #   - merge_requests
+  only:
+    - merge_requests
   #  - schedules
   # rules:
   #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
@@ -78,7 +78,7 @@ buildJob:
 #       - ./public
 
 testJob:
-  image: akash062/cci:TAGNAME
+  image: akash062/cci:$TAGNAME
   stage: test
   #before_script:
   #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
