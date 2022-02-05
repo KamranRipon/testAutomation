@@ -1,0 +1,8 @@
+version: "2"
+services:
+  dns:
+    image: phensley/docker-dns
+    hostname: web:8080
+    domainname: http://web:8080
+    volumes:
+      - /var/run/docker.sock:/docker.sock
