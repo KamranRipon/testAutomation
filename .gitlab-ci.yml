@@ -99,6 +99,7 @@ testJob2:
     # - ./docker-comopose.yml
     # - sleep 3
     #- docker pull akash062/cci
+    - ifconfig lo:0 172.14.1.1 up
     - npm install xvfb
     #- npm init -f
     - npm install cypress
