@@ -87,6 +87,5 @@ export class response_suchen {
             .clear() 
     }
 }
-
+// 
 export const onResponseSuchen = new response_suchen()
-

@@ -1,17 +1,5 @@
 const t     = Math.floor(Math.random() * 5000);
 const b     = Math.floor(Math.random() * 1000);
-// const le    = Math.floor(Math.random() * 3500);
-// const txa   = Math.floor(Math.random() * 4800);
-// const txal  = Math.floor(Math.random() * 5800);
-// const ei    = Math.floor(Math.random() * 3000);
-// const eb    = Math.floor(Math.random() * 3500);
-// const er    = Math.floor(Math.random() * 4000);
-// const ea    = Math.floor(Math.random() * 4500);
-// const x     = Math.floor(Math.random() * 3500);
-// const xle   = Math.floor(Math.random() * 5500);
-// const xTx   = Math.floor(Math.random() * 6500);
-// const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'resTxSuchDmy'
 
 export class responses_text_suchen {
@@ -57,10 +45,7 @@ export class responses_text_suchen {
             .find('td:nth-child(2)')
             .then(($testFunc2) => {
                 const vall2 = $testFunc2.text()
-
                 var sp_vall2 = vall2.split(" ")
-                
-                //var max_val2 = 0
                 var num2
                 for (num2=0; num2 < sp_vall2.length; num2++){
                     
@@ -140,7 +125,6 @@ export class responses_text_suchen {
 
         cy.get('[data-cy="responsetext-table-search"]')
             .clear() 
-
     }
 }
 

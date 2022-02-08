@@ -1,17 +1,4 @@
 const t     = Math.floor(Math.random() * 5000);
-// const b     = Math.floor(Math.random() * 1000);
-// const le    = Math.floor(Math.random() * 3500);
-// const txa   = Math.floor(Math.random() * 4800);
-// const txal  = Math.floor(Math.random() * 5800);
-// const ei    = Math.floor(Math.random() * 3000);
-// const eb    = Math.floor(Math.random() * 3500);
-// const er    = Math.floor(Math.random() * 4000);
-// const ea    = Math.floor(Math.random() * 4500);
-// const x     = Math.floor(Math.random() * 3500);
-// const xle   = Math.floor(Math.random() * 5500);
-// const xTx   = Math.floor(Math.random() * 6500);
-// const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'resAnlegDummy'
 
 export class responses_anlegen {
@@ -52,7 +39,6 @@ export class responses_anlegen {
         // 1. Name should not be empty, error message should contain "Name"
         //    1.1 Response
         //        1.1.1 Warning message below input field
-
         cy.get('[data-cy="response-name"]')
             .click({force:true})
         
@@ -62,7 +48,6 @@ export class responses_anlegen {
 
         // add a space or '/' to input field
         const space   = [' ', '/']
-        
         cy.wrap(space).each((index) => {
             cy.get('[data-cy="response-name"]')
             .click({force:true})
@@ -192,7 +177,6 @@ export class responses_anlegen {
             .then(function($synName2) {
                 const resTbLen = $synName2.length
                 cy.log(resTbLen)
-                
                 cy.wrap($synName2).should('have.length', resTbLen)
             })
 

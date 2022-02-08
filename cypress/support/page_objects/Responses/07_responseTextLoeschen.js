@@ -127,13 +127,7 @@ export class response_text_loeschen {
         cy.get('tbody')
             .find('tr')
             .find('td:nth-child(2)')
-            .then(function($texteNumber) {
-                
-                // get response-table-search
-                // cy.get('[data-cy="response-table-search"]')
-                //     .click()
-                //     .type(resName3)
-
+            .then(function($texteNumber) {                
                 const textValue = $texteNumber.text()
                 cy.log(textValue)
                 cy.log(newNrRow)
@@ -145,6 +139,5 @@ export class response_text_loeschen {
             })
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onResponsesTextLoeschen = new response_text_loeschen()

@@ -1,41 +1,11 @@
-// const t     = Math.floor(Math.random() * 5000);
 const b     = Math.floor(Math.random() * 1000);
-// const le    = Math.floor(Math.random() * 3500);
-// const txa   = Math.floor(Math.random() * 4800);
-// const txal  = Math.floor(Math.random() * 5800);
-// const ei    = Math.floor(Math.random() * 3000);
-// const eb    = Math.floor(Math.random() * 3500);
-// const er    = Math.floor(Math.random() * 4000);
-// const ea    = Math.floor(Math.random() * 4500);
 const x     = Math.floor(Math.random() * 3500);
 const xle   = Math.floor(Math.random() * 5500);
-// const xTx   = Math.floor(Math.random() * 6500);
-// const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'resBearbeitDmy'
+
 export class responses_bearbeiten {
 
     responseBearbeiten() {
-            
-        /* 
-        B. Response Bearbeiten
-
-        1. Edit Name should not be empty, error message should contain "Name"
-            1.1 Response Name
-                1.1.1 Warning message below input field
-                1.1.2 Error message after unsuccessful saving
-        2. Check for duplicate name
-            2.1 Response Name
-                2.1.1 Error message after unsuccessful saving
-                2.1.2 Valaue should be double in the Response table, assert response Table
-        3. Check for successfully saved values
-            3.1 Assert Notification
-            3.2 Assert in table
-        4. Leave site via menu or breadcrump, data must be saved
-        5. leave site via button "Abbrechen" navigates to table of synonyms and 
-        does not save edited data
-        */
-
         /* Response Anlegen Testing */
 
         cy.get('[class="v-list-group"]')
@@ -82,9 +52,7 @@ export class responses_bearbeiten {
             .should('have.text','Der Name muss gesetzt sein')
 
         // add a space or '/' to input field
-
         const space   = [' ', '/']
-        
         cy.wrap(space).each((index) => {
 
             cy.get('[data-cy="response-name"]')
@@ -114,7 +82,6 @@ export class responses_bearbeiten {
 
         // 3. Check for successfully saved values
         // 3.1 Assert Notification
-        
         // Add a response name with valid name and assert notification & Assert in Response table
         cy.get('[data-cy="response-name"]')
             .click({force:true})
@@ -160,7 +127,6 @@ export class responses_bearbeiten {
             .find('td:nth-child(1)')
             .contains(addValue+String(b))
             .then(function($synName1) {
-                
                 cy.wrap($synName1).should('have.text', addValue+String(b))
             })
 
@@ -248,7 +214,6 @@ export class responses_bearbeiten {
             .then(function($synName3) {
                 const resTbLen3 = $synName3.length
                 cy.log(resTbLen3)
-                
                 cy.wrap($synName3).should('have.length', resTbLen3)
             })
         
@@ -297,7 +262,6 @@ export class responses_bearbeiten {
             .find('td:nth-child(1)')
             //.contains(addValue+String(xle))
             .then(function($synName1) {
-                
                 cy.wrap($synName1).should('have.text', addValue+String(xle))
             })
 

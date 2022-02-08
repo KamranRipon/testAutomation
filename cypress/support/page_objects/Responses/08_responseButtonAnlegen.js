@@ -1,17 +1,4 @@
-const t     = Math.floor(Math.random() * 5000);
-const b     = Math.floor(Math.random() * 1000);
-const le    = Math.floor(Math.random() * 3500);
 const txa   = Math.floor(Math.random() * 4800);
-const txal  = Math.floor(Math.random() * 5800);
-const ei    = Math.floor(Math.random() * 3000);
-const eb    = Math.floor(Math.random() * 3500);
-const er    = Math.floor(Math.random() * 4000);
-const ea    = Math.floor(Math.random() * 4500);
-const x     = Math.floor(Math.random() * 3500);
-const xle   = Math.floor(Math.random() * 5500);
-const xTx   = Math.floor(Math.random() * 6500);
-const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'ResButDmyVal'
 
 export class button_anlegen {

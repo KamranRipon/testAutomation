@@ -1,8 +1,6 @@
-const t     = Math.floor(Math.random() * 5000);
 const Resb     = Math.floor(Math.random() * 6500);
 const Resbdub     = Math.floor(Math.random() * 2500);
 const Resble    = Math.floor(Math.random() * 3500);
-
 const addValue = 'ResButbeDmyVal'
 
 export class button_bearbeiten {
@@ -171,10 +169,6 @@ export class button_bearbeiten {
             .click()
         cy.log('Line 181')
 
-        // return to Response
-        // cy.get('[data-cy="navDrawerResponses"]')
-        //     .click()
-
         // 3. Check for successfully saved values
         // 3.2 Assert in table
 
@@ -184,7 +178,6 @@ export class button_bearbeiten {
             .click()
             .type(addValue+String(Resb))
         
-
         // Selecting Entire Table
         cy.get('[class="v-select__slot"]').click()
         cy.get('[class="v-list-item__content"]')
@@ -239,7 +232,6 @@ export class button_bearbeiten {
         // 2. Check for duplicate name
         // 2.1 Response Name
         // 2.1.1 Error message after unsuccessful saving
-
         // edit a button-title and try to save with an existing title
         cy.log('Line 254')
         cy.get('tbody')

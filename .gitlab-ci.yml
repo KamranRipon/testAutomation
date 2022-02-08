@@ -1,17 +1,8 @@
-#image: docker.artifactory-extern.dataport.de/node:16
-#image: tmaier/docker-compose:latest
-#image: docker.artifactory-extern.dataport.de/docker:19.03.0-dind
-
 stages:
   - build
   - test
 
-# services:
-#   - docker:dind
-
 variables:
-  # http_proxy: "http://10.61.16.6:3128"
-  # https_proxy: "http://10.61.16.6:3128"
   HTTP_PROXY: "http://10.61.16.6:3128"
   HTTPS_PROXY: "http://10.61.16.6:3128"
   NO_PROXY: "git.dataport.de,sonarqube.dataport.de,127.0.0.1,minio.gitlab-runner-minio.svc.cluster.local,al.s3.dataport.de,docker:2375,docker:2376,artifactory-extern.dataport.de,localhost:80"
@@ -26,43 +17,14 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_URL: "docker.artifactory-extern.dataport.de"
 
-# cache:
-#   key: ${CI_COMMIT_REF_SLUG}
-#   paths:
-#     - .npm
-
-#before_script:
-  # docker informations
-  # - docker info
-  # Setup SSH deploy keys
-  # - 'which ssh-agent || ( apt-get install -qq openssh-client )'
-  # - eval $(ssh-agent -s)
-  # - echo "$SSH_PRIVATE
-  # - '[[ -f /.do&& echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  # - docker stack rm $tag_latest
-  # - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  # - docker-compose up -d
-
 buildJob:
   image: tmaier/docker-compose:latest
-  #image: common-redhat-docker-development.artifactory-extern.dataport.de/ubi8/buildah
   stage: build
-  # before_script:
-  #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-  #   - docker-compose up -d
-  #   - sleep 30
   script:
-    #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    - docker login -u akash062 -p MaakP5_23_72
-    - docker build -f Dockerfile -t akash062/cci:$TAGNAME .
-    #- docker push $ARTIFACT_ROOT$IMAGE_PATH 
-    - docker push akash062/cci:$TAGNAME
+    - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
+    - docker push $ARTIFACT_ROOT$IMAGE_PATH 
   only:
     - merge_requests
-  #  - schedules
-  # rules:
-  #   - if: '$CI_PIPELINE_SOURCE == "schedule"'
-  #     when: always
   
 testJob1:
   image: tmaier/docker-compose:latest
@@ -72,8 +34,6 @@ testJob1:
     - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
     - docker-compose up -d --build
     - sleep 10
-  #only:
-  #  - merge_requests
 
   artifacts:
     paths:
@@ -81,28 +41,9 @@ testJob1:
 
 testJob2:
   image: akash062/cci:$TAGNAME
-  #image: node
   stage: test
-  #before_script:
-  #   - docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT$IMAGE_PATH 
-  #   - docker pull $ARTIFACT_ROOT$IMAGE_PATH ;
-    #- docker-compose up -d
   script:
-    #- chmod u+r+x runCytest.sh
-    #- ./runCytest.sh
-    #- npm run CyTest
-    # - docker stop myContainer && docker rm myContainer
-    # - docker run -t -d -P -v pwd:/app --name myContainer $tag_latest
-    # - docker cp myContainer:/app/cypress/results/junit/
-    #- docker login -u $CONPLAT_ARTIFACTORY_USER -p $CONPLAT_ARTIFACTORY_PASS $ARTIFACT_ROOT
-    # - chmod u+r+x docker-compose.yml
-    # - ./docker-comopose.yml
-    # - sleep 3
-    #- docker pull akash062/cci
     - npm install xvfb
-    #- npm init -f
     - npm install cypress
-    #- npm install --save-dev cypress
     - npm install
     - npm run cypress:run
-    #./node_modules/.bin/cypress open

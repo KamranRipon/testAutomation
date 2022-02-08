@@ -6,27 +6,8 @@ const addValue = 'DummyValue'+ String(m)
 const addExample = 'testExample'
 
 
-export class intent {
-
-    titleOfThePage() {
-        cy.log('Title Of The Page')
-        
-        //Chaking title of the page
-        cy.get('title').should('contain', 'CCI')
-    }
-
-    userInfo() {
-        cy.log('User Information')
-        
-        // Avatar
-        cy.get('.v-avatar')
-            .should('contain', 'CCI')
-
-        // Asserting User Name
-        cy.get('[id="navbarUsername"]')
-            //.should('contain','User XY')
-    }
-
+export class intent_hinzufuegen {
+    
     menuBar() {
 
         cy.log('Menu Bar Testing')
@@ -104,7 +85,7 @@ export class intent {
         
     }
 
-    intents() {
+    intentsHinzufuegen() {
 
         // Expand Navigation Trainingsdaten
         // cy.get('[class="v-list-item__title"]')
@@ -330,50 +311,50 @@ export class intent {
         //     .clear() 
     }
 
-    intent_suchen() {
-        ///* Search Option testing *///
+    // intent_suchen() {
+    //     ///* Search Option testing *///
 
-        // Expand Navigation Trainingsdaten
-        // cy.get('[class="v-list-item__title"]')
-        //     .contains('Trainingsdaten')
-        //         .click()
-        cy.get('[tabindex="0"]')
-            .contains('Trainingsdaten')
-            .click()
+    //     // Expand Navigation Trainingsdaten
+    //     // cy.get('[class="v-list-item__title"]')
+    //     //     .contains('Trainingsdaten')
+    //     //         .click()
+    //     cy.get('[tabindex="0"]')
+    //         .contains('Trainingsdaten')
+    //         .click()
 
-        // Intents area testing
-        // Clicking Intent
-        cy.get('[data-cy=navDrawerIntents]')
-            .contains('Intents')
-                .click()
+    //     // Intents area testing
+    //     // Clicking Intent
+    //     cy.get('[data-cy=navDrawerIntents]')
+    //         .contains('Intents')
+    //             .click()
         
-        // checking url after clicking Inten Button
-        cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
+    //     // checking url after clicking Inten Button
+    //     cy.url().should("eq", "http://localhost/trainingsdaten/intent/");
 
-        // Single Intent
-        cy.get('[class="v-text-field__slot"]')
-            .contains('Suchen').click({force:true})
-                .type('weather')
-        // Checking return Result
-        cy.get('tbody').find('[class="text-start"]').should('contain','weather')
+    //     // Single Intent
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .contains('Suchen').click({force:true})
+    //             .type('weather')
+    //     // Checking return Result
+    //     cy.get('tbody').find('[class="text-start"]').should('contain','weather')
         
-        // Multiple Intent
-        cy.get('[class="v-text-field__slot"]')
-            .clear()
-                .type('test')
+    //     // Multiple Intent
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear()
+    //             .type('test')
         
-        cy.get('tbody').find('[class="text-start"]').should('contain','test')
+    //     cy.get('tbody').find('[class="text-start"]').should('contain','test')
 
-        // Nonexisting Intent
-        cy.get('[class="v-text-field__slot"]')
-            .clear().type('sky')
+    //     // Nonexisting Intent
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear().type('sky')
                 
-        cy.get('tbody').find('[class="v-data-table__empty-wrapper"]')
-            .should('contain',"")
+    //     cy.get('tbody').find('[class="v-data-table__empty-wrapper"]')
+    //         .should('contain',"")
 
-        cy.get('[class="v-text-field__slot"]')
-            .clear() 
-    }
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear() 
+    // }
 
     intent_bearbeiten() {
 
@@ -494,445 +475,445 @@ export class intent {
                 })
     }
 
-    intentExampleHinzufuegen() {
+    // intentExampleHinzufuegen() {
 
-        //  Expand Navigation Trainingsdaten
-        cy.get('[class="v-list-group"]')
-            .contains('Trainingsdaten')
-            .then((Tdaten) => {
+    //     //  Expand Navigation Trainingsdaten
+    //     cy.get('[class="v-list-group"]')
+    //         .contains('Trainingsdaten')
+    //         .then((Tdaten) => {
 
-                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
-                    cy.log('If Statement True')
+    //             if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+    //                 cy.log('If Statement True')
 
-                    cy.get('[data-cy="navDrawerIntents"]')
-                        .click()
-                }
-                else {
-                    cy.log('If Statement False')
+    //                 cy.get('[data-cy="navDrawerIntents"]')
+    //                     .click()
+    //             }
+    //             else {
+    //                 cy.log('If Statement False')
 
-                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
-                        .contains('Trainingsdaten')
-                        .click()
+    //                 cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+    //                     .contains('Trainingsdaten')
+    //                     .click()
 
-                    cy.get('[data-cy="navDrawerIntents"]')
-                        .click()
-                }
-        })
-        // 1. Test Intent-Example-Hinzufuegen Text field
-        // 1.1 Text must not be empty -- // Currently Bug //
-        // Entering Intent Tab
-        cy.get('[data-cy=navDrawerIntents]')
-            .click()
+    //                 cy.get('[data-cy="navDrawerIntents"]')
+    //                     .click()
+    //             }
+    //     })
+    //     // 1. Test Intent-Example-Hinzufuegen Text field
+    //     // 1.1 Text must not be empty -- // Currently Bug //
+    //     // Entering Intent Tab
+    //     cy.get('[data-cy=navDrawerIntents]')
+    //         .click()
             
-        // Entering to first row of the Intent Table
-        cy.log('Line 499')
-        cy.get('tbody')
-            .find('tr')
-            .first()
-            .click({force:true})
+    //     // Entering to first row of the Intent Table
+    //     cy.log('Line 499')
+    //     cy.get('tbody')
+    //         .find('tr')
+    //         .first()
+    //         .click({force:true})
         
-        // Entering to Example Tab
-        cy.get('.v-slide-group__wrapper')
-            .contains('Examples')
-            .click()
-        //cy.get('[class="v-tab"]').contains('Examples').click()
+    //     // Entering to Example Tab
+    //     cy.get('.v-slide-group__wrapper')
+    //         .contains('Examples')
+    //         .click()
+    //     //cy.get('[class="v-tab"]').contains('Examples').click()
 
-        // Clicking Example Hizufuegen Button
-        cy.get('[data-cy="create-intent-example"]')
-            .click()
+    //     // Clicking Example Hizufuegen Button
+    //     cy.get('[data-cy="create-intent-example"]')
+    //         .click()
 
-        // Assert initial warning Message 
-        cy.get('[class="v-messages__wrapper"]')
-            .should('have.text','Der Text muss gesetzt sein')
+    //     // Assert initial warning Message 
+    //     cy.get('[class="v-messages__wrapper"]')
+    //         .should('have.text','Der Text muss gesetzt sein')
 
-        // Anlegen  & weiteres Example 
-        cy.get('[data-cy="example-text"]')
-            .click({force:true})
-            .type(addExample+String(exm))
+    //     // Anlegen  & weiteres Example 
+    //     cy.get('[data-cy="example-text"]')
+    //         .click({force:true})
+    //         .type(addExample+String(exm))
         
-        cy.get('[data-cy="create-button"]').eq(1)
-            .click()
-            .wait(500)
+    //     cy.get('[data-cy="create-button"]').eq(1)
+    //         .click()
+    //         .wait(500)
 
-        cy.get('[data-cy="success-remove"]')
-            .click()
+    //     cy.get('[data-cy="success-remove"]')
+    //         .click()
         
-        // Add an example 
-        cy.get('[data-cy="example-text"]')
-            .click({force:true})
-            .type(addExample+String(exm))
+    //     // Add an example 
+    //     cy.get('[data-cy="example-text"]')
+    //         .click({force:true})
+    //         .type(addExample+String(exm))
         
-        cy.get('[data-cy="create-button"]').eq(0)
-            .click()
-            .wait(500)
+    //     cy.get('[data-cy="create-button"]').eq(0)
+    //         .click()
+    //         .wait(500)
 
-        // Assert Successfully Saved Notification
-        cy.get('[class="v-select__slot"]').click()
-        cy.get('[class="v-list-item__content"]')
-            .contains('Alle')
-            .click({force:true})
+    //     // Assert Successfully Saved Notification
+    //     cy.get('[class="v-select__slot"]').click()
+    //     cy.get('[class="v-list-item__content"]')
+    //         .contains('Alle')
+    //         .click({force:true})
 
-        var idNr
-        cy.get('tbody')
-            .find('tr')
-            .last()
-            .find('td:nth-child(1)')
-            .then(function($tbIdNr) {
-                idNr = $tbIdNr.text()
+    //     var idNr
+    //     cy.get('tbody')
+    //         .find('tr')
+    //         .last()
+    //         .find('td:nth-child(1)')
+    //         .then(function($tbIdNr) {
+    //             idNr = $tbIdNr.text()
 
-                // Assert Success Message
-                cy.get('[data-cy="successMessageTitle"]')
-                    .should('have.text', ' Das Example'+String(idNr)+'wurde erfolgreich gespeichert ')
-            })
+    //             // Assert Success Message
+    //             cy.get('[data-cy="successMessageTitle"]')
+    //                 .should('have.text', ' Das Example'+String(idNr)+'wurde erfolgreich gespeichert ')
+    //         })
                    
-        // Assert in Intent-Example Table
-        cy.log('Line 561')
-        cy.get('tbody')
-            .find('tr')
-                .last()
-            .find('td:nth-child(2)').then(function($text) {
+    //     // Assert in Intent-Example Table
+    //     cy.log('Line 561')
+    //     cy.get('tbody')
+    //         .find('tr')
+    //             .last()
+    //         .find('td:nth-child(2)').then(function($text) {
 
-                const text = $text.text()
-                cy.wrap($text).should('have.text', addExample+String(exm))
-            }) 
+    //             const text = $text.text()
+    //             cy.wrap($text).should('have.text', addExample+String(exm))
+    //         }) 
 
-        // 1.2 Leave site via menu or breadcrump is possible
-        // doesn't save given data
-        cy.get('[data-cy="create-intent-example"]')
-                .click()
+    //     // 1.2 Leave site via menu or breadcrump is possible
+    //     // doesn't save given data
+    //     cy.get('[data-cy="create-intent-example"]')
+    //             .click()
 
-        // Add an example 
-        cy.get('[data-cy="example-text"]')
-            .click({force:true})
-            .type('breadcrump')
+    //     // Add an example 
+    //     cy.get('[data-cy="example-text"]')
+    //         .click({force:true})
+    //         .type('breadcrump')
     
-        cy.get('[class="v-breadcrumbs theme--light"]')
-            .contains(' Examples ')
-            .click({force:true})
+    //     cy.get('[class="v-breadcrumbs theme--light"]')
+    //         .contains(' Examples ')
+    //         .click({force:true})
 
-        // Assert Successfully Saved Notification
-        cy.get('[class="v-select__slot"]').click()
-        cy.get('[class="v-list-item__content"]')
-            .contains('Alle')
-            .click({force:true})
+    //     // Assert Successfully Saved Notification
+    //     cy.get('[class="v-select__slot"]').click()
+    //     cy.get('[class="v-list-item__content"]')
+    //         .contains('Alle')
+    //         .click({force:true})
 
-        cy.get('tbody')
-            .find('td:nth-child(2)')
-            .should('not.have.text', 'breadcrump')
+    //     cy.get('tbody')
+    //         .find('td:nth-child(2)')
+    //         .should('not.have.text', 'breadcrump')
 
-        // 1.3 Saving saves given data correctly
-        // Back to Intent
-        // Clicking Intent
-        cy.get('[data-cy=navDrawerIntents]')
-                .click()
+    //     // 1.3 Saving saves given data correctly
+    //     // Back to Intent
+    //     // Clicking Intent
+    //     cy.get('[data-cy=navDrawerIntents]')
+    //             .click()
 
-        // Assert Successfully Saved Notification
-        cy.get('[class="v-select__slot"]').click()
-        cy.get('[class="v-list-item__content"]')
-            .contains('Alle')
-            .click({force:true})
-        var inName
-        cy.log('Line 607')
-        cy.get('tbody')
-            .find('tr')
-            .find('td:nth-child(3)')
+    //     // Assert Successfully Saved Notification
+    //     cy.get('[class="v-select__slot"]').click()
+    //     cy.get('[class="v-list-item__content"]')
+    //         .contains('Alle')
+    //         .click({force:true})
+    //     var inName
+    //     cy.log('Line 607')
+    //     cy.get('tbody')
+    //         .find('tr')
+    //         .find('td:nth-child(3)')
 
-            .then(($testFunc) => {
-                const vall = $testFunc.text()
+    //         .then(($testFunc) => {
+    //             const vall = $testFunc.text()
 
-                var sp_vall = vall.split(" ")
+    //             var sp_vall = vall.split(" ")
                 
-                var max_val = 0
-                var num
-                for (num=0; num < sp_vall.length; num++){
+    //             var max_val = 0
+    //             var num
+    //             for (num=0; num < sp_vall.length; num++){
                     
-                    if(sp_vall[num] > max_val) {
-                        max_val = sp_vall[num]
-                    }
-                }
-                // Enter To Intent Row contain more than one Rules
-                cy.get('tbody')
-                    .find('tr')
-                    .find('td:nth-child(3)')
-                    .contains(max_val)
-                    .click()
+    //                 if(sp_vall[num] > max_val) {
+    //                     max_val = sp_vall[num]
+    //                 }
+    //             }
+    //             // Enter To Intent Row contain more than one Rules
+    //             cy.get('tbody')
+    //                 .find('tr')
+    //                 .find('td:nth-child(3)')
+    //                 .contains(max_val)
+    //                 .click()
 
-                // Save Intent Name for letar Assertion
-                cy.get('[class="v-text-field__slot"]').eq(0)
-                    .find('[data-cy="intent-name"]')
-                        .invoke('val').as('name')
+    //             // Save Intent Name for letar Assertion
+    //             cy.get('[class="v-text-field__slot"]').eq(0)
+    //                 .find('[data-cy="intent-name"]')
+    //                     .invoke('val').as('name')
                     
-                cy.get('@name').then((name1) => {
+    //             cy.get('@name').then((name1) => {
 
-                    cy.log(name1) //prints name
+    //                 cy.log(name1) //prints name
 
-                    inName = name1
-                    cy.log(inName)
-                })
+    //                 inName = name1
+    //                 cy.log(inName)
+    //             })
 
-        // Entering to Example Tab
-        cy.get('.v-slide-group__wrapper')
-            .contains('Examples')
-            .click()
-            .wait(500)
+    //     // Entering to Example Tab
+    //     cy.get('.v-slide-group__wrapper')
+    //         .contains('Examples')
+    //         .click()
+    //         .wait(500)
 
-        // Assert Successfully Saved Notification
-        cy.get('[class="v-select__slot"]').click()
-        cy.get('[class="v-list-item__content"]')
-            .contains('Alle')
-            .click({force:true})
+    //     // Assert Successfully Saved Notification
+    //     cy.get('[class="v-select__slot"]').click()
+    //     cy.get('[class="v-list-item__content"]')
+    //         .contains('Alle')
+    //         .click({force:true})
                 
-        // 6. Number of Rules must show correctly in Intent Table
-        cy.log('Line 650')
-        cy.get('tbody')
-            .find('tr')
-            .then(function($countTr2) {
-                const NoOfExm =$countTr2.length
+    //     // 6. Number of Rules must show correctly in Intent Table
+    //     cy.log('Line 650')
+    //     cy.get('tbody')
+    //         .find('tr')
+    //         .then(function($countTr2) {
+    //             const NoOfExm =$countTr2.length
 
-                // Back to Intents
-                cy.get('[data-cy="navDrawerIntents"]')
-                    .click({force:true})
-                cy.log(inName)
-                cy.get('[data-cy="intent-table-search"]')
-                    .click()
-                    .type(inName)
+    //             // Back to Intents
+    //             cy.get('[data-cy="navDrawerIntents"]')
+    //                 .click({force:true})
+    //             cy.log(inName)
+    //             cy.get('[data-cy="intent-table-search"]')
+    //                 .click()
+    //                 .type(inName)
 
-                cy.get('tbody')
-                    .find('tr')
-                    .first()
-                    .find('td:nth-child(3)')
-                    .should('have.text', ' '+String(NoOfExm)+' ')
+    //             cy.get('tbody')
+    //                 .find('tr')
+    //                 .first()
+    //                 .find('td:nth-child(3)')
+    //                 .should('have.text', ' '+String(NoOfExm)+' ')
 
-                // cy.get('[data-cy="intent-table-search"]')
-                //     .clear()
-            })
+    //             // cy.get('[data-cy="intent-table-search"]')
+    //             //     .clear()
+    //         })
             
-        })
+    //     })
 
-        // Back to Intent
-        // Clicking Intent
-        cy.get('[data-cy=navDrawerIntents]')
-            .contains('Intents')
-                .click()
+    //     // Back to Intent
+    //     // Clicking Intent
+    //     cy.get('[data-cy=navDrawerIntents]')
+    //         .contains('Intents')
+    //             .click()
 
-        // Select first row of the Intent table
-        cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-            .first()
-            .click({force:true})
+    //     // Select first row of the Intent table
+    //     cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+    //         .first()
+    //         .click({force:true})
 
-         // Entering to Example Tab
-         cy.get('.v-slide-group__wrapper')
-            .contains('Examples')
-            .click()
+    //      // Entering to Example Tab
+    //      cy.get('.v-slide-group__wrapper')
+    //         .contains('Examples')
+    //         .click()
 
-        // add more Intent-Examples to test intent-example Search  
-        var exmList = ["Example1", "Example2","Hello", "Bye"]
-        cy.wrap(exmList).each((index) => {
+    //     // add more Intent-Examples to test intent-example Search  
+    //     var exmList = ["Example1", "Example2","Hello", "Bye"]
+    //     cy.wrap(exmList).each((index) => {
 
-            cy.get('[data-cy="create-intent-example"]')
-                .click()
+    //         cy.get('[data-cy="create-intent-example"]')
+    //             .click()
 
-            // Add an example 
-            cy.get('[data-cy="example-text"]')
-                .click({force:true})
-                .type(index)
+    //         // Add an example 
+    //         cy.get('[data-cy="example-text"]')
+    //             .click({force:true})
+    //             .type(index)
         
-            cy.get('[data-cy="create-button"]').eq(0)
-                .click()
-        })
-    }
+    //         cy.get('[data-cy="create-button"]').eq(0)
+    //             .click()
+    //     })
+    // }
 
-    intentExampleSuchen() {
-        ///* Intent Example Search Option testing *///
+    // intentExampleSuchen() {
+    //     ///* Intent Example Search Option testing *///
 
-        // Expand Navigation Trainingsdaten
-        cy.get('[tabindex="0"]')
-            .contains('Trainingsdaten')
-                .click()
+    //     // Expand Navigation Trainingsdaten
+    //     cy.get('[tabindex="0"]')
+    //         .contains('Trainingsdaten')
+    //             .click()
 
-        // Clicking Intent
-        cy.get('[data-cy=navDrawerIntents]')
-            .contains('Intents')
-                .click()
+    //     // Clicking Intent
+    //     cy.get('[data-cy=navDrawerIntents]')
+    //         .contains('Intents')
+    //             .click()
 
-        // Select first row of the Intent table
-        cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-            .first()
-            .click({force:true})
+    //     // Select first row of the Intent table
+    //     cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+    //         .first()
+    //         .click({force:true})
 
-        cy.get('[class="v-tab"]').contains('Examples').click()
+    //     cy.get('[class="v-tab"]').contains('Examples').click()
 
-        // select whole table
-        cy.get('[class="v-input__append-inner"]').last().click({force:true})
-        cy.get('[class="v-list-item__title"]').contains('Alle').click()
+    //     // select whole table
+    //     cy.get('[class="v-input__append-inner"]').last().click({force:true})
+    //     cy.get('[class="v-list-item__title"]').contains('Alle').click()
         
-        // Single example
-        cy.get('[class="v-text-field__slot"]')
-            .contains('Suchen').click({force:true})
-                .type('hello')
+    //     // Single example
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .contains('Suchen').click({force:true})
+    //             .type('hello')
         
-        // Checking return Result
-        cy.get('tbody')//.find('[class="text-start"]').should('contain','hallo')
-            .find('td:nth-child(2)').first().then(function($val) {
-            cy.log($val.text())
-            const text = $val.text()
+    //     // Checking return Result
+    //     cy.get('tbody')//.find('[class="text-start"]').should('contain','hallo')
+    //         .find('td:nth-child(2)').first().then(function($val) {
+    //         cy.log($val.text())
+    //         const text = $val.text()
 
-            cy.wrap($val).should('have.text', text)
-            })
+    //         cy.wrap($val).should('have.text', text)
+    //         })
 
-        // Multiple Intent
-        cy.get('[class="v-text-field__slot"]')
-            .clear()
-                .type('test')
+    //     // Multiple Intent
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear()
+    //             .type('test')
 
-        cy.get('tbody')//.find('[class="text-start"]').should('contain','hallo')
-            .find('td:nth-child(2)').first().then(function($val) {
-            cy.log($val.text())
-            const text = $val.text()
+    //     cy.get('tbody')//.find('[class="text-start"]').should('contain','hallo')
+    //         .find('td:nth-child(2)').first().then(function($val) {
+    //         cy.log($val.text())
+    //         const text = $val.text()
 
-            cy.wrap($val).should('have.text', text)
-        })
+    //         cy.wrap($val).should('have.text', text)
+    //     })
 
-        // Non-existing Intent
-        cy.get('[class="v-text-field__slot"]')
-            .clear().type('sky')
+    //     // Non-existing Intent
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear().type('sky')
                 
-        cy.get('tbody').find('[class="v-data-table__empty-wrapper"]')
-            .should('contain',"")
+    //     cy.get('tbody').find('[class="v-data-table__empty-wrapper"]')
+    //         .should('contain',"")
 
-        cy.get('[class="v-text-field__slot"]')
-            .clear() 
+    //     cy.get('[class="v-text-field__slot"]')
+    //         .clear() 
 
-        // Check Example count same in Intent Table
-        cy.get('tbody')
-        .find('td:nth-child(2)')
-            .then(function($countTR) {
-                cy.log($countTR.length)
-                let nRow = $countTR.length
+    //     // Check Example count same in Intent Table
+    //     cy.get('tbody')
+    //     .find('td:nth-child(2)')
+    //         .then(function($countTR) {
+    //             cy.log($countTR.length)
+    //             let nRow = $countTR.length
 
-        // Back to Intent Table
-        cy.get('[data-cy="navDrawerIntents"]')
-            .contains('Intents')
-                .click()
+    //     // Back to Intent Table
+    //     cy.get('[data-cy="navDrawerIntents"]')
+    //         .contains('Intents')
+    //             .click()
         
-        // Select first row of the Intent table
-        //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-        cy.get('tbody')
-            .find('td:nth-child(3)')
-            .first().then(function($intentExCount) {
-                cy.wrap($intentExCount).should('have.text', ' '+nRow+' ')
-            })
-        })
-    }
+    //     // Select first row of the Intent table
+    //     //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+    //     cy.get('tbody')
+    //         .find('td:nth-child(3)')
+    //         .first().then(function($intentExCount) {
+    //             cy.wrap($intentExCount).should('have.text', ' '+nRow+' ')
+    //         })
+    //     })
+    // }
 
-    intentExampleLoeschen() {
+    // intentExampleLoeschen() {
 
-        // Expand Navigation Trainingsdaten
-        cy.get('[tabindex="0"]')
-            .contains('Trainingsdaten')
-                .click()
+    //     // Expand Navigation Trainingsdaten
+    //     cy.get('[tabindex="0"]')
+    //         .contains('Trainingsdaten')
+    //             .click()
 
-        // Clicking Intent
-        cy.get('[data-cy="navDrawerIntents"]')
-            .contains('Intents')
-                .click()
-                .wait(400)
+    //     // Clicking Intent
+    //     cy.get('[data-cy="navDrawerIntents"]')
+    //         .contains('Intents')
+    //             .click()
+    //             .wait(400)
         
-        // const val = cy.get('tbody')
-        //     .find('tr')
-        //         .first()
-        //     .find('td:nth-child(4)').then(function($val) {
-        //         cy.log($val.text())
-        //     })    
+    //     // const val = cy.get('tbody')
+    //     //     .find('tr')
+    //     //         .first()
+    //     //     .find('td:nth-child(4)').then(function($val) {
+    //     //         cy.log($val.text())
+    //     //     })    
         
-        cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-            .first()
-                .click({force:true})
+    //     cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+    //         .first()
+    //             .click({force:true})
 
-        cy.get('[class="v-tab"]')
-            .contains('Examples')
-            .click()
-            .wait(500)
+    //     cy.get('[class="v-tab"]')
+    //         .contains('Examples')
+    //         .click()
+    //         .wait(500)
 
-        cy.get('[class="v-select__slot"]')
-            .click()
-            .get('[class="v-list-item__content"]')
-                .contains('Alle').click({force:true})
+    //     cy.get('[class="v-select__slot"]')
+    //         .click()
+    //         .get('[class="v-list-item__content"]')
+    //             .contains('Alle').click({force:true})
 
-        cy.log('Line 656')
+    //     cy.log('Line 656')
         
-        cy.get('tbody tr').then(function($noRow) {
-            const tableRow = $noRow.length
-            cy.log(tableRow)
+    //     cy.get('tbody tr').then(function($noRow) {
+    //         const tableRow = $noRow.length
+    //         cy.log(tableRow)
 
-            if (tableRow <= 1 ) {
-                cy.log('Running if')
-                var exmList = ["Example1","Example2", "Example3"]
+    //         if (tableRow <= 1 ) {
+    //             cy.log('Running if')
+    //             var exmList = ["Example1","Example2", "Example3"]
 
-                cy.wrap(exmList).each((index) => {
+    //             cy.wrap(exmList).each((index) => {
 
-                cy.get('[data-cy="createIntentExampleButton"]').click()
+    //             cy.get('[data-cy="createIntentExampleButton"]').click()
 
-                cy.get('[class="v-text-field__slot"]').contains('Text')
-                    .click({force: true}).type(index)
+    //             cy.get('[class="v-text-field__slot"]').contains('Text')
+    //                 .click({force: true}).type(index)
                 
-                cy.get('[class="v-btn__content"]')
-                    .contains('Anlegen')
-                    .click()
-                    .wait(200)
+    //             cy.get('[class="v-btn__content"]')
+    //                 .contains('Anlegen')
+    //                 .click()
+    //                 .wait(200)
 
-                })
+    //             })
 
-                cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
-                    .first()
-                    .click()
-                    .wait(500)
+    //             cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
+    //                 .first()
+    //                 .click()
+    //                 .wait(500)
 
-                // Confirm Delete
-                cy.get('[class="v-card v-sheet theme--light"]')
-                    .find('.v-card__actions')
-                    .find('button.v-btn:nth-child(3)')
-                    .click()
-            }
-            else {
-                cy.log('Running es')
-                cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
-                    .first()
-                    .click({force:true})
-                    .wait(500)
+    //             // Confirm Delete
+    //             cy.get('[class="v-card v-sheet theme--light"]')
+    //                 .find('.v-card__actions')
+    //                 .find('button.v-btn:nth-child(3)')
+    //                 .click()
+    //         }
+    //         else {
+    //             cy.log('Running es')
+    //             cy.get('[class="deleteIcon v-btn v-btn--icon v-btn--round theme--light v-size--default"]')
+    //                 .first()
+    //                 .click({force:true})
+    //                 .wait(500)
 
-                // Confirm Delete
-                cy.get('[class="v-card v-sheet theme--light"]')
-                    .find('.v-card__actions')
-                    .find('button.v-btn:nth-child(3)')
-                    .click()
-                    .wait(500)
-            }
+    //             // Confirm Delete
+    //             cy.get('[class="v-card v-sheet theme--light"]')
+    //                 .find('.v-card__actions')
+    //                 .find('button.v-btn:nth-child(3)')
+    //                 .click()
+    //                 .wait(500)
+    //         }
 
-            cy.log(tableRow)
-        })
+    //         cy.log(tableRow)
+    //     })
 
-        cy.log('Line 696')
-        cy.get('tbody tr').then(function($noRowCount) {
-            const tableRowCount = $noRowCount.length
-            cy.log(tableRowCount)
+    //     cy.log('Line 696')
+    //     cy.get('tbody tr').then(function($noRowCount) {
+    //         const tableRowCount = $noRowCount.length
+    //         cy.log(tableRowCount)
 
-            // Clicking Intent
-            cy.get('[data-cy=navDrawerIntents]')
-            .contains('Intents')
-                .click()
-                .wait(500)
+    //         // Clicking Intent
+    //         cy.get('[data-cy=navDrawerIntents]')
+    //         .contains('Intents')
+    //             .click()
+    //             .wait(500)
             
-            // Select first row of the Intent table
-            //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
-            cy.get('tbody')
-            .find('td:nth-child(3)')
-            .first().then(function($intentExCount2) {
-                cy.wrap($intentExCount2).should('have.text', ' '+tableRowCount+' ')
+    //         // Select first row of the Intent table
+    //         //cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+    //         cy.get('tbody')
+    //         .find('td:nth-child(3)')
+    //         .first().then(function($intentExCount2) {
+    //             cy.wrap($intentExCount2).should('have.text', ' '+tableRowCount+' ')
 
-            })
-        })
-    }
+    //         })
+    //     })
+    // }
 
     mockingApi () {
 

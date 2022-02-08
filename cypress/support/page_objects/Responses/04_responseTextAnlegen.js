@@ -1,17 +1,4 @@
-// const t     = Math.floor(Math.random() * 5000);
-// const b     = Math.floor(Math.random() * 1000);
-// const le    = Math.floor(Math.random() * 3500);
 const txa   = Math.floor(Math.random() * 4800);
-// const txal  = Math.floor(Math.random() * 5800);
-// const ei    = Math.floor(Math.random() * 3000);
-// const eb    = Math.floor(Math.random() * 3500);
-// const er    = Math.floor(Math.random() * 4000);
-// const ea    = Math.floor(Math.random() * 4500);
-// const x     = Math.floor(Math.random() * 3500);
-// const xle   = Math.floor(Math.random() * 5500);
-// const xTx   = Math.floor(Math.random() * 6500);
-// const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'TextAnDmy'
 
 export class response_text_anlegen {
@@ -57,7 +44,6 @@ export class response_text_anlegen {
             .wait(500)
 
         var resName
-
         // Save Response Name for letar Assertion
         cy.get('[class="v-text-field__slot"]')
             .find('[data-cy="response-name"]')
@@ -94,14 +80,6 @@ export class response_text_anlegen {
         // success-remove
         cy.get('[data-cy="success-remove"]')
             .click()
-        
-        // Assert Nicht Möglich, /Currently Known as But/
-        // cy.get('[data-cy="errorMessageTitle"]')
-        //     .should('have.text',' Die Response konnte nicht gespeichert werden. ')
-
-        // Close Error Notification
-        // cy.get('[data-cy="error-remove"]')
-        //     .click()
 
         // Add a valid Text Name
         cy.get('[data-cy="responsetext-create"]')
@@ -197,11 +175,6 @@ export class response_text_anlegen {
         cy.get('[class="v-breadcrumbs theme--light"]')
             .contains(' Response Text ')
             .click()
-        
-        // Assert data in Texte Table
-        // cy.get('[data-cy="responsetext-table-search"]')
-        //     .click()
-        //     .type('leaveWithBreadCrumb')
 
         // Selecting Entire Table
         cy.get('[class="v-select__slot"]').click()
@@ -217,6 +190,5 @@ export class response_text_anlegen {
             .should('not.have.text','leaveWithBreadCrumb')        
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onResponsesTextAnlegen = new response_text_anlegen()

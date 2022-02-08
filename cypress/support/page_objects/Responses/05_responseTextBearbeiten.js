@@ -1,17 +1,5 @@
-// const t     = Math.floor(Math.random() * 5000);
-// const b     = Math.floor(Math.random() * 1000);
-// const le    = Math.floor(Math.random() * 3500);
-// const txa   = Math.floor(Math.random() * 4800);
-// const txal  = Math.floor(Math.random() * 5800);
-// const ei    = Math.floor(Math.random() * 3000);
-// const eb    = Math.floor(Math.random() * 3500);
-// const er    = Math.floor(Math.random() * 4000);
-// const ea    = Math.floor(Math.random() * 4500);
-// const x     = Math.floor(Math.random() * 3500);
-// const xle   = Math.floor(Math.random() * 5500);
 const xTx   = Math.floor(Math.random() * 6500);
 const xTxLe = Math.floor(Math.random() * 7500);
-
 const addValue = 'resTxBearDmy'
 
 export class response_text_bearbeiten {
@@ -62,10 +50,7 @@ export class response_text_bearbeiten {
             .find('td:nth-child(2)')
             .then(($testFunc2) => {
                 const vall2 = $testFunc2.text()
-
                 var sp_vall2 = vall2.split(" ")
-                
-                //var max_val2 = 0
                 var num2
                 for (num2=0; num2 < sp_vall2.length; num2++){
                     
@@ -74,7 +59,6 @@ export class response_text_bearbeiten {
                         cy.log(max_val2)
                     }
                 }
-
                 cy.get('.v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3)')
                     .find('tr')
                     .find('td:nth-child(2)')
@@ -139,7 +123,6 @@ export class response_text_bearbeiten {
         // add a valid text name and assert
         //  1. notification
         //  2. in the table
-
         cy.get('[data-cy="responsetext-text"]')
             .click({force:true})
             .type(addValue+String(xTx))
@@ -177,7 +160,6 @@ export class response_text_bearbeiten {
         
         // 2. Check for successfully saved values
         // 2.2 Assert in the Texte table
-
         // Assert in Response Texte Table
         cy.log('Line 981')
         cy.get('tbody')
@@ -275,9 +257,7 @@ export class response_text_bearbeiten {
 
         // 5. leave site via button "Abbrechen" navigates to table of synonyms and 
         //    does not save edited data
-
         cy.log('Line 1078')
-
         // Selecting Entire Table
         cy.get('[class="v-select__slot"]').click()
         cy.get('[class="v-list-item__content"]')
@@ -315,6 +295,5 @@ export class response_text_bearbeiten {
             .clear()
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onResponsesTextBearbeiten = new response_text_bearbeiten()

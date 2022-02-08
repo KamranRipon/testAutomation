@@ -161,6 +161,5 @@ export class button_suchen {
             .clear()
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onResponsesButtonSuchen = new button_suchen()
