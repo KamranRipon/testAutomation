@@ -1,4 +1,4 @@
-import { onLogin } from "../support/page_objects/Login"
+import { onLogin } from "../support/page_objects/Others_TF/Login"
 
 describe("Test Case: Login", () => {
    

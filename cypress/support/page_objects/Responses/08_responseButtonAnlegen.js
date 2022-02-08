@@ -136,6 +136,7 @@ export class button_anlegen {
             .click({force:true})
             .get('[class="v-list v-select-list v-sheet theme--light theme--light"]')
             .find('[role="option"]')
+            .last()
             .click()
 
         // Click Anlegen

@@ -338,6 +338,5 @@ export class responses_bearbeiten {
             .clear()
     }
 }
-
 // Exportint class frontEnd to End2End to test
 export const onResponseBearbeiten = new responses_bearbeiten()

@@ -5,8 +5,20 @@ services:
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/backend
     environment:
       - spring.profiles.active=test
+    extra_hosts:
+      - 'local.machine:172.14.1.1'
   frontend:
     network_mode: host
     image: dchatbot-docker-development.artifactory-extern.dataport.de/conplat/cci/frontend
     extra_hosts:
       - 'local.machine:172.14.1.1'
+  # cypress:
+  #   image: "cypress/included:3.2.0"
+  #   depends_on:
+  #     - backend
+  #     - frontend
+  #   environment:
+  #     - CYPRESS_baseUrl=http://172.14.1.1
+    # working_dir: /e2e
+    # volumes:
+    #   - ./:/e2e

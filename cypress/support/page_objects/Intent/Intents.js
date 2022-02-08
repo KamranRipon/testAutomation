@@ -291,6 +291,8 @@ export class intent {
             cy.wait(200)
         })
 
+        cy.visit('/')
+
         // cy.get('[class="v-radio mr-6 theme--light v-item--active"]')
             
         // cy.get('[role="radiogroup"]')
@@ -377,39 +379,65 @@ export class intent {
 
         //cy.get('[class="v-list-item__title"]')
         
-        cy.get('[class="v-list-item__title pl-4"]')
-            .contains('Trainingsdaten').then((body) => {
+        // cy.get('[class="v-list-item__title pl-4"]')
+        //     .contains('Trainingsdaten').then((body) => {
 
-            if (body.get('[class="v-list-group v-list-group--active primary--text"]')) {
-                cy.log('If Statement True')
-                // Clicking Intent
-                cy.get('[data-cy=navDrawerIntents]')
-                    .contains('Intents')
-                    .click()
-            }
-            else {
-                cy.log('If Statement False')
-                cy.get('[tabindex="0"]')
-                    .contains('Trainingsdaten')
-                    .click()
+        //     if (body.get('[class="v-list-group v-list-group--active primary--text"]')) {
+        //         cy.log('If Statement True')
+        //         // Clicking Intent
+        //         cy.get('[data-cy=navDrawerIntents]')
+        //             .contains('Intents')
+        //             .click()
+        //     }
+        //     else {
+        //         cy.log('If Statement False')
+        //         cy.get('[tabindex="0"]')
+        //             .contains('Trainingsdaten')
+        //             .click()
 
-                 // Clicking Intent
-                cy.get('[data-cy=navDrawerIntents]')
-                    .contains('Intents')
-                    .click()
-            }
-        })
+        //          // Clicking Intent
+        //         cy.get('[data-cy=navDrawerIntents]')
+        //             .contains('Intents')
+        //             .click()
+        //     }
+        // })
+
+        ////////////////////////////////
+        cy.get('[class="v-list-group"]')
+            .contains('Trainingsdaten')
+            .then((Tdaten) => {
+                
+                if(Tdaten.find('[class="v-list-group__header v-list-item v-list-item--link theme--light"]').length > 0) {
+                    cy.log('If Statement True')
+
+                    cy.get('[data-cy="navDrawerIntents"]')
+                        .click()
+                }
+                else {
+                    cy.log('If Statement False')
+
+                    cy.get('[class="v-list-group__header v-list-item v-list-item--link theme--light"]')
+                        .contains('Trainingsdaten')
+                        .click()
+
+                    cy.get('[data-cy="navDrawerIntents"]')
+                        .click()
+                }
+            })
+        //////////////////////////////////
         // Testing Intents Bearbeitung
-       
+        cy.wait(100)
         // Select first row of the Intent table
-        cy.get('[class="v-icon notranslate editIcon theme--light primary--text"]')
+        cy.log('Line 432')
+        cy.get('tbody')
+            .find('tr')
             .first()
-                .click({force:true})
+            .click({force:true})
         
         // Remove Name by clicking "X"
         cy.get('[class="v-input__append-inner"]')
             .first()
-                .click()
+            .click()
 
         // Checking for a valid Name
         cy.get('div.v-input:nth-child(1)')
